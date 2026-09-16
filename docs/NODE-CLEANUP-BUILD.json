@@ -1,0 +1,276 @@
+{
+  "schemaVersion": 1,
+  "status": "both-current-packages-passed-release-acceptance-pending",
+  "version": "24.21.0",
+  "archive": "node-v24.21.0.tar.xz",
+  "archiveUrl": "https://nodejs.org/dist/v24.21.0/node-v24.21.0.tar.xz",
+  "archiveSha256": "a6f54defb6fd7c84f41dba13d61e78e9b4e0961712cf61f29715c05f5ced94fc",
+  "checksumSource": "https://nodejs.org/dist/v24.21.0/SHASUMS256.txt",
+  "upstreamCommits": [
+    "68321eff80918e324e9fdaf1aa8cee6db14b84f7",
+    "03e2b9bc42ae9c7ed4fbab5509d70fa934863c44"
+  ],
+  "patches": {
+    "native/node24/upstream-registry.patch": "0afa4cc2e0a9fdb5ac98cf07290ce7dc44677401e6b103e668939a5b2786b18b",
+    "native/node24/upstream-lifetime.patch": "740e63a25b3d5b21892a52f85cca0823d4c296991ab7b87bf709589518064983",
+    "native/node24/cleanup-hooks.patch": "d81bb3d1a3558df9a32b7af7db9806e0ff26d2fa38bb41ca321f16baa78b9551"
+  },
+  "adaptation": "Upstream runtime and C++ environment-test changes apply unchanged. Worker-addon test adapted to Node 24 context->GetIsolate() call sites; retains no-context removal check.",
+  "releaseReady": false,
+  "sourceSignature": {
+    "status": "verified",
+    "signerFingerprint": "5BE8A3F6C8A5C01D106C0AD820B1A390B168D356",
+    "keyringRepository": "https://github.com/nodejs/release-keys",
+    "keyringCommit": "481637f813e912c4aa3622d7964ab426c97b8e8d",
+    "keyringSha256": "610b8d249da3d5733f5a128def2dd0294dbbf5b5713e6ca2529db8db419dee00",
+    "signedChecksumsSha256": "dd0fe71660e64f4dc01342664835509c84679d8a87ab4d76cc2f15fdda82ea3e",
+    "verifiedChecksumsSha256": "1fc649e43ad8eb2452fc1c209914060bd8d0bdb97978c6bd399afae991a31519",
+    "verificationStatusSha256": "c443f9ad44780235f6252df1d257d5ed2b8beec898ef0c5e442b5e2218913262",
+    "scope": "Official source archive signature verified against the pinned official keyring and documented fingerprint. Local patched binaries still need build/test evidence; this does not sign or approve them."
+  },
+  "verification": {
+    "arm64": {
+      "runtimeImageId": "sha256:5a4f6c38c8cd7112d0e9cf1f37b947387fa4189580d8c8e56f3c9a800d56e529",
+      "bridgeProbeImageId": "sha256:55301ea842d18726ffc56da8789f5f7868cbb93416603b48806b3affc2c96f02",
+      "bridgeBaseImageId": "sha256:da34a90f6512c8d604ae838130d1d3e7ebfafea0731d6caf43ff7ddd9778fda7",
+      "originalRegressionTestsPassed": 4,
+      "nativeCodecTestsPassed": 13,
+      "cppRegressionTestsPassed": 1,
+      "workerAddonCasesPassed": 4,
+      "scope": "Experimental Node executable over the existing Node 24.21 bridge image, not a rebuilt current release. Broader tests use read-only current test fixtures; two import failures were resolved by mounting the known source overlay. See logs for exact cases. No linked account data mounted.",
+      "evidence": [
+        {
+          "path": ".local/node-cleanup-review/build-arm64.log",
+          "sha256": "2a559b181c3da1b8f9c5acd9e5094dfaf47c3ef2736a94cebf6556b95ad8161b"
+        },
+        {
+          "path": ".local/node-cleanup-review/build-arm64-followup.log",
+          "sha256": "26453c726386df1ecb5d69c8efa10618b12e0f139043529649956890268abe1a"
+        },
+        {
+          "path": ".local/node-cleanup-review/bridge-regression-arm64.log",
+          "sha256": "5c4a6863fe89244d46e349e61240fdb985b66b5ebd17b4d88d4f46d5b90126d4"
+        },
+        {
+          "path": ".local/node-cleanup-review/bridge-codecs-arm64.log",
+          "sha256": "d5b4cf9eefbf2b62c5541ebd4a83a2e5e5cf9a515980242b9d2f3e56c9ee9ee7"
+        },
+        {
+          "path": ".local/node-cleanup-review/bridge-package-mounted-arm64.log",
+          "sha256": "bd2c41e8d199ec4562bb756359885427b7bd100ebcc096d7e34f118163aade79"
+        },
+        {
+          "path": ".local/node-cleanup-review/bridge-package-overlay-arm64.log",
+          "sha256": "c7453fa1f3b50c1db195abc52668642e1d503c2576cd00477a3c772a4f9012ba"
+        },
+        {
+          "path": ".local/node-cleanup-review/bridge-history-arm64.log",
+          "sha256": "6cf8500d1ad32f1098aa61324603c4cc74a65ec5a31ce7598fec1c9c16ea227b"
+        },
+        {
+          "path": ".local/node-cleanup-review/maintenance-current-arm64.log",
+          "sha256": "2482857cdbd612e12f70dc83c9db9d01c0fd4335c2f05f1ffa25526ce3b2053b"
+        },
+        {
+          "path": ".local/node-cleanup-review/runtime-arm64.json",
+          "sha256": "5ee1ce91537d873e997c84aa262b775ca8aa48194b1882c94d179d685a73f1de"
+        }
+      ],
+      "currentMaintenanceTestsPassed": 16,
+      "currentMaintenanceScope": "Current src, tests and headless source overlay mounted read-only over the experimental bridge image; synthetic data, no network or linked profile. This verifies runtime compatibility of current maintenance code, not final package contents.",
+      "runtime": {
+        "schemaVersion": 1,
+        "architecture": "arm64",
+        "executableSha256": "be95378e78fea731052f8ecb1a010ed8178a14b33e586c9d2ee955278e8265ef",
+        "versions": {
+          "node": "24.21.0",
+          "acorn": "8.18.0",
+          "ada": "4.0.0",
+          "amaro": "1.1.11",
+          "ares": "1.34.8",
+          "brotli": "1.2.0",
+          "cldr": "48.0",
+          "icu": "78.3",
+          "llhttp": "9.4.3",
+          "merve": "1.2.2",
+          "modules": "137",
+          "napi": "10",
+          "nbytes": "0.1.4",
+          "ncrypto": "0.0.1",
+          "nghttp2": "1.70.0",
+          "nghttp3": "",
+          "ngtcp2": "",
+          "openssl": "3.5.8",
+          "simdjson": "4.6.7",
+          "simdutf": "6.4.0",
+          "sqlite": "3.53.4",
+          "tz": "2026c",
+          "undici": "7.29.1",
+          "unicode": "17.0",
+          "uv": "1.52.1",
+          "uvwasi": "0.0.23",
+          "v8": "13.6.233.17-node.53",
+          "zlib": "1.3.2.1-motley-8002e91",
+          "zstd": "1.5.7"
+        },
+        "sharedOpenSSL": false
+      },
+      "currentPackage": {
+        "status": "package-checks-passed-release-acceptance-pending",
+        "imageId": "sha256:9659510686f5665fbbdc61f398d9e76ff63cae8e95e3aab5ae320832875cf5bb",
+        "inputSha256": "c257c28344214652ed4ba884d255b894db74e25d988f740e254d01f1c8d67c34",
+        "nodeExecutableSha256": "be95378e78fea731052f8ecb1a010ed8178a14b33e586c9d2ee955278e8265ef",
+        "packageTestsPassed": 86,
+        "nativeCodecTestsPassed": 13,
+        "sourceOverlays": false,
+        "accountDataMounted": false,
+        "network": "none; loopback used by local HTTP/TLS tests",
+        "evidence": [
+          {
+            "path": ".local/linux-alerts-build-arm64.log",
+            "sha256": "a86c8c46fbb4127c9129d59c79e1929051fb1caeb4d2ea546bfdc191277d5cb8"
+          },
+          {
+            "path": ".local/linux-alerts-inspect-arm64.json",
+            "sha256": "0db09587d24dfc316ad434d6835db79898c3bd2ce94f07cff9a64708bdd08afa"
+          },
+          {
+            "path": ".local/linux-alerts-package-arm64.log",
+            "sha256": "923800f6b3264387f0f3a2ba2bea62aa07d53d3ced439f5f3b06c4e132fcc92e"
+          },
+          {
+            "path": ".local/linux-alerts-codecs-arm64.log",
+            "sha256": "6b513eea2116f84b3817c6802058189a7429fb7748c93f4f4a2918210a5972ae"
+          }
+        ],
+        "limitations": [
+          "Single local ARM64 Docker run, not target-host acceptance.",
+          "Dependency review, release packaging and live acceptance remain pending."
+        ],
+        "imageReview": "docs/NODE-CLEANUP-IMAGE-REVIEW.json",
+        "dependencyOverrides": {
+          "js-yaml": "4.3.2",
+          "ip-cidr": "4.0.2 with checksum-checked bigint API adaptation",
+          "ip-address": "10.3.1"
+        },
+        "proxyDependencies": {
+          "golang.org/x/crypto": "v0.56.0",
+          "golang.org/x/text": "v0.41.0"
+        },
+        "packageTmpfs": "exec for temporary host-script stand-ins",
+        "codecTmpfs": "noexec"
+      }
+    },
+    "amd64": {
+      "status": "runtime-and-current-package-regressions-passed",
+      "runtimeImageId": "sha256:56fd11af2de956972692be6bf39900df6b4a095e08dedce64a2aaf37b59a6b7f",
+      "bridgeProbeImageId": "sha256:056dc30906650ef93343fc7c395c3c9af38e4aaa9ff03b84f4eadb9978f237ef",
+      "bridgeBaseImageId": "sha256:ee6af75f0e6ebf81cb7be1692eaaa985be4e81c1b13d1e06a71e63a82bfc031c",
+      "originalRegressionTestsPassed": 4,
+      "cppRegressionTestsPassed": 1,
+      "workerAddonCasesPassed": 4,
+      "runtime": {
+        "schemaVersion": 1,
+        "architecture": "amd64",
+        "executableSha256": "f6d4191e574860337843a44ea989c8e9d90ce131b72d0cefa096761d11e026f9",
+        "versions": {
+          "node": "24.21.0",
+          "acorn": "8.18.0",
+          "ada": "4.0.0",
+          "amaro": "1.1.11",
+          "ares": "1.34.8",
+          "brotli": "1.2.0",
+          "cldr": "48.0",
+          "icu": "78.3",
+          "llhttp": "9.4.3",
+          "merve": "1.2.2",
+          "modules": "137",
+          "napi": "10",
+          "nbytes": "0.1.4",
+          "ncrypto": "0.0.1",
+          "nghttp2": "1.70.0",
+          "nghttp3": "",
+          "ngtcp2": "",
+          "openssl": "3.5.8",
+          "simdjson": "4.6.7",
+          "simdutf": "6.4.0",
+          "sqlite": "3.53.4",
+          "tz": "2026c",
+          "undici": "7.29.1",
+          "unicode": "17.0",
+          "uv": "1.52.1",
+          "uvwasi": "0.0.23",
+          "v8": "13.6.233.17-node.53",
+          "zlib": "1.3.2.1-motley-8002e91",
+          "zstd": "1.5.7"
+        },
+        "sharedOpenSSL": false
+      },
+      "evidence": [
+        {
+          "path": ".local/node-cleanup-review/build-amd64.log",
+          "sha256": "43d15615289191657e7a0abb4feeba75ac7773d7db78266764c50326dd544ce4"
+        },
+        {
+          "path": ".local/node-cleanup-review/bridge-build-amd64.log",
+          "sha256": "380c8909de2f112cfeb7841bcf302346629915c8203a344507ebaea12e60a3f4"
+        },
+        {
+          "path": ".local/node-cleanup-review/bridge-regression-amd64.log",
+          "sha256": "8dd0352fda949eed31a375a64b65b8980b3a288ec69303c8a283a8296054280c"
+        },
+        {
+          "path": ".local/node-cleanup-review/runtime-amd64.json",
+          "sha256": "b124dd648855352184d283fc630f90b8d5c75db2b85637b7404c0cf25218a94d"
+        }
+      ],
+      "scope": "Only the Node executable replaced in the previously failing bridge image; no account data or networking. Current application package is building separately and still needs its full tests.",
+      "currentPackage": {
+        "status": "package-checks-passed-release-acceptance-pending",
+        "imageId": "sha256:24e213529781b88b1358251c6580134e26536bd89e5c242fcc9bc9c082f59af3",
+        "inputSha256": "c257c28344214652ed4ba884d255b894db74e25d988f740e254d01f1c8d67c34",
+        "nodeExecutableSha256": "f6d4191e574860337843a44ea989c8e9d90ce131b72d0cefa096761d11e026f9",
+        "packageTestsPassed": 86,
+        "nativeCodecTestsPassed": 13,
+        "sourceOverlays": false,
+        "accountDataMounted": false,
+        "network": "none; loopback used by local HTTP/TLS tests",
+        "evidence": [
+          {
+            "path": ".local/linux-alerts-build-amd64.log",
+            "sha256": "eef88b658b406a8227cc4c7927d001aafca17458219c0cb8ee66591875c6d7b8"
+          },
+          {
+            "path": ".local/linux-alerts-inspect-amd64.json",
+            "sha256": "2bca68d8fc76a68bb4741a3095d289e216615b0c6f3940ad3cee0215b583683d"
+          },
+          {
+            "path": ".local/linux-alerts-package-amd64.log",
+            "sha256": "e2454227039a75c4b01a7c660401a1ec28127e40272bc773c3a4ddd7317b0d56"
+          },
+          {
+            "path": ".local/linux-alerts-codecs-amd64.log",
+            "sha256": "3308484d139552104607805d03f667aafb270c82b04cdccb0c532818d1e3b36a"
+          }
+        ],
+        "limitations": [
+          "Single AMD64 run under Rosetta, not native x86-64 target-host acceptance.",
+          "Media tests use 4 GiB address-space allowance under emulation.",
+          "Dependency review, release packaging and live acceptance remain pending."
+        ],
+        "imageReview": "docs/NODE-CLEANUP-IMAGE-REVIEW.json",
+        "dependencyOverrides": {
+          "js-yaml": "4.3.2",
+          "ip-cidr": "4.0.2 with checksum-checked bigint API adaptation",
+          "ip-address": "10.3.1"
+        },
+        "proxyDependencies": {
+          "golang.org/x/crypto": "v0.56.0",
+          "golang.org/x/text": "v0.41.0"
+        },
+        "packageTmpfs": "exec for temporary host-script stand-ins",
+        "codecTmpfs": "noexec"
+      }
+    }
+  }
+}

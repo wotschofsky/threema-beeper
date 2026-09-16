@@ -1,0 +1,26 @@
+{
+  "package": "@vector-im/matrix-bot-sdk",
+  "version": "0.10.0-element.0",
+  "files": [
+    {
+      "file": "src/e2ee/CryptoClient.ts",
+      "originalSha256": "cc60aa242e45c6c23a25c1d9fce07c135cee8f05cb09a57393f1181045e80678"
+    },
+    {
+      "file": "src/storage/RustSdkCryptoStorageProvider.ts",
+      "originalSha256": "624c631c4e3abe4aa6979c2fa808aeaaaf85b19e4fc3d4925a42fa30ea2b6e2e"
+    },
+    {
+      "file": "src/appservice/Intent.ts",
+      "originalSha256": "abd6f28fb89a92430e79b6f89fab8a53281a246319e4c43c711451ea8b60c4db"
+    },
+    {
+      "file": "src/e2ee/RustEngine.ts",
+      "originalSha256": "6af29513892c1fe2e450af1fa827f4697f860864117bf0534b98d169fafe4ae7"
+    },
+    {
+      "file": "src/http.ts",
+      "originalSha256": "4169c11ca182c6fa253748c1d35585e9248543eeb6102052be68a179816da2b5"
+    }
+  ]
+}

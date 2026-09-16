@@ -1,0 +1,138 @@
+{
+  "schemaVersion": 1,
+  "observedOn": "2026-09-16",
+  "benchmark": {
+    "path": "scripts/entry.benchmark-reconciliation.ts",
+    "sha256": "1ec78d6293977d7051e28037d1c0470ca8f2746ec7eb10e10c74b6df97b1c6a6"
+  },
+  "linuxRunner": {
+    "path": ".local/benchmark-reconciliation-process-linux.py",
+    "sha256": "2c0d73b8ff82fcde690e543a4b8caefc1897ba6e472509dd5ef1386de1c63652"
+  },
+  "results": [
+    {
+      "platform": "host",
+      "measurement": {
+        "messages": 100000,
+        "chats": 100,
+        "databaseBytes": 176631808,
+        "rounds": [
+          {
+            "round": "cold",
+            "messages": 100000,
+            "durationMs": 12695,
+            "pages": 1000,
+            "maxRssBytes": 215646208,
+            "pid": 6140,
+            "verifiedMessages": 100000,
+            "pendingChanges": 100000
+          },
+          {
+            "round": "warm",
+            "messages": 100000,
+            "durationMs": 10623,
+            "pages": 1000,
+            "maxRssBytes": 205045760,
+            "pid": 6147,
+            "verifiedMessages": 100000,
+            "pendingChanges": 100000
+          }
+        ],
+        "separateProcesses": true,
+        "scope": "Synthetic paginated backend with real encrypted journal and synchronizer; excludes native model loading, Matrix delivery and network latency. Cold means empty bridge journal, not cold OS cache."
+      },
+      "log": {
+        "path": ".local/reconciliation-process-host-20260916.log",
+        "sha256": "bcd015e9730a2b85ebd7901b1aef412b02fa33068d3a424995f860815952fa4b"
+      }
+    },
+    {
+      "platform": "arm64",
+      "measurement": {
+        "messages": 100000,
+        "chats": 100,
+        "databaseBytes": 176635904,
+        "rounds": [
+          {
+            "round": "cold",
+            "messages": 100000,
+            "durationMs": 16565,
+            "pages": 1000,
+            "maxRssBytes": 150773760,
+            "pid": 12,
+            "verifiedMessages": 100000,
+            "pendingChanges": 100000
+          },
+          {
+            "round": "warm",
+            "messages": 100000,
+            "durationMs": 12683,
+            "pages": 1000,
+            "maxRssBytes": 150163456,
+            "pid": 19,
+            "verifiedMessages": 100000,
+            "pendingChanges": 100000
+          }
+        ],
+        "separateProcesses": true,
+        "scope": "Synthetic paginated backend with real encrypted journal and synchronizer; excludes native model loading, Matrix delivery and network latency. Cold means empty bridge journal, not cold OS cache."
+      },
+      "log": {
+        "path": ".local/reconciliation-process-arm64-20260916.log",
+        "sha256": "84d56236770d13bc9cb2a354ce5f4b9f6138b457577b01f227e758aaea0ddeee"
+      },
+      "imageId": "sha256:14e248f2b34ac1472e6c8daf9ae036145c645bd5fdec6c95b4a7d32a9e614b01"
+    },
+    {
+      "platform": "amd64",
+      "measurement": {
+        "messages": 100000,
+        "chats": 100,
+        "databaseBytes": 176660480,
+        "rounds": [
+          {
+            "round": "cold",
+            "messages": 100000,
+            "durationMs": 20949,
+            "pages": 1000,
+            "maxRssBytes": 193847296,
+            "pid": 12,
+            "verifiedMessages": 100000,
+            "pendingChanges": 100000
+          },
+          {
+            "round": "warm",
+            "messages": 100000,
+            "durationMs": 16516,
+            "pages": 1000,
+            "maxRssBytes": 193179648,
+            "pid": 19,
+            "verifiedMessages": 100000,
+            "pendingChanges": 100000
+          }
+        ],
+        "separateProcesses": true,
+        "scope": "Synthetic paginated backend with real encrypted journal and synchronizer; excludes native model loading, Matrix delivery and network latency. Cold means empty bridge journal, not cold OS cache."
+      },
+      "log": {
+        "path": ".local/reconciliation-process-amd64-20260916.log",
+        "sha256": "c1d34ef52f468910d1a099979c669161658c5e142c38a21dc27d2c27251d5c4d"
+      },
+      "imageId": "sha256:2989e8c10a88049c8fdf614ccb65fca278158571b983f5849e60fa0dbda6269e"
+    }
+  ],
+  "rootTypecheck": "passed",
+  "heapLimitMiB": 256,
+  "linuxMemoryLimitMiB": 768,
+  "linuxExtraSwapMiB": 0,
+  "linuxStorage": "private host disk-backed bind mount, removed afterward",
+  "roundsInSeparateProcesses": true,
+  "limitations": [
+    "Synthetic paginated backend excludes native Threema model loading and Matrix delivery.",
+    "Cold means empty bridge journal, not cleared OS caches.",
+    "Peak RSS includes row-by-row verification; reconciliation duration excludes that validation.",
+    "Single sequential runs on shared hardware; not a statistical performance comparison.",
+    "AMD64 is emulated; neither Linux run establishes target-host performance.",
+    "Does not verify a 24-hour offline backlog or full-profile startup acceptance."
+  ]
+}

@@ -1,0 +1,8 @@
+[Unit]
+Description=Daily encrypted Threema bridge backup
+[Timer]
+OnCalendar=*-*-* 04:00:00
+RandomizedDelaySec=15m
+Persistent=true
+[Install]
+WantedBy=timers.target

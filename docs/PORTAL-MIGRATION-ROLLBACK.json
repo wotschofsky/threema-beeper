@@ -1,0 +1,73 @@
+{
+  "schemaVersion": 1,
+  "observedOn": "2026-09-16",
+  "problem": "Portal schema creation, historical message copies and schema version were separate commits. Injected intermediate or final-index failure left partial schema changes; the final-index case advanced user_version before failing.",
+  "fix": "Commit all portal migration statements in a single SQLCipher transaction.",
+  "regression": {
+    "failurePoints": [
+      "history copy trigger abort",
+      "final index name conflict"
+    ],
+    "assertions": [
+      "Failure throws and closes the store",
+      "Old schema definitions, user_version and message mappings remain unchanged",
+      "Repeated failed open remains unchanged",
+      "Removing the injected obstruction allows migration to version 9",
+      "Both historical root/latest events retained and conservative history completeness retained",
+      "Integrity check and subsequent reopen succeed"
+    ],
+    "before": {
+      "path": ".local/portal-migration-before.log",
+      "sha256": "99894f0bec66354d06c81ae7a04e9eef3f9689243453532f22b9d6ef86c7ed95"
+    },
+    "after": {
+      "path": ".local/portal-migration-after.log",
+      "sha256": "0cc7ea5b4e69f7b9f00afc38f35972396e67e56c72e0d1283c4bfb3724a66427"
+    }
+  },
+  "hostIntegration": {
+    "testsPassed": 7,
+    "log": {
+      "path": ".local/portal-migration-integration.log",
+      "sha256": "13b1d6e675696b36073675d4b706c477fb5f00eab1bef527ef293c616cf8ae9c"
+    }
+  },
+  "linux": [
+    {
+      "platform": "arm64",
+      "imageId": "sha256:3b4d2c3944ea04d1cd567cc9e21234a5a3f5d88cbbe5914b31f9e666df9ce5f4",
+      "testsPassed": 8,
+      "log": {
+        "path": ".local/portal-migration-arm64.log",
+        "sha256": "37b49554788ed53b1222321d8ee1693b2e41cfd7ddc6440229b7ad16e4c1e4c1"
+      },
+      "sourceMountedReadOnly": true
+    },
+    {
+      "platform": "amd64",
+      "imageId": "sha256:898a2dffe68b67aed3e55f860886b5894db8a214d64a44a1e33c87d49459b902",
+      "testsPassed": 8,
+      "log": {
+        "path": ".local/portal-migration-amd64.log",
+        "sha256": "eafb5638ff96098ad23b0f309e32fe755e09b395709a584d9ed6e259f678624d"
+      },
+      "sourceMountedReadOnly": true
+    }
+  ],
+  "typecheck": "passed",
+  "sources": [
+    {
+      "path": "src/matrix/portal-store.ts",
+      "sha256": "f4a50f88f1d518459b5cf1e385664fc16e808b79b95e030e521cd9f6a8b7df97"
+    },
+    {
+      "path": "tests/entry.portal-migration-rollback.ts",
+      "sha256": "eabd951823da84e51f4688dd7717769da56b584ceb6346b4d2cc3468486aa32e"
+    }
+  ],
+  "limitations": [
+    "Synthetic SQL failures; not full-disk or SIGKILL injection during native profile migration.",
+    "Linux runs mounted the changed source into existing images; exported candidate and live process do not yet contain this fix.",
+    "No real account data or network connections used. Actual target-host rollback remains unverified."
+  ]
+}

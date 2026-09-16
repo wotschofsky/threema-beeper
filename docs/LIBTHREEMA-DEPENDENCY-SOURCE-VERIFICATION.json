@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "sourceCommit": "63f65806398400017201ef2aaa4f97dfc122e5b0",
+  "lockSha256": "8942516005c7ad7b3bd6c7c8a0351aebda75db5cf1f9e87bbc278f459fd0db74",
+  "buildMetadataSha256": "c78746ab240ff516639571dadf72fab436e6871e56b056d5fd693b1596b6a13e",
+  "collectorToolchain": "1.94.0",
+  "vendoredPackages": 333,
+  "recordedBuildDependencies": 226,
+  "missingLockedPackages": [],
+  "verifiedArchiveFiles": 17020,
+  "wrongComponentRejected": true,
+  "matrixVerifierRegressionPassed": true,
+  "packagesWithoutStandaloneNotice": [
+    "gloo-utils@0.2.0",
+    "r-efi@6.0.0",
+    "r-efi@5.3.0",
+    "relative-path@1.9.3",
+    "tsify-macros@0.5.6",
+    "uniffi@0.31.1",
+    "uniffi_bindgen@0.31.1",
+    "uniffi_build@0.31.1",
+    "uniffi_core@0.31.1",
+    "uniffi_internal_macros@0.31.1",
+    "uniffi_macros@0.31.1",
+    "uniffi_meta@0.31.1",
+    "uniffi_pipeline@0.31.1",
+    "uniffi_udl@0.31.1",
+    "valuable@0.1.1",
+    "wasip2@1.0.2+wasi-0.2.9",
+    "wasip3@0.4.0+wasi-0.3.0-rc-2026-01-06",
+    "wasm-encoder@0.244.0",
+    "wasmparser@0.244.0",
+    "wit-component@0.244.0",
+    "wit-parser@0.244.0"
+  ],
+  "evidence": [
+    {
+      "path": ".local/wasm-vendor-sources-verified-20260916.tar.gz",
+      "sha256": "4e2b1fc1b0fc0c67d476c7e11372404310e21b32e30e2510445ccf59a0e7a582",
+      "bytes": 39277836
+    },
+    {
+      "path": ".local/wasm-vendor-pinned-sources-20260916/coverage.json",
+      "sha256": "6264bbc5365692ad64ef2843f793dc9b0ec0fc5d39e3a5cd62f6c448384dc979",
+      "bytes": 185487
+    },
+    {
+      "path": ".local/wasm-vendor-pinned-export-20260916.log",
+      "sha256": "7fd45510c90c7f152f12352dc566a66be87ab452c55c67f0263bcdfe590ec0d5",
+      "bytes": 69236
+    },
+    {
+      "path": ".local/wasm-vendor-pinned-context-20260916/context-integrity.json",
+      "sha256": "bc4405a4ab2d03eeab257cd4b65c58fc0afa961c5fc100f274086760fb36aa9e",
+      "bytes": 44033
+    }
+  ],
+  "completeCorrespondingSource": false,
+  "scope": "Cargo-vendored sources and file checksums checked against the pinned lock and recorded metadata. Git sources rely on Cargo locked revision selection; this is not an independent source attestation or complete license review."
+}

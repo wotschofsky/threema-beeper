@@ -1,0 +1,166 @@
+--- a/src/api/hooks.cc
++++ b/src/api/hooks.cc
+@@ -127,20 +127,78 @@
+ // this.
+ void DeleteACHHandle::operator ()(ACHHandle* handle) const { delete handle; }
+ 
++// TODO(addaleax): Having this extra set of data structures is far from
++// ideal, but unfortunately the public synchronous cleanup hook API was
++// slightly mis-designed; in particular, RemoveEnvironmentCleanupHook() needs
++// to keep working when the Isolate either has no active context (such as
++// during GC) or that context is associated with another Node.js Environment.
++// We should align this with the asynchronous API, which handles this properly
++// through an explicit reference to the cleanup hook instead of requiring
++// lookups in internal maps.
++struct CleanupHookThunk final {
++  Isolate* isolate;
++  Environment* env;
++  CleanupHook fun;
++  void* arg;
++
++  bool operator==(const CleanupHookThunk& other) const {
++    // `env` is intentionally not part of this comparison
++    return isolate == other.isolate && fun == other.fun && arg == other.arg;
++  }
++};
++struct CleanupHookThunkHash {
++  size_t operator()(const CleanupHookThunk& thunk) const {
++    return std::hash<void*>()(thunk.arg);
++  }
++};
++using CleanupHookRegistry =
++    std::unordered_set<CleanupHookThunk, CleanupHookThunkHash>;
++static ExclusiveAccess<CleanupHookRegistry> cleanup_hook_registry;
++
++static void CleanupHookThunkRun(void* arg) {
++  const CleanupHookThunk* thunk = static_cast<CleanupHookThunk*>(arg);
++  // `thunk->fun` may itself remove and free this CleanupHookThunk (e.g. via
++  // ~ObjectWrap(), which calls RemoveEnvironmentCleanupHook()), so cache the
++  // fields we still need before invoking it rather than reading them from
++  // `thunk` afterwards.
++  Isolate* isolate = thunk->isolate;
++  CleanupHook fun = thunk->fun;
++  void* fun_arg = thunk->arg;
++  fun(fun_arg);
++  RemoveEnvironmentCleanupHook(isolate, fun, fun_arg);
++}
++
+ void AddEnvironmentCleanupHook(Isolate* isolate,
+                                CleanupHook fun,
+                                void* arg) {
+   Environment* env = Environment::GetCurrent(isolate);
+   CHECK_NOT_NULL(env);
+-  env->AddCleanupHook(fun, arg);
++  void* wrapped_arg;
++  {
++    ExclusiveAccess<CleanupHookRegistry>::Scoped registry(
++        &cleanup_hook_registry);
++    auto result = registry->insert({isolate, env, fun, arg});
++    CHECK(result.second);
++    wrapped_arg = const_cast<CleanupHookThunk*>(&*result.first);
++  }
++  env->AddCleanupHook(CleanupHookThunkRun, wrapped_arg);
+ }
+ 
+ void RemoveEnvironmentCleanupHook(Isolate* isolate,
+                                   CleanupHook fun,
+                                   void* arg) {
+-  Environment* env = Environment::GetCurrent(isolate);
+-  CHECK_NOT_NULL(env);
+-  env->RemoveCleanupHook(fun, arg);
++  CleanupHookThunk thunk;
++  void* wrapped_arg;
++  {
++    ExclusiveAccess<CleanupHookRegistry>::Scoped registry(
++        &cleanup_hook_registry);
++    auto result = registry->find({isolate, nullptr, fun, arg});
++    if (result == registry->end()) return;
++    wrapped_arg = const_cast<CleanupHookThunk*>(&*result);
++    thunk = *result;
++    registry->erase(result);
++  }
++  thunk.env->RemoveCleanupHook(CleanupHookThunkRun, wrapped_arg);
+ }
+ 
+ static void FinishAsyncCleanupHook(void* arg) {
+--- a/test/addons/worker-addon/binding.cc
++++ b/test/addons/worker-addon/binding.cc
+@@ -58,6 +58,15 @@
+   node::AddEnvironmentCleanupHook(context->GetIsolate(), Dummy, nullptr);
+   node::RemoveEnvironmentCleanupHook(context->GetIsolate(), Dummy, nullptr);
+ 
++  // Verify cleanup-hook removal when no V8 context is active.
++  {
++    Isolate* isolate = context->GetIsolate();
++    node::AddEnvironmentCleanupHook(isolate, Dummy, nullptr);
++    context->Exit();
++    node::RemoveEnvironmentCleanupHook(isolate, Dummy, nullptr);
++    context->Enter();
++  }
++
+   if (getenv("addExtraItemToEventLoop") != nullptr) {
+     // Add an item to the event loop that we do not clean up in order to make
+     // sure that for the main thread, this addon's memory persists even after
+--- a/test/cctest/test_environment.cc
++++ b/test/cctest/test_environment.cc
+@@ -26,6 +26,12 @@
+ static void at_exit_callback_ordered2(void* arg);
+ static void at_exit_js(void* arg);
+ static std::string cb_1_arg;  // NOLINT(runtime/string)
++
++struct SelfRemovingCleanupHookState {
++  v8::Isolate* isolate;
++  bool ran = false;
++};
++static void self_removing_cleanup_hook(void* arg);
+ 
+ class EnvironmentTest : public EnvironmentTestFixture {
+  private:
+@@ -309,6 +315,27 @@
+   EXPECT_TRUE(called_at_exit_js);
+ }
+ 
++// A cleanup hook that removes itself while the environment cleanup queue is
++// being drained must not cause a use-after-free. This registers such a hook
++// directly rather than through node::ObjectWrap, whose destructor removes
++// its own hook and is what makes this reachable for addons since #63642.
++// The use-after-free is silent in ordinary builds; it is caught by the
++// ASan/Valgrind CI, which is also how the original assertion (#63923)
++// surfaced. Regression test for https://github.com/nodejs/node/issues/65195.
++TEST_F(EnvironmentTest, RemoveEnvironmentCleanupHookDuringCleanup) {
++  const v8::HandleScope handle_scope(isolate_);
++  const Argv argv;
++  SelfRemovingCleanupHookState state{isolate_};
++  {
++    Env env{handle_scope, argv};
++    node::AddEnvironmentCleanupHook(
++        isolate_, self_removing_cleanup_hook, &state);
++    // Destroying `env` runs FreeEnvironment() -> RunCleanup(), which drains
++    // the cleanup queue and invokes CleanupHookThunkRun() for the hook above.
++  }
++  EXPECT_TRUE(state.ran);
++}
++
+ TEST_F(EnvironmentTest, MultipleEnvironmentsPerIsolate) {
+   const v8::HandleScope handle_scope(isolate_);
+   const Argv argv;
+@@ -390,6 +417,19 @@
+   EXPECT_FALSE(obj.IsEmpty());  // Assert VM is still alive.
+   EXPECT_TRUE(obj->IsObject());
+   called_at_exit_js = true;
++}
++
++// Reproduces the sequence node::ObjectWrap performs since
++// https://github.com/nodejs/node/pull/63642, without using ObjectWrap
++// itself: the hook removes its own environment cleanup hook. When that runs
++// while the cleanup queue is being drained, CleanupHookThunkRun() must not
++// read the CleanupHookThunk after invoking the hook -- the hook has already
++// erased and freed it. See https://github.com/nodejs/node/issues/65195.
++static void self_removing_cleanup_hook(void* arg) {
++  auto* state = static_cast<SelfRemovingCleanupHookState*>(arg);
++  state->ran = true;
++  node::RemoveEnvironmentCleanupHook(
++      state->isolate, self_removing_cleanup_hook, state);
+ }
+ 
+ TEST_F(EnvironmentTest, SetImmediateCleanup) {

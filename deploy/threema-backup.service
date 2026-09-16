@@ -1,0 +1,10 @@
+[Unit]
+Description=Encrypted Threema bridge backup
+Requires=docker.service
+After=docker.service
+
+[Service]
+Type=oneshot
+WorkingDirectory=/srv/threema-beeper
+EnvironmentFile=/etc/threema-beeper-backup.env
+ExecStart=/bin/sh /srv/threema-beeper/backup.sh

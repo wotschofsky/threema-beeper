@@ -1,0 +1,44 @@
+{
+  "patches": [
+    {
+      "file": "src/common/model/message/image-message.ts",
+      "originalSha256": "6398c19d2155e0acb92f0ebaf4da0af0397fae56c8795ff08952647bf269cc1e",
+      "patchedSha256": "14405631e093f6a4344c4274501630a71a06f9c52ffd97a34089dece7b7dfb7c",
+      "before": "    public async blob(): Promise<FileBytesAndMediaType> {",
+      "after": "    public async ensureCached(part: 'file' | 'thumbnail'): Promise<void> {\n        if (part === 'file') {\n            await this.blob();\n        } else {\n            await this.thumbnailBlob();\n        }\n    }\n\n    public async blob(): Promise<FileBytesAndMediaType> {",
+      "occurrences": 2
+    },
+    {
+      "file": "src/common/model/message/video-message.ts",
+      "originalSha256": "fd3d49c00e25be3d4002ee96fb6093d24509f4bb43890ace6c21e97b9160e847",
+      "patchedSha256": "c08e6d6aad91edee90abd2a8fe79988a45682127fffa4e0a9d9cf92926eaab26",
+      "before": "    public async blob(): Promise<FileBytesAndMediaType> {",
+      "after": "    public async ensureCached(part: 'file' | 'thumbnail'): Promise<void> {\n        if (part === 'file') {\n            await this.blob();\n        } else {\n            await this.thumbnailBlob();\n        }\n    }\n\n    public async blob(): Promise<FileBytesAndMediaType> {",
+      "occurrences": 2
+    },
+    {
+      "file": "src/common/model/message/audio-message.ts",
+      "originalSha256": "5078e753d9b213124441d0ada70a1fa65260de3cff640c2febc94fce84c6dedf",
+      "patchedSha256": "311990a1193c58125539ac2e2a5541fa6dfd8c1049b7d4bafe5eb9f8ee4b614e",
+      "before": "    public async blob(): Promise<FileBytesAndMediaType> {",
+      "after": "    public async ensureCached(part: 'file' | 'thumbnail'): Promise<void> {\n        if (part === 'file') {\n            await this.blob();\n        } else {\n            throw new Error('MEDIA_NOT_CACHED');\n        }\n    }\n\n    public async blob(): Promise<FileBytesAndMediaType> {",
+      "occurrences": 2
+    },
+    {
+      "file": "src/common/model/message/file-message.ts",
+      "originalSha256": "f3e37100dac1deb373bcc4fd9c3a119a0053f7e21f93098c6cb1e3ab4ac58af3",
+      "patchedSha256": "61a0a1027803921317e0094f9a118ab3213413ad64c023e34919c8c3fea1dea5",
+      "before": "    public async blob(): Promise<FileBytesAndMediaType> {",
+      "after": "    public async ensureCached(part: 'file' | 'thumbnail'): Promise<void> {\n        if (part === 'file') {\n            await this.blob();\n        } else {\n            await this.thumbnailBlob();\n        }\n    }\n\n    public async blob(): Promise<FileBytesAndMediaType> {",
+      "occurrences": 2
+    },
+    {
+      "file": "src/common/model/types/message/common.ts",
+      "originalSha256": "b491446fdf089dca17e63936936f5254124683063e2c00ac059a93763f084d62",
+      "patchedSha256": "1f9b313705c8a70504d556df45cfd264fa4aef557945613ad4674d87184062b0",
+      "before": "        readonly blob: () => Promise<FileBytesAndMediaType>;",
+      "after": "        readonly blob: () => Promise<FileBytesAndMediaType>;\n\n        /** Populate the encrypted local cache without returning attachment bytes over the model proxy. */\n        readonly ensureCached: (part: 'file' | 'thumbnail') => Promise<void>;",
+      "occurrences": 1
+    }
+  ]
+}

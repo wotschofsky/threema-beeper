@@ -1,0 +1,62 @@
+{
+  "scope": "Unconfirmed local model echoes must not resolve uncertain outbound delivery",
+  "baseCommit": "a693527609482a4cd750e2d21018ace560202b5b",
+  "beforeFix": {
+    "beforeState": "OUTCOME_UNKNOWN",
+    "beforeRecoveryItems": 1,
+    "echoHasSentAt": false,
+    "afterState": "ACKED",
+    "afterRecoveryItems": 0,
+    "networkUsed": false
+  },
+  "files": {
+    "src/outbox/delivery-evidence.ts": "fb4bbf8d56a2810d2c732de067e07fc0c175ac5b2bc14c9bfea4e8265f2d0a5e",
+    "src/outbox/echo.ts": "42bc2527d117b1c1a6ae23af5c4da6fab64c6f7351ec35f60ecc9cfa6c2f1fe9",
+    "src/outbox/media-journal.ts": "b803f6d4e7fb805321e8fb77a199bb72842950e424e813fd2795755ff9cac14a",
+    "src/matrix/journal-sink.ts": "dc8ea11f190ef4b697d5f0af3d6d7a686acaba66e88568624655eb3d56d2754d",
+    "tests/entry.local-echo-confirmation.ts": "009ccfcc8326535b2595031cf4944038ea64f9890d1776aff97d292ffde361af",
+    "tests/entry.outbound-echo.ts": "d8e791a755ab7898c4cf070505137f02c5bd4de72b2b8708745a3aaef802f7cc",
+    "tests/entry.media-journal.ts": "41dd21ca27dc89ad0ef729e18724086b252fb4b45f1279d732c228e4e07c7565",
+    "tests/entry.owner-text-edit.ts": "e9139464d79a5f403d056a7cb5d1658e89b7d083ff629d84f9f3b3766e920a18",
+    "tests/entry.video-outbox.ts": "39a9d46bf601a16ebbb42a457d9eab29516ef61c5ea5310f901c7df167544672",
+    "tests/entry.image-mutation.ts": "b81308f1b99ac451c928e161f4b777b3467276910d09b1474038b26986834809",
+    "tests/entry.audio-fallback-outbox.ts": "b075414a67bdd8f2ce83ca7f43c4ee813b6b90b5020c75f0cb1dcf92a0d5336a",
+    "tests/entry.audio-outbox.ts": "8cfaa8714444c13e236553e467957fd202dfcdd40ae0f03277cc670f8c69cb24",
+    "tests/entry.backup-store-drill.ts": "902e3286c7d0e25495a7ce07bdd5b65e2798702a4d2027c0d30fd3527c2ea698",
+    "tests/entry.journal-sink.ts": "59de3fe190c801d4be5f88f5abd6571da9bdf86b40acd22683a36accc9419334",
+    "tests/entry.media-replies.ts": "4c65009188ed291ece03868fd159fc5f44aaf2c9927d6452ddecf3f57d37c951",
+    "tests/entry.media-reply-crash.ts": "36f61d36259d4fc681c826fd5c3cdb461cedd769835c6744e6c10ef8833f4fb7"
+  },
+  "verification": [
+    {
+      "runtime": "host",
+      "tests": 23,
+      "passed": 23,
+      "failed": 0,
+      "logSha256": "8294fca91fdf72f0669c726bf712311531e291b23e5d0538f3219d8c7bb5ba08"
+    },
+    {
+      "runtime": "arm64",
+      "tests": 23,
+      "passed": 23,
+      "failed": 0,
+      "logSha256": "b8a10c33c3e8469e8e9213b1a556965b609614de8a6ef693fe8bbde3d7b8ad41",
+      "baseImageId": "sha256:14e248f2b34ac1472e6c8daf9ae036145c645bd5fdec6c95b4a7d32a9e614b01",
+      "execution": "Network disabled; read-only base image; changed source and test files mounted read-only; synthetic data only"
+    },
+    {
+      "runtime": "amd64",
+      "tests": 23,
+      "passed": 23,
+      "failed": 0,
+      "logSha256": "dd1c687d640a5e9b89f08621b2df1be57c54617518f66167cd93c37dae77260d",
+      "baseImageId": "sha256:2989e8c10a88049c8fdf614ccb65fca278158571b983f5849e60fa0dbda6269e",
+      "execution": "Network disabled; read-only base image; changed source and test files mounted read-only; synthetic data only"
+    }
+  ],
+  "limitations": [
+    "Existing exported Linux packages and live service have not been updated with this change.",
+    "Native backend process-restart task recovery and previously acknowledged legacy rows remain unverified.",
+    "Focused tests use synthetic transport/model events; this is not live end-to-end delivery evidence."
+  ]
+}

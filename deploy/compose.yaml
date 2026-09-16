@@ -1,0 +1,31 @@
+services:
+  bridge:
+    image: ghcr.io/wotschofsky/threema-beeper:latest
+    restart: unless-stopped
+    stop_grace_period: 90s
+    user: "1000:1000"
+    read_only: true
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    ulimits:
+      core:
+        soft: 0
+        hard: 0
+    tmpfs:
+      - /tmp:rw,noexec,nosuid,size=512m,uid=1000,gid=1000,mode=0700
+    volumes:
+      - ./installation/data:/installation/data
+      - ./installation/secrets:/installation/secrets:ro
+      - ./installation/bridge.yaml:/installation/bridge.yaml:ro
+    command: [/installation/bridge.yaml]
+    healthcheck:
+      test: [CMD, node, src/service/entry.status.ts, /installation/bridge.yaml]
+      interval: 30s
+      timeout: 20s
+      start_period: 120s
+      retries: 3
+    logging:
+      driver: json-file
+      options:
+        max-size: 10m
+        max-file: "3"

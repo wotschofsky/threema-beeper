@@ -1,0 +1,5 @@
+# Optional override; monitoring/heartbeat-url must be a private UID-1000-owned file.
+services:
+  bridge:
+    volumes:
+      - ./monitoring:/monitoring:ro

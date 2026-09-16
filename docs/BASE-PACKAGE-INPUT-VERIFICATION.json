@@ -1,0 +1,68 @@
+{
+  "schemaVersion": 1,
+  "inputSha256": "c257c28344214652ed4ba884d255b894db74e25d988f740e254d01f1c8d67c34",
+  "containersNeverStarted": true,
+  "architectureContentsIdentical": true,
+  "completeCorrespondingSource": false,
+  "scope": "Exact Corepack and Yarn installed files, including notices, copied from immutable tested images. Generated/bundled code may require additional preferred source and build inputs. No container process was started or account storage mounted.",
+  "directory": ".local/base-package-inputs-20260916",
+  "packages": [
+    {
+      "architecture": "amd64",
+      "imageId": "sha256:24e213529781b88b1358251c6580134e26536bd89e5c242fcc9bc9c082f59af3",
+      "name": "corepack",
+      "version": "0.36.0",
+      "archive": "amd64-corepack.tar",
+      "sha256": "8b0e01d8381dda9a6fe51f42e9a2ce425132072aa3b2b47874f3c5bb9b75d37e",
+      "bytes": 653312,
+      "verifiedEntries": 54,
+      "noticeFiles": [
+        "corepack/LICENSE.md"
+      ]
+    },
+    {
+      "architecture": "amd64",
+      "imageId": "sha256:24e213529781b88b1358251c6580134e26536bd89e5c242fcc9bc9c082f59af3",
+      "name": "yarn",
+      "version": "1.22.22",
+      "archive": "amd64-yarn.tar",
+      "sha256": "429547a1982c755c341dbf0b698fc618f37cd0ceb2619e0c8759dc30e21abc49",
+      "bytes": 5352448,
+      "verifiedEntries": 11,
+      "noticeFiles": [
+        "yarn-v1.22.22/LICENSE"
+      ]
+    },
+    {
+      "architecture": "arm64",
+      "imageId": "sha256:9659510686f5665fbbdc61f398d9e76ff63cae8e95e3aab5ae320832875cf5bb",
+      "name": "corepack",
+      "version": "0.36.0",
+      "archive": "arm64-corepack.tar",
+      "sha256": "d06161e7a72f0425246af0402b2d38c84a15dd68d0c6d82b84c48fa382c708c0",
+      "bytes": 653312,
+      "verifiedEntries": 54,
+      "noticeFiles": [
+        "corepack/LICENSE.md"
+      ]
+    },
+    {
+      "architecture": "arm64",
+      "imageId": "sha256:9659510686f5665fbbdc61f398d9e76ff63cae8e95e3aab5ae320832875cf5bb",
+      "name": "yarn",
+      "version": "1.22.22",
+      "archive": "arm64-yarn.tar",
+      "sha256": "397eae538498f78d7ec448b3ea14f47d6552b0e62d895b73f6ddaf380f50104f",
+      "bytes": 5352448,
+      "verifiedEntries": 11,
+      "noticeFiles": [
+        "yarn-v1.22.22/LICENSE"
+      ]
+    }
+  ],
+  "checksumVerificationPassed": true,
+  "manifest": {
+    "path": ".local/base-package-inputs-20260916/base-package-inputs.json",
+    "sha256": "d4887b9bd07c3994e133280081e6a8d8a39136db61a468a36aff13d4c5217a13"
+  }
+}

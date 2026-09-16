@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "version": "v0.15.0",
+  "releaseCommit": "649659929de880afdb24503f8908c5cf3da3a20e",
+  "reviewedSourceCommit": "621b50c3c9e395eda28ebe522a1406fdef71c8c9",
+  "releaseUrl": "https://github.com/beeper/bridge-manager/releases/tag/v0.15.0",
+  "releaseId": 355278766,
+  "assets": [
+    {
+      "name": "bbctl-linux-amd64",
+      "url": "https://github.com/beeper/bridge-manager/releases/download/v0.15.0/bbctl-linux-amd64",
+      "size": 19329735,
+      "sha256": "ff3091816429d41aeb51871445f8ccd77864ebe479a57a4b4a5981fd5051a73e",
+      "downloadVerified": true
+    },
+    {
+      "name": "bbctl-linux-arm64",
+      "url": "https://github.com/beeper/bridge-manager/releases/download/v0.15.0/bbctl-linux-arm64",
+      "size": 18110266,
+      "sha256": "aea4f129ac1dffd964d1ad8a57bd2d080c969f277666d0aa734b73de7c6f0033",
+      "downloadVerified": true
+    },
+    {
+      "name": "bbctl-macos-amd64",
+      "url": "https://github.com/beeper/bridge-manager/releases/download/v0.15.0/bbctl-macos-amd64",
+      "size": 20015008,
+      "sha256": "887b8a344c2782c150bb84aecd6c144f5b8d028bf9960622cf497730fb5dbf2c",
+      "downloadVerified": false
+    },
+    {
+      "name": "bbctl-macos-arm64",
+      "url": "https://github.com/beeper/bridge-manager/releases/download/v0.15.0/bbctl-macos-arm64",
+      "size": 22277376,
+      "sha256": "4ed8dcd4bfda2500fef7258d6109dfc200a9d7a4046c878d9749962d1219671c",
+      "downloadVerified": true
+    },
+    {
+      "name": "sha256sums.txt",
+      "url": "https://github.com/beeper/bridge-manager/releases/download/v0.15.0/sha256sums.txt",
+      "size": 336,
+      "sha256": "08478274cf3b8569be25b24c74b8d6a34f1e35f57f8e69a398db40f3eab9c969",
+      "downloadVerified": true
+    }
+  ]
+}

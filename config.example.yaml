@@ -1,0 +1,46 @@
+bridge:
+  displayname: Threema
+  profile_id: primary
+  identity: ABCD1234
+  owner: '@owner:example.invalid'
+  data_dir: /data
+  password_file: /run/secrets/threema_profile_password
+  wasm_file: /app/libthreema_bg.wasm
+  startup_timeout: 90s
+  matrix:
+    domain: example.invalid
+    homeserver: https://matrix.example.invalid
+    registration_file: /data/bridge/registration.yaml
+    crypto_key_file: /run/secrets/matrix_crypto_store_key
+    listen: 127.0.0.1
+    port: 29339
+    require_encryption: true
+  sync:
+    reconcile_on_connect: true
+    page_size: 500
+    max_buffered_events: 10000
+    periodic_full_reconcile: 24h
+  media:
+    auto_download: true
+    max_inbound_bytes: 100MiB
+    temp_dir: /data/runtime/media
+    # Use libx264 when the installed Mac FFmpeg does not include libopenh264.
+    avc_encoder: libopenh264
+    tools:
+      limiter: /usr/local/bin/media-limits
+      ffmpeg: /usr/local/bin/ffmpeg
+      jpeg: /usr/local/bin/jpeg-encode
+      webp: /usr/local/bin/webp-first-frame
+      avif: /usr/local/bin/avif-first-frame
+  privacy:
+    log_remote_ids: false
+    log_message_metadata: false
+  features:
+    groups: false
+    media: false
+    reactions: false
+    mutations: false # Message edits and deletions
+    receipts: false
+    polls: false
+    locations: false
+    calls: false

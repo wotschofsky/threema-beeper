@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "component": "libthreema",
+  "packagesWithRecoveredNoticeCandidates": 21,
+  "repositoryRevisions": 9,
+  "treeMethods": {
+    "git-commit": 9
+  },
+  "verifiedNoticeFiles": 16,
+  "verifiedArchiveFiles": 26,
+  "packagesWithoutRecoveredNotice": [],
+  "wrongComponentRejectedBeforeNetwork": true,
+  "licenseReviewComplete": false,
+  "scope": "Unmodified notices recovered from crate-recorded repository revisions. Candidate applicability follows crate ancestor directories; no legal compatibility or complete third-party notice review is implied.",
+  "evidence": [
+    {
+      "path": ".local/wasm-source-notices-git-20260916/notices.json",
+      "bytes": 14479,
+      "sha256": "e729ade617f77712cc127d4ee43c8e6e51e387140e8f4f6f7ae9530129b2bc74"
+    },
+    {
+      "path": ".local/wasm-source-notices-verified-20260916.tar.gz",
+      "bytes": 395360,
+      "sha256": "1ec52d3a7a1a2eb7edce7c9c5886221068d58c45e2176196da1341a85e17fb18"
+    },
+    {
+      "path": ".local/wasm-source-notices-git-20260916.log",
+      "bytes": 729,
+      "sha256": "0d9c73716ed3be05873bd8cbdcbb6a40ec914135c2e46d45c63ca586ce6c5bf0"
+    }
+  ]
+}

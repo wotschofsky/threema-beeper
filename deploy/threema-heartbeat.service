@@ -1,0 +1,10 @@
+[Unit]
+Description=Threema bridge external health ping
+After=docker.service network-online.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=/srv/threema-beeper
+ExecStart=/bin/sh /srv/threema-beeper/heartbeat.sh
+TimeoutStartSec=30
+LimitCORE=0

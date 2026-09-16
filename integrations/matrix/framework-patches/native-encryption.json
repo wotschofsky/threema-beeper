@@ -1,0 +1,28 @@
+{
+  "commit": "fe923be791bd1d2ade17839629a99400893c8173",
+  "file": "src/bridge.ts",
+  "originalSha256": "71d480e82c905c8c994c128a761e33ff72ad7137b209e33fc88ce53ed21ac171",
+  "patchedSha256": "716a4787e0c54d8c64598fffc920105989ab06f4f5d629df76e23de3edabc56f",
+  "replacements": [
+    {
+      "from": "export interface BridgeOpts {",
+      "to": "export interface BridgeOpts {\n    /** Explicit native crypto storage. Use an authenticated durable transaction ingress. */\n    nativeEncryption?: {\n        storage: BotSDK.IAppserviceStorageProvider;\n        cryptoStorage: BotSDK.IAppserviceCryptoStorageProvider;\n    };"
+    },
+    {
+      "from": "interface VettedBridgeOpts {",
+      "to": "interface VettedBridgeOpts {\n    nativeEncryption?: BridgeOpts['nativeEncryption'];"
+    },
+    {
+      "from": "        this.opts = {",
+      "to": "        if (opts.nativeEncryption && opts.bridgeEncryption) {\n            throw new Error(\"Native encryption and proxy encryption cannot both be configured\");\n        }\n        this.opts = {"
+    },
+    {
+      "from": "        this.botSdkAS = new BotSDK.Appservice({",
+      "to": "        this.botSdkAS = new BotSDK.Appservice({\n            storage: this.opts.nativeEncryption?.storage,\n            cryptoStorage: this.opts.nativeEncryption?.cryptoStorage,"
+    },
+    {
+      "from": "        const homeserverToken = this.registration.getHomeserverToken();",
+      "to": "        if (this.opts.nativeEncryption) {\n            throw new Error(\"Native encryption requires the durable transaction ingress\");\n        }\n        const homeserverToken = this.registration.getHomeserverToken();"
+    }
+  ]
+}

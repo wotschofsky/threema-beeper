@@ -1,0 +1,69 @@
+{
+  "schemaVersion": 1,
+  "observedOn": "2026-09-16",
+  "test": {
+    "path": "tests/entry.media-reply-crash.ts",
+    "sha256": "29533524dd0ef885203bc053bf25df0db4235dfebe136bb55c307120b8f91ac7"
+  },
+  "runner": {
+    "path": ".local/test-media-reply-crash-linux.py",
+    "sha256": "25a1050455b1b57ed2ef671142eece4c89fdb31c2bd9df3814d31b0801ba64ef"
+  },
+  "results": [
+    {
+      "platform": "host",
+      "testGroupsPassed": 2,
+      "terminationCasesPassed": 14,
+      "log": {
+        "path": ".local/media-reply-crash-host.log",
+        "sha256": "23453a613524bc31912f1876d6fb4eb14364d3461763594eddda365f8c83758f"
+      }
+    },
+    {
+      "platform": "arm64",
+      "testGroupsPassed": 2,
+      "terminationCasesPassed": 14,
+      "log": {
+        "path": ".local/media-reply-crash-arm64.log",
+        "sha256": "b39faad07038895366b5beda575539c38b76e28972c800705f4f8c3647cc2903"
+      },
+      "imageId": "sha256:14e248f2b34ac1472e6c8daf9ae036145c645bd5fdec6c95b4a7d32a9e614b01"
+    },
+    {
+      "platform": "amd64",
+      "testGroupsPassed": 2,
+      "terminationCasesPassed": 14,
+      "log": {
+        "path": ".local/media-reply-crash-amd64.log",
+        "sha256": "7e07f28bcf5189f7907b999eec99ac11627a6a5656011eee602a901f444d0529"
+      },
+      "imageId": "sha256:2989e8c10a88049c8fdf614ccb65fca278158571b983f5849e60fa0dbda6269e"
+    }
+  ],
+  "rootTypecheck": "passed",
+  "terminationPoints": [
+    "before dispatch",
+    "quote claimed",
+    "quote ID persisted",
+    "quote recipient effect",
+    "quote result persisted before attachment claim",
+    "attachment recipient effect before result persisted",
+    "attachment result persisted"
+  ],
+  "assertions": [
+    "Replay cannot reset uncertain quote work",
+    "Uncertain quote is visible through recovery items and blocks attachment",
+    "Wrong-chat quote echo rejected",
+    "Duplicate and reordered echoes do not duplicate quote or attachment",
+    "Confirmed quote releases still-unclaimed attachment",
+    "Explicit retryPrepared does not resend uncertain quote or attachment",
+    "Committed or reconciled media remains SENT on repeated drain"
+  ],
+  "scope": "Real MediaDispatcher, createMediaReply, SQLCipher outbox, portal store and transaction inbox. Child is killed at IPC checkpoint and observed exited before reopening. Synthetic backend writes fsynced recipient ledger.",
+  "limitations": [
+    "File and image quoted replies only; audio/video quote companions are not covered by this fixture.",
+    "No native uploads, encrypted Matrix pending-status delivery, device revocation or live messaging.",
+    "Linux tests mounted only the new fixture into the migration images. Production source and native modules came from those images. The exported images do not yet include this test file.",
+    "AMD64 is emulated; no target-host acceptance."
+  ]
+}

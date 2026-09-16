@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "directory": ".local/database-source-20260916",
+  "inputSha256": "c257c28344214652ed4ba884d255b894db74e25d988f740e254d01f1c8d67c34",
+  "sourceCommit": "45743c2",
+  "packages": [
+    {
+      "name": "better-sqlcipher",
+      "version": "12.10.0-sqlcipher4.16.0-bearssl0.6",
+      "verifiedSourceFiles": 50,
+      "archive": {
+        "path": "better-sqlcipher.tar.gz",
+        "bytes": 3485988,
+        "sha256": "8c21c075c1eead67676d21d2407a7b6bb8aaa1fda78a671e480e7c3cfbd16121"
+      }
+    },
+    {
+      "name": "argon2",
+      "version": "0.43.0",
+      "verifiedSourceFiles": 25,
+      "archive": {
+        "path": "argon2.tar.gz",
+        "bytes": 41668,
+        "sha256": "44e312c20776b1afb3debde86f9bc0238cef8dd35c984bcab85eaacfe10c7cdc"
+      }
+    }
+  ],
+  "checksumVerificationPassed": true,
+  "archiveContentsAndModesVerified": true,
+  "completeCorrespondingSource": false,
+  "scope": "Exact packaged native build inputs, excluding nested node_modules. SQLCipher is a generated amalgamation; its regeneration script names a private Threema repository. Preferred-source and regeneration coverage remain unproven. Transitive npm tooling and legal review are outside this supplement.",
+  "evidence": [
+    {
+      "path": ".local/database-source-20260916/database-source.json",
+      "sha256": "31ef8a3a63439286d693b1d0a44c229d6244bb6f8107560d13eaeb1fb657198c",
+      "bytes": 27839
+    },
+    {
+      "path": ".local/database-source-checksums-20260916.log",
+      "sha256": "e03839f6d93fc9284bbc84827abe45a1845a6b1890c5dbdc5a8a5d06bdd25ac3",
+      "bytes": 3615
+    }
+  ]
+}

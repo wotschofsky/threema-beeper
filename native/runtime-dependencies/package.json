@@ -1,0 +1,11 @@
+{
+  "name": "threema-bridge-runtime-dependencies",
+  "version": "0.0.0",
+  "private": true,
+  "license": "MIT",
+  "dependencies": {
+    "ip-cidr": "4.0.2",
+    "js-yaml": "4.3.2"
+  },
+  "packageManager": "pnpm@11.15.1"
+}

@@ -1,0 +1,200 @@
+{
+  "schemaVersion": 1,
+  "observedOn": "2026-09-16",
+  "packageVerification": "docs/LINUX-DISK-VERIFICATION.json",
+  "images": [
+    {
+      "architecture": "arm64",
+      "inventory": {
+        "schemaVersion": 1,
+        "architecture": "arm64",
+        "imageId": "sha256:ce22f27c2bfaa0b011a8e2964bb82c812d3c0c2bc981d0107ed12472558d3894",
+        "inputSha256": "f5b0d2e1936bc8c78930f2c5b288230ad1baaa4e54e2787f6134013d2dcc3a06",
+        "scanner": {
+          "name": "syft",
+          "version": "1.51.1"
+        },
+        "detectedPackages": 341,
+        "counts": {
+          "npm": 222,
+          "deb": 85,
+          "binary": 2,
+          "go-module": 32
+        },
+        "outputs": [
+          {
+            "format": "syft",
+            "path": ".local/sbom/2026-09-16-disk/arm64.syft.json",
+            "bytes": 3259467,
+            "sha256": "c166f02ca5010fb03c40cacd37989d418bc557acd3fa2026ceb4b97172d5a843"
+          },
+          {
+            "format": "cdx",
+            "path": ".local/sbom/2026-09-16-disk/arm64.cdx.json",
+            "bytes": 1333895,
+            "sha256": "8e69e0079c7b382779f9d2f4653a461f7cb0546484564b7dd40befed2055fc4f"
+          },
+          {
+            "format": "spdx",
+            "path": ".local/sbom/2026-09-16-disk/arm64.spdx.json",
+            "bytes": 2767719,
+            "sha256": "e708c656813c525cdb18cc5d7ce6b39c200b4fc881f99919c033cc7e65e12a97"
+          }
+        ],
+        "detectedBuildIntermediates": [],
+        "cargoMetadataDetected": false,
+        "releaseReady": false,
+        "limitations": [
+          "Image inventory does not establish complete compiled Rust/WASM dependency coverage.",
+          "Native crypto and WASM require build-linked source dependency inventories.",
+          "Experimental images still contain source files and JavaScript build tooling.",
+          "SBOM generation is not vulnerability scanning or license compliance approval."
+        ]
+      },
+      "scan": {
+        "path": ".local/vulnerabilities-20260916-disk/arm64.grype.json",
+        "sha256": "11de7a33bcc71914b9cdeceabb36ae0b850914a073aaeaf651104373e72a92b9"
+      },
+      "matches": 170,
+      "severity": {
+        "High": 64,
+        "Negligible": 44,
+        "Medium": 50,
+        "Low": 6,
+        "Critical": 1,
+        "Unknown": 5
+      },
+      "suppressedMatches": 0,
+      "comparison": {
+        "previousImageId": "sha256:9659510686f5665fbbdc61f398d9e76ff63cae8e95e3aab5ae320832875cf5bb",
+        "packageNamesVersionsTypesLocationsEqual": true,
+        "findingKeysEqual": true,
+        "findingKey": [
+          "package name",
+          "package version",
+          "package type",
+          "advisory id",
+          "severity"
+        ]
+      }
+    },
+    {
+      "architecture": "amd64",
+      "inventory": {
+        "schemaVersion": 1,
+        "architecture": "amd64",
+        "imageId": "sha256:063147f109aa0f4ef423c93d3d266735e649626442d12dc58329e19da42d7b4f",
+        "inputSha256": "f5b0d2e1936bc8c78930f2c5b288230ad1baaa4e54e2787f6134013d2dcc3a06",
+        "scanner": {
+          "name": "syft",
+          "version": "1.51.1"
+        },
+        "detectedPackages": 341,
+        "counts": {
+          "npm": 222,
+          "deb": 85,
+          "binary": 2,
+          "go-module": 32
+        },
+        "outputs": [
+          {
+            "format": "syft",
+            "path": ".local/sbom/2026-09-16-disk/amd64.syft.json",
+            "bytes": 3243538,
+            "sha256": "4035f1100b263c414beda2e41d244c3b9047e7579611214ca1a54f0445f4fc06"
+          },
+          {
+            "format": "cdx",
+            "path": ".local/sbom/2026-09-16-disk/amd64.cdx.json",
+            "bytes": 1332980,
+            "sha256": "cc5c8af3b12760a3bddb94ab884d4bf143a32f4925045c31dfa3958ab365efd6"
+          },
+          {
+            "format": "spdx",
+            "path": ".local/sbom/2026-09-16-disk/amd64.spdx.json",
+            "bytes": 2767721,
+            "sha256": "4073e6de90c52fd8083fd0cf47919c47dee69978e0499b99d12d452ce3d9c9d2"
+          }
+        ],
+        "detectedBuildIntermediates": [],
+        "cargoMetadataDetected": false,
+        "releaseReady": false,
+        "limitations": [
+          "Image inventory does not establish complete compiled Rust/WASM dependency coverage.",
+          "Native crypto and WASM require build-linked source dependency inventories.",
+          "Experimental images still contain source files and JavaScript build tooling.",
+          "SBOM generation is not vulnerability scanning or license compliance approval."
+        ]
+      },
+      "scan": {
+        "path": ".local/vulnerabilities-20260916-disk/amd64.grype.json",
+        "sha256": "84d1956ad9c283132873686d8a27bd7c1424575d8f1fe12c4d2847a5d1098088"
+      },
+      "matches": 170,
+      "severity": {
+        "High": 64,
+        "Negligible": 44,
+        "Medium": 50,
+        "Low": 6,
+        "Critical": 1,
+        "Unknown": 5
+      },
+      "suppressedMatches": 0,
+      "comparison": {
+        "previousImageId": "sha256:24e213529781b88b1358251c6580134e26536bd89e5c242fcc9bc9c082f59af3",
+        "packageNamesVersionsTypesLocationsEqual": true,
+        "findingKeysEqual": true,
+        "findingKey": [
+          "package name",
+          "package version",
+          "package type",
+          "advisory id",
+          "severity"
+        ]
+      }
+    }
+  ],
+  "database": {
+    "schemaVersion": "v6.1.9",
+    "from": "https://grype.anchore.io/databases/v6/vulnerability-db_v6.1.9_2026-09-15T00:33:48Z_1789453896.tar.zst?checksum=sha256%3Ada59e6799affd13b75ab62e1de533fff3a45f4efa6fe255ffd99e35109f82c60",
+    "built": "2026-09-15T06:31:36Z",
+    "path": ".local/grype-db-release-20260916/6/vulnerability.db",
+    "valid": true
+  },
+  "databaseEvidence": {
+    "path": ".local/vulnerabilities-20260916-disk/database.json",
+    "sha256": "fa3c8f7db54760d613bf634d7eb733385812e5b2e5a1021ce57cb77a98c3fc26"
+  },
+  "scannerConfig": {
+    "path": ".local/vulnerabilities-20260916-disk/scanner-config.json",
+    "sha256": "ad484817f6deccb36f6e96519c11354966291a87bf20e67adc635868210e57e0"
+  },
+  "scanner": {
+    "version": "v0.118.0",
+    "releaseId": 378093156,
+    "releaseUrl": "https://github.com/anchore/grype/releases/tag/v0.118.0",
+    "asset": "grype_0.118.0_darwin_arm64.tar.gz",
+    "assetUrl": "https://github.com/anchore/grype/releases/download/v0.118.0/grype_0.118.0_darwin_arm64.tar.gz",
+    "archiveSha256": "938f050bb5076c8aa761867b39843abad2414dfe4cc82b7d36886e634f49c640",
+    "checksumsSha256": "7a0cfafb6082951a68f89199c3a45f84b0ed8670491e509529ab5f8ee4977a2b",
+    "executableSha256": "e678673799c36951cbeb69583d020fa5c9fa5e6db3e68d19ab3f1914de3957c0"
+  },
+  "inventoryTool": {
+    "version": "v1.51.1",
+    "releaseId": 377988884,
+    "releaseUrl": "https://github.com/anchore/syft/releases/tag/v1.51.1",
+    "asset": "syft_1.51.1_darwin_arm64.tar.gz",
+    "assetUrl": "https://github.com/anchore/syft/releases/download/v1.51.1/syft_1.51.1_darwin_arm64.tar.gz",
+    "archiveSha256": "ac063af3b9874769deb7ea1e6d76841e68f9e3bb50cd654226fc977de65532c1",
+    "executableSha256": "47cd0bc89537c80eed48f34766743d54574e5830deff243cf54d99696a8e9ce0",
+    "checksumsSha256": "105346699e7cb694afa37a21e2386432df6278c99f71331c24b1e0bb0f38cc75"
+  },
+  "releaseReady": false,
+  "limitations": [
+    "These are package-advisory matches, not proof of exploitability. Applicability review remains open.",
+    "Go binaries lack function symbols; the scanner matches modules and may report false positives.",
+    "Image inventories do not fully enumerate statically linked Rust/WASM dependencies; source-linked records remain separate.",
+    "No live-account restart, target deployment, or refreshed release export is established.",
+    "Earlier source supplement records remain bound to the alerts candidate and need verification against the disk context before export."
+  ]
+}

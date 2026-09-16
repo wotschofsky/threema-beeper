@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "observedOn": "2026-09-16",
+  "toolingImage": "docker@sha256:625d9431a9f54c5a2bc90f24f0e1c3d55b1349fd857dd85035f98c2c9acbdd4d",
+  "platform": "linux/arm64",
+  "candidateImage": "sha256:3ece3319e50aba822cae065a26a0fd351575da47b4b92d5872322fafd0d8a675",
+  "initialFailureRecorded": true,
+  "successfulRun": true,
+  "unchangedRepeatPreservesState": true,
+  "findingCount": 170,
+  "linkedProfileStarted": false,
+  "accountDataMounted": false,
+  "databaseRefresh": "Real public download and freshness validation",
+  "evidence": [
+    {
+      "path": "deploy/security-check.sh",
+      "sha256": "81743aa210fbf63359d42f2ce8807001408d35ec01602dd7e555a782b0c22680"
+    },
+    {
+      "path": ".local/security-job-rehearsal.log",
+      "sha256": "d17a88a2b50fa4128a3e29c84ae6e935e3a13c0bea1d3f7abdf5096c8e5f7aa9"
+    },
+    {
+      "path": ".local/security-job-rehearsal-portable.log",
+      "sha256": "5688f4938c29854b43e9c42bb9fbe74730b79f5e0ce1f5a9aa4889e8328b52ef"
+    },
+    {
+      "path": ".local/security-job-rehearsal-repeat.log",
+      "sha256": "940ceeeacdf551c96328d0a1e256764497dc3355823b19ad1ac3879f3cf76084"
+    },
+    {
+      "path": ".local/security-job-rehearsal/compose.yaml",
+      "sha256": "83ed8891cffe00ca0465513b5ecc79384eb6d3663363efc0a12f70db293b8c2d"
+    },
+    {
+      "path": ".local/security-job-rehearsal/maintenance/security-scanner/database.json",
+      "sha256": "d6717ec18f13e5b26917441beea8cb825a315c3b1b996322b28bb77f885ab868"
+    },
+    {
+      "path": ".local/security-job-rehearsal/maintenance/security-scanner/inventory.json",
+      "sha256": "dd12f9af13c12b9fab039b6d48d1817218f4b5d0a6b8d6546675f27e95415272"
+    },
+    {
+      "path": ".local/security-job-rehearsal/maintenance/security-scanner/report.json",
+      "sha256": "7245a05d81e31baccd7ccbc7aa51bcd66f698661ff32ad1cdda6e0cbb6da22ec"
+    },
+    {
+      "path": ".local/security-job-rehearsal/data/maintenance/security/state.json",
+      "sha256": "94d0b124dcddbd97062da2098755c5873ed7fa5b3c923b4549103d77b24f2de3"
+    }
+  ],
+  "limitations": [
+    "Disposable Alpine-based Docker CLI tooling under Docker Desktop, not a production Linux host.",
+    "Synthetic Compose maintenance storage; no live encrypted management notice sent.",
+    "Timer activation, external monitoring and remaining release gates still open.",
+    "Portability fix is newer than the previously exported candidate host script."
+  ]
+}

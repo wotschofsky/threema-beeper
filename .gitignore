@@ -1,0 +1,34 @@
+/.local/
+**/node_modules/
+**/build/
+**/target/
+**/.DS_Store
+*.tsbuildinfo
+
+# Local configuration, credentials and runtime artifacts
+.env
+.env.*
+!.env.example
+/installation/
+/data/
+/secrets/
+/backups/
+bridge.yaml
+registration.yaml
+registration.json
+bbctl.json
+proxy-registration.yaml
+*.sqlite
+*.enc
+heartbeat-url
+*.log
+__pycache__/
+*.pyc
+
+# Private planning notes are kept under .local/planning-archive/.
+/Threema-Beeper-Bridge-*-Handoff.md
+/SPIKE-RESULTS.md
+/Features-and-Known-Limitations.md
+/nit.txt
+
+**/.pnpm-store/

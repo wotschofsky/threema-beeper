@@ -1,0 +1,10 @@
+# Collect locked source dependencies without compiling or running them.
+FROM rust:1.94.0-bookworm@sha256:365468470075493dc4583f47387001854321c5a8583ea9604b297e67f01c5a4f AS sources
+WORKDIR /source
+COPY source/ ./
+RUN mkdir -p /source-export \
+    && cargo vendor --locked /source-export/vendor > /source-export/config.toml \
+    && cp Cargo.lock Cargo.toml /source-export/
+
+FROM scratch AS artifact
+COPY --from=sources /source-export/ /

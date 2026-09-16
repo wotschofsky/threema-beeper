@@ -1,0 +1,126 @@
+{
+  "schemaVersion": 1,
+  "kind": "primary-source-supplement",
+  "completeCorrespondingSource": false,
+  "sourceCommit": "062c1dd2063033cffaa430a83455aee3694e4b86",
+  "inputSha256": "e28951fe6fdbac7b25c8218870c26d06553ef15a04b7714244420c473f7464ee",
+  "verificationSha256": "57bfc98da70f0249758448a8706fa51be493ce16fa42bd68f372c31abc66b17a",
+  "archives": [
+    {
+      "name": "threema-beeper",
+      "commit": "062c1dd2063033cffaa430a83455aee3694e4b86",
+      "file": "threema-beeper.tar.gz",
+      "bytes": 1537749,
+      "sha256": "d039e090d2e06c64e4c402c27b9be6e65310bb38fae50e38afb04cbfccd220d7",
+      "trackedFiles": 745,
+      "notices": [
+        {
+          "path": "LICENSE.txt",
+          "sha256": "76a97c878c9c7a8321bb395c2b44d3fe2f8d81314d219b20138ed0e2dddd5182"
+        },
+        {
+          "path": "spikes/gate0/matrix-overlay/LICENSE",
+          "sha256": "ce466ea46ebddf2aca7b099f34ab64fdc32dc8490eeaa45d8342df1b829f63ad"
+        }
+      ]
+    },
+    {
+      "name": "threema-desktop",
+      "commit": "63f65806398400017201ef2aaa4f97dfc122e5b0",
+      "file": "threema-desktop.tar.gz",
+      "bytes": 16351295,
+      "sha256": "23e343587d4abccc7e8097ff3f729edc10feb2a1475e5f28e19d2eae09aac2e9",
+      "trackedFiles": 2581,
+      "notices": [
+        {
+          "path": ".licenses/README.md",
+          "sha256": "06a004990b4b859e56a5d8f3bd2b88f2c5018d5a76599373f364677c40cd2555"
+        },
+        {
+          "path": ".licenses/material-design-icons",
+          "sha256": "58d1e17ffe5109a7ae296caafcadfdbe6a7d176f0bc4ab01e12a689b0499d8bd"
+        },
+        {
+          "path": ".licenses/opensans",
+          "sha256": "264e11475faebfa1bf1b5374c0a1d4f217bc646255036206d3380fefb131179c"
+        },
+        {
+          "path": ".licenses/sqlcipher",
+          "sha256": "86e892c45b18c05bb52a93c728278764757c5d0b0e521efc8a053e59c8f3ab31"
+        },
+        {
+          "path": ".licenses/twemoji",
+          "sha256": "0787a2f4875024dbbae819c2d9724dbbaaf4c5e1b8d00895f9f04e82d5f6a2a2"
+        },
+        {
+          "path": "LICENSE-3RD-PARTY.txt",
+          "sha256": "87bb521002731a064f6df162a309e6b98683e55db156c226d5acf30fd0a80584"
+        },
+        {
+          "path": "LICENSE.txt",
+          "sha256": "76a97c878c9c7a8321bb395c2b44d3fe2f8d81314d219b20138ed0e2dddd5182"
+        },
+        {
+          "path": "packages/libthreema-wasm/libs/libthreema/patches/blake2/LICENSE-APACHE",
+          "sha256": "a9040321c3712d8fd0b09cf52b17445de04a23a10165049ae187cd39e5c86be5"
+        },
+        {
+          "path": "packages/libthreema-wasm/libs/libthreema/patches/blake2/LICENSE-MIT",
+          "sha256": "9c768944eb4a0422ca2efc25ea9fb2fb9e7fbd3fdb04e86b87366339cb7466db"
+        }
+      ]
+    },
+    {
+      "name": "matrix-appservice-bridge",
+      "commit": "fe923be791bd1d2ade17839629a99400893c8173",
+      "file": "matrix-appservice-bridge.tar.gz",
+      "bytes": 274834,
+      "sha256": "a68d78627885a9d66e6cd9b82888277810783288336bfedd986c2d0ea60ede03",
+      "trackedFiles": 115,
+      "notices": [
+        {
+          "path": "LICENSE",
+          "sha256": "c6596eb7be8581c18be736c846fb9173b69eccf6ef94c5135893ec56bd92ba08"
+        }
+      ]
+    },
+    {
+      "name": "bridge-manager",
+      "commit": "621b50c3c9e395eda28ebe522a1406fdef71c8c9",
+      "file": "bridge-manager.tar.gz",
+      "bytes": 75979,
+      "sha256": "8859f44591445c0a31f4f4db57399170edde821b5eabfa8be1520a749cb59068",
+      "trackedFiles": 67,
+      "notices": [
+        {
+          "path": "LICENSE",
+          "sha256": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594"
+        }
+      ]
+    },
+    {
+      "name": "matrix-rust-sdk-crypto-nodejs",
+      "commit": "d71b99cc0b5bd06597a7dc718a73eb4e4ff6d3f1",
+      "file": "matrix-rust-sdk-crypto-nodejs.tar.gz",
+      "bytes": 109646,
+      "sha256": "79ffc3a40d78e38526d7a2ba0f36c71f9cd880d14d4f78dff5b97c5c02183ee8",
+      "trackedFiles": 57,
+      "notices": [
+        {
+          "path": "LICENSE",
+          "sha256": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594"
+        }
+      ]
+    }
+  ],
+  "remaining": [
+    "Registry npm and Cargo dependency sources and their complete notices",
+    "Transitive Git dependencies, including matrix-rust-sdk",
+    "Native codec, Node and operating-system dependency source archives and notices",
+    "Complete build-tool inputs, source-to-binary coverage and reproducibility verification",
+    "Formal license review before distribution or shared use"
+  ],
+  "directory": ".local/primary-source-recovery-20260916",
+  "manifestSha256": "1f69ff05471bfc855b71959badd78bf8db42ae02e99adb3a9bc262086c92ec72",
+  "checksumVerificationPassed": true
+}

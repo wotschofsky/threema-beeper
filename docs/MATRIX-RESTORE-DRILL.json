@@ -1,0 +1,78 @@
+{
+  "schemaVersion": 1,
+  "observedOn": "2026-09-16",
+  "backupSourceEvidence": "docs/LIVE-RECOVERY-UPGRADE.json",
+  "results": [
+    {
+      "platform": "host",
+      "result": {
+        "architecture": "arm64",
+        "identityFingerprint": "33f3e92b13f73a803f463bf4158415118bb2eb548399ef95d1466b75006d7a72",
+        "roomKeys": 19,
+        "wrongPassphraseRejected": true,
+        "identityPreservedAcrossReopen": true,
+        "sourceUnchanged": true,
+        "serviceStarted": false
+      },
+      "evidence": {
+        "path": ".local/restored-matrix-host-20260916.log",
+        "sha256": "fa57dd74f944962ae4cdfdb790f95c586f0b64a47d4a8a22469c795518174e58"
+      }
+    },
+    {
+      "platform": "arm64",
+      "result": {
+        "architecture": "arm64",
+        "identityFingerprint": "33f3e92b13f73a803f463bf4158415118bb2eb548399ef95d1466b75006d7a72",
+        "roomKeys": 19,
+        "wrongPassphraseRejected": true,
+        "identityPreservedAcrossReopen": true,
+        "sourceUnchanged": true,
+        "serviceStarted": false
+      },
+      "evidence": {
+        "path": ".local/restored-matrix-arm64-20260916.log",
+        "sha256": "fa57dd74f944962ae4cdfdb790f95c586f0b64a47d4a8a22469c795518174e58"
+      },
+      "imageId": "sha256:3b4d2c3944ea04d1cd567cc9e21234a5a3f5d88cbbe5914b31f9e666df9ce5f4"
+    },
+    {
+      "platform": "amd64",
+      "result": {
+        "architecture": "x64",
+        "identityFingerprint": "33f3e92b13f73a803f463bf4158415118bb2eb548399ef95d1466b75006d7a72",
+        "roomKeys": 19,
+        "wrongPassphraseRejected": true,
+        "identityPreservedAcrossReopen": true,
+        "sourceUnchanged": true,
+        "serviceStarted": false
+      },
+      "evidence": {
+        "path": ".local/restored-matrix-amd64-20260916.log",
+        "sha256": "110010c40b306d49dfb7ec16fc18870bedde18144a3143b5913dd1f49c2d9fe2"
+      },
+      "imageId": "sha256:898a2dffe68b67aed3e55f860886b5894db8a214d64a44a1e33c87d49459b902"
+    }
+  ],
+  "crossPlatformIdentityMatches": true,
+  "crossPlatformRoomKeyCountsMatch": true,
+  "probe": {
+    "path": ".local/verify-restored-matrix-crypto.ts",
+    "sha256": "a95e29150e0e27d94611f75d8f0299555b3b4299ffe9fd08a0555e57f39b1eb5"
+  },
+  "scope": "Existing bot Matrix crypto store only, copied from the authenticated offline restore to disposable scratch storage. OlmMachine was initialized directly; no RustEngine, Matrix session, Threema backend or bridge service was started.",
+  "linuxConstraints": {
+    "network": "none",
+    "backupMount": "read-only",
+    "root": "read-only",
+    "capabilities": "all dropped",
+    "scratch": "private noexec tmpfs",
+    "user": "host owner UID/GID"
+  },
+  "limitations": [
+    "Does not open every ghost/owner crypto store.",
+    "Room-key counts and existing device identity are verified; old-event decryption and complete key-material export comparison were not performed.",
+    "Native Threema profile unlock, target-host startup, off-site restore and rollback remain open.",
+    "AMD64 used local emulation."
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "image": "debian@sha256:020c0d20b9880058cbe785a9db107156c3c75c2ac944a6aa7ab59f2add76a7bd",
+  "hostArchitecture": "arm64",
+  "network": "none",
+  "credentialsMounted": false,
+  "results": [
+    {
+      "architecture": "arm64",
+      "image": "debian@sha256:8b5033c95ca60cdffb0e0f4c446e5f714e82d8960a9ef4153c0eaf13e988b0ea",
+      "command": [
+        "--version"
+      ],
+      "sha256": "aea4f129ac1dffd964d1ad8a57bd2d080c969f277666d0aa734b73de7c6f0033",
+      "stdout": "bbctl version v0.15.0 (built at Jul 16 2026, 18:22:46 UTC)"
+    },
+    {
+      "architecture": "arm64",
+      "image": "debian@sha256:8b5033c95ca60cdffb0e0f4c446e5f714e82d8960a9ef4153c0eaf13e988b0ea",
+      "command": [
+        "proxy",
+        "--help"
+      ],
+      "sha256": "aea4f129ac1dffd964d1ad8a57bd2d080c969f277666d0aa734b73de7c6f0033",
+      "stdout": "NAME:\n   bbctl proxy - Connect to an appservice websocket, and proxy it to a local appservice HTTP server\n\nUSAGE:\n   bbctl proxy [command options]\n\nOPTIONS:\n   --registration value, -r value  The path to the registration file to read the as_token, hs_token and local appservice URL from [$BEEPER_BRIDGE_REGISTRATION_FILE]\n   --help, -h                      show help"
+    },
+    {
+      "architecture": "amd64",
+      "image": "debian@sha256:9bb8a3626890e084ab54e888fdd7c4b6d2f119071cd4c5dc5fecb4d73062aa5f",
+      "command": [
+        "--version"
+      ],
+      "sha256": "ff3091816429d41aeb51871445f8ccd77864ebe479a57a4b4a5981fd5051a73e",
+      "stdout": "bbctl version v0.15.0 (built at Jul 16 2026, 18:22:45 UTC)"
+    },
+    {
+      "architecture": "amd64",
+      "image": "debian@sha256:9bb8a3626890e084ab54e888fdd7c4b6d2f119071cd4c5dc5fecb4d73062aa5f",
+      "command": [
+        "proxy",
+        "--help"
+      ],
+      "sha256": "ff3091816429d41aeb51871445f8ccd77864ebe479a57a4b4a5981fd5051a73e",
+      "stdout": "NAME:\n   bbctl proxy - Connect to an appservice websocket, and proxy it to a local appservice HTTP server\n\nUSAGE:\n   bbctl proxy [command options]\n\nOPTIONS:\n   --registration value, -r value  The path to the registration file to read the as_token, hs_token and local appservice URL from [$BEEPER_BRIDGE_REGISTRATION_FILE]\n   --help, -h                      show help"
+    }
+  ]
+}

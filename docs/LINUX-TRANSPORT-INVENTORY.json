@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "observedOn": "2026-09-16",
+  "images": [
+    {
+      "architecture": "arm64",
+      "imageId": "sha256:6fe592b2fc19caf5f107220c4e15ed3c85358d827ace3ee63d69022d453e1cd3",
+      "detectedPackages": 341,
+      "counts": {
+        "npm": 222,
+        "deb": 85,
+        "binary": 2,
+        "go-module": 32
+      },
+      "samePackageNamesVersionsTypesAsMigration": true,
+      "outputs": [
+        {
+          "format": "syft",
+          "path": ".local/sbom/2026-09-16-transport/arm64.syft.json",
+          "sha256": "72758ee526a23f987c38bf8657e92010898ab7db20a10e89a75b55ac1fd4030e"
+        },
+        {
+          "format": "cdx",
+          "path": ".local/sbom/2026-09-16-transport/arm64.cdx.json",
+          "sha256": "3b8ba7fb49edb808bedaf2f36d36476ce118bbc6aa80047cd27497f2230d3987"
+        },
+        {
+          "format": "spdx",
+          "path": ".local/sbom/2026-09-16-transport/arm64.spdx.json",
+          "sha256": "2e6bb89b6c8999bfe0c698beb858d794f74e11e96e4592fa5c3896c9ea2ea175"
+        }
+      ]
+    },
+    {
+      "architecture": "amd64",
+      "imageId": "sha256:224215496a7d04e4702f89679d670b22f05d9cc61028828c18c59e672e43b7f0",
+      "detectedPackages": 341,
+      "counts": {
+        "npm": 222,
+        "deb": 85,
+        "binary": 2,
+        "go-module": 32
+      },
+      "samePackageNamesVersionsTypesAsMigration": true,
+      "outputs": [
+        {
+          "format": "syft",
+          "path": ".local/sbom/2026-09-16-transport/amd64.syft.json",
+          "sha256": "77bd668b250c1fc12a8c22b6d1260f9200da1c0752349c0077610190b127b31f"
+        },
+        {
+          "format": "cdx",
+          "path": ".local/sbom/2026-09-16-transport/amd64.cdx.json",
+          "sha256": "dc014f3d5da3e0e094dbe49e00f2d69c475882c9019eea7f0c1c4f9cb627325d"
+        },
+        {
+          "format": "spdx",
+          "path": ".local/sbom/2026-09-16-transport/amd64.spdx.json",
+          "sha256": "4b9f1328a20b28f18deef44923ace4940bba8f301d429b5ed2f0ed98d76212df"
+        }
+      ]
+    }
+  ],
+  "releaseReady": false,
+  "limitations": [
+    "Dependency inventory is not vulnerability assessment or complete corresponding source proof.",
+    "No new vulnerability scan is claimed; prior findings remain unresolved.",
+    "Package comparison covers names, versions and types only, not every file or vulnerability applicability."
+  ]
+}

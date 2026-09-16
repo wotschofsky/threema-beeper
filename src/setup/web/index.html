@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <title>Link Threema to Beeper</title>
+        <link rel="stylesheet" href="/setup.css" />
+        <script type="module" src="/setup.js"></script>
+    </head>
+    <body>
+        <header>
+            <a href="/" aria-label="Threema to Beeper setup"
+                >Threema <span aria-hidden="true">↔</span> Beeper</a
+            ><span>Local setup</span>
+        </header>
+        <main>
+            <ol class="steps" aria-label="Setup progress">
+                <li id="step-link" aria-current="step">1. Link your phone</li>
+                <li id="step-confirm">2. Compare emojis</li>
+                <li id="step-save">3. Save recovery secret</li>
+            </ol>
+            <h1 id="title">Open your secure setup session</h1>
+            <p id="description">Checking the one-time link…</p>
+            <p id="error" role="alert" hidden></p>
+            <section id="idle" hidden>
+                <p>
+                    Your phone stays signed in. Keep it nearby while linking this bridge as a new
+                    device.
+                </p>
+                <button id="begin">Begin linking</button>
+            </section>
+            <section id="qr-panel" hidden>
+                <div class="qr">
+                    <img
+                        id="qr"
+                        width="320"
+                        height="320"
+                        alt="Scan this QR code with Threema’s linked-device scanner"
+                    />
+                </div>
+                <p>Open the linked-device settings in Threema on your phone and scan this code.</p>
+            </section>
+            <section id="confirm-panel" hidden>
+                <div id="emojis" class="emojis" aria-label="Confirmation emojis"></div>
+                <p>Confirm on your phone only if all three emojis match, in the same order.</p>
+            </section>
+            <section id="sync-panel" hidden>
+                <p class="status" role="status">
+                    Your phone is transferring the linked profile. Keep Threema open.
+                </p>
+                <p>
+                    You can close this page after setup finishes. Interrupting now may require local
+                    recovery.
+                </p>
+            </section>
+            <section id="recovery-panel" hidden>
+                <p>Linked Threema ID: <strong id="identity"></strong></p>
+                <p>
+                    Save this secret in your password manager. You’ll need it to unlock this profile
+                    if its secret file is lost.
+                </p>
+                <button id="reveal" class="secondary">Show recovery secret</button>
+                <div id="secret-panel" hidden>
+                    <label for="secret">Recovery secret</label
+                    ><textarea
+                        id="secret"
+                        rows="2"
+                        readonly
+                        spellcheck="false"
+                        autocomplete="off"
+                    ></textarea
+                    ><button id="copy" class="secondary">Copy secret</button
+                    ><span id="copy-status" role="status"></span>
+                </div>
+                <label class="ack"
+                    ><input id="saved" type="checkbox" /> I saved the recovery secret in a safe
+                    place.</label
+                >
+                <button id="finish" disabled>Finish setup</button>
+            </section>
+            <section id="done-panel" hidden>
+                <p>The local setup session is closed. Keep your recovery secret safe.</p>
+            </section>
+            <button id="cancel" class="quiet" hidden>Cancel linking</button>
+            <noscript
+                ><p>
+                    Enable JavaScript to complete the local pairing flow. No external scripts are
+                    loaded.
+                </p></noscript
+            >
+        </main>
+        <footer>Pairing details stay in this local setup session.</footer>
+    </body>
+</html>

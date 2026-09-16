@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "verifiedAt": "2026-09-14",
+  "repositories": [
+    {
+      "name": "threema-desktop",
+      "url": "https://github.com/threema-ch/threema-desktop.git",
+      "tag": "v2.0-beta65",
+      "commit": "63f65806398400017201ef2aaa4f97dfc122e5b0"
+    },
+    {
+      "name": "matrix-appservice-bridge",
+      "url": "https://github.com/matrix-org/matrix-appservice-bridge.git",
+      "tag": "12.0.0",
+      "commit": "fe923be791bd1d2ade17839629a99400893c8173"
+    },
+    {
+      "name": "bridge-manager",
+      "url": "https://github.com/beeper/bridge-manager.git",
+      "commit": "621b50c3c9e395eda28ebe522a1406fdef71c8c9"
+    },
+    {
+      "name": "matrix-rust-sdk-crypto-nodejs",
+      "url": "https://github.com/matrix-org/matrix-rust-sdk-crypto-nodejs.git",
+      "tag": "v0.6.6",
+      "commit": "d71b99cc0b5bd06597a7dc718a73eb4e4ff6d3f1"
+    }
+  ]
+}

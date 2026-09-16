@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "observedOn": "2026-09-16",
+  "testSource": {
+    "path": "tests/entry.media-crash.ts",
+    "sha256": "feabab5d5a539aa16bbae4b9e9081c16984e57480086ac17429711e4c4e17542"
+  },
+  "results": [
+    {
+      "platform": "host",
+      "cases": 40,
+      "testGroupsPassed": 4,
+      "evidence": {
+        "path": ".local/media-crash-host-20260916.log",
+        "sha256": "c9fbc1bbae51393250b3e4db9bfbc6101dfd1b85730e9808b3f506706ef401a8"
+      }
+    },
+    {
+      "platform": "arm64",
+      "cases": 40,
+      "testGroupsPassed": 4,
+      "evidence": {
+        "path": ".local/media-crash-arm64-20260916.log",
+        "sha256": "a047ca30004b310c769ad8201def165bafb67a3fc0d29561805cfcb8b3870d0e"
+      },
+      "imageId": "sha256:ce22f27c2bfaa0b011a8e2964bb82c812d3c0c2bc981d0107ed12472558d3894"
+    },
+    {
+      "platform": "amd64",
+      "cases": 40,
+      "testGroupsPassed": 4,
+      "evidence": {
+        "path": ".local/media-crash-amd64-20260916.log",
+        "sha256": "543c2d768002b61144b4e4162575f700c4188a4b9dc566e6c8390ac38872ea0a"
+      },
+      "imageId": "sha256:063147f109aa0f4ef423c93d3d266735e649626442d12dc58329e19da42d7b4f"
+    }
+  ],
+  "scope": "Synthetic recipient; real dispatcher, encrypted journal and child SIGKILL. Linux production code and native database come from immutable tested images; only the test file is mounted.",
+  "linuxOptions": {
+    "network": "none",
+    "readOnly": true,
+    "capDrop": "ALL",
+    "noNewPrivileges": true,
+    "tmpfs": "/tmp:rw,noexec,nosuid,size=512m,mode=0700,uid=1000,gid=1000"
+  },
+  "accountDataMounted": false,
+  "fullChaosMatrixComplete": false,
+  "limitationsDocument": "docs/MEDIA-CRASH-ACCEPTANCE.md"
+}

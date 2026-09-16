@@ -1,0 +1,300 @@
+{
+  "schemaVersion": 1,
+  "observedOn": "2026-09-16",
+  "testRunner": "node scripts/entry.test-files.ts",
+  "containerOptions": [
+    "--rm",
+    "--network",
+    "none",
+    "--read-only",
+    "--cap-drop",
+    "ALL",
+    "--security-opt",
+    "no-new-privileges",
+    "--entrypoint",
+    "node"
+  ],
+  "packageTmpfs": "/tmp:rw,exec,nosuid,size=512m,mode=0700,uid=1000,gid=1000",
+  "codecTmpfs": "/tmp:rw,noexec,nosuid,size=512m",
+  "codecEnvironment": {
+    "FFMPEG_TEST_EXECUTABLE": "/usr/bin/ffmpeg",
+    "MEDIA_LIMITER_TEST_EXECUTABLE": "/usr/local/bin/media-limits",
+    "JPEG_ENCODER_TEST_EXECUTABLE": "/usr/local/bin/jpeg-encode",
+    "WEBP_FIRST_FRAME_TEST_EXECUTABLE": "/usr/local/bin/webp-first-frame",
+    "AVIF_FIRST_FRAME_TEST_EXECUTABLE": "/usr/local/bin/avif-first-frame"
+  },
+  "amd64CodecAddressSpaceBytes": 4294967296,
+  "accountDataMounted": false,
+  "sourceCommit": "e5aa8b330555776ebf6a33270d87df82518997f1",
+  "context": ".local/linux-current-20260916",
+  "inputSha256": "1844d5900dd563ee2c81ea6fb20c6f6077fe10c6b11f04ddf87133b114424b15",
+  "images": [
+    {
+      "architecture": "arm64",
+      "observation": {
+        "schemaVersion": 1,
+        "imageId": "sha256:f869a4742f8a8823747a2cfb5538c84c5df1c7e66d7f7c452395d786533e4bc9",
+        "architecture": "arm64",
+        "inputSha256": "1844d5900dd563ee2c81ea6fb20c6f6077fe10c6b11f04ddf87133b114424b15",
+        "runtime": {
+          "inputSha256": "1844d5900dd563ee2c81ea6fb20c6f6077fe10c6b11f04ddf87133b114424b15",
+          "node": "v24.21.0",
+          "nodeExecutableSha256": "be95378e78fea731052f8ecb1a010ed8178a14b33e586c9d2ee955278e8265ef",
+          "nodeDependencies": {
+            "node": "24.21.0",
+            "acorn": "8.18.0",
+            "ada": "4.0.0",
+            "amaro": "1.1.11",
+            "ares": "1.34.8",
+            "brotli": "1.2.0",
+            "cldr": "48.0",
+            "icu": "78.3",
+            "llhttp": "9.4.3",
+            "merve": "1.2.2",
+            "modules": "137",
+            "napi": "10",
+            "nbytes": "0.1.4",
+            "ncrypto": "0.0.1",
+            "nghttp2": "1.70.0",
+            "nghttp3": "",
+            "ngtcp2": "",
+            "openssl": "3.5.8",
+            "simdjson": "4.6.7",
+            "simdutf": "6.4.0",
+            "sqlite": "3.53.4",
+            "tz": "2026c",
+            "undici": "7.29.1",
+            "unicode": "17.0",
+            "uv": "1.52.1",
+            "uvwasi": "0.0.23",
+            "v8": "13.6.233.17-node.53",
+            "zlib": "1.3.2.1-motley-8002e91",
+            "zstd": "1.5.7"
+          },
+          "nodeSharedOpenSSL": false,
+          "platform": "linux",
+          "architecture": "arm64",
+          "uid": 1000,
+          "bbctlSha256": "dbcc293148976d993c6b9fb5d01d1836c1ec388fefb7fc0c10e6533fb024176f",
+          "matrixArtifact": {
+            "architecture": "arm64",
+            "name": "matrix-sdk-crypto.linux-arm64-gnu.node",
+            "bytes": 13725224,
+            "sha256": "c9b70375643216e246636a5f2c1f816914b11f6cc9c8373e218a6039ca9d8d0f",
+            "sourceCommit": "d71b99cc0b5bd06597a7dc718a73eb4e4ff6d3f1",
+            "inputSha256": "8598cdca9d1dfb0d272d54781a7c6cd3bd65b795b2d455061816f546fdee94df",
+            "buildReportSha256": "70f9ee0232a14705960c7a0b0ada68df51a451a99a1b5314c395bc343876e351",
+            "origin": "local-source-build"
+          },
+          "binaries": [
+            {
+              "path": ".local/sources/threema-desktop/node_modules/.pnpm/_de7567b0c2609005ba1d8a129510b499/node_modules/better-sqlcipher/build/Release/better_sqlcipher.node",
+              "sha256": "95ffc4b6588450aeb1acd7f3cb6d8f1784b7cde1d44723fae266eaf1d30632cc",
+              "libraries": "\tlinux-vdso.so.1 (0x0000ffffb199c000)\n\tlibstdc++.so.6 => /lib/aarch64-linux-gnu/libstdc++.so.6 (0x0000ffffb1510000)\n\tlibm.so.6 => /lib/aarch64-linux-gnu/libm.so.6 (0x0000ffffb1460000)\n\tlibc.so.6 => /lib/aarch64-linux-gnu/libc.so.6 (0x0000ffffb12a0000)\n\tlibgcc_s.so.1 => /lib/aarch64-linux-gnu/libgcc_s.so.1 (0x0000ffffb1260000)\n\t/lib/ld-linux-aarch64.so.1 (0x0000ffffb1950000)\n"
+            },
+            {
+              "path": ".local/sources/threema-desktop/node_modules/.pnpm/_656ea90ba37ccf93d864aeba0fe61785/node_modules/argon2/build/Release/argon2.node",
+              "sha256": "7919696e166db2c639be3a41bd59ab33520072e59cc761f788ce1fa9b1072504",
+              "libraries": "\tlinux-vdso.so.1 (0x0000ffffabf2c000)\n\tlibstdc++.so.6 => /lib/aarch64-linux-gnu/libstdc++.so.6 (0x0000ffffabc40000)\n\tlibgcc_s.so.1 => /lib/aarch64-linux-gnu/libgcc_s.so.1 (0x0000ffffabc00000)\n\tlibc.so.6 => /lib/aarch64-linux-gnu/libc.so.6 (0x0000ffffaba40000)\n\tlibm.so.6 => /lib/aarch64-linux-gnu/libm.so.6 (0x0000ffffab990000)\n\t/lib/ld-linux-aarch64.so.1 (0x0000ffffabee0000)\n"
+            },
+            {
+              "path": ".local/sources/matrix-appservice-bridge/node_modules/@matrix-org/matrix-sdk-crypto-nodejs/matrix-sdk-crypto.linux-arm64-gnu.node",
+              "sha256": "c9b70375643216e246636a5f2c1f816914b11f6cc9c8373e218a6039ca9d8d0f",
+              "libraries": "\tlinux-vdso.so.1 (0x0000ffffa579d000)\n\tlibgcc_s.so.1 => /lib/aarch64-linux-gnu/libgcc_s.so.1 (0x0000ffffa49f0000)\n\tlibm.so.6 => /lib/aarch64-linux-gnu/libm.so.6 (0x0000ffffa4940000)\n\tlibc.so.6 => /lib/aarch64-linux-gnu/libc.so.6 (0x0000ffffa4780000)\n\t/lib/ld-linux-aarch64.so.1 (0x0000ffffa5750000)\n"
+            }
+          ],
+          "debianPackages": "adduser\t3.152\napt\t3.0.3\nbase-files\t13.8+deb13u7\nbase-passwd\t3.6.7\nbash\t5.2.37-2+b10\nbsdutils\t1:2.41.5-0+deb13u1\nca-certificates\t20250419\ncoreutils\t9.7-3\ndash\t0.5.12-12\ndebconf\t1.5.91\ndebian-archive-keyring\t2025.1\ndebianutils\t5.23.2\ndiffutils\t1:3.10-4\ndpkg\t1.22.22\nfile\t1:5.46-5\nfindutils\t4.10.0-3\ngcc-14-base\t14.2.0-19\ngrep\t3.11-4+b1\ngzip\t1.13-1+deb13u1\nhostname\t3.25\ninit-system-helpers\t1.69~deb13u1\nlibacl1\t2.3.2-2+b1\nlibapt-pkg7.0\t3.0.3\nlibattr1\t1:2.5.2-3\nlibaudit-common\t1:4.0.2-2+deb13u1\nlibaudit1\t1:4.0.2-2+deb13u1\nlibblkid1\t2.41.5-0+deb13u1\nlibbsd0\t0.12.2-2\nlibbz2-1.0\t1.0.8-6\nlibc-bin\t2.41-12+deb13u4\nlibc6\t2.41-12+deb13u4\nlibcap-ng0\t0.8.5-4+b1\nlibcap2\t1:2.75-10+deb13u1+b3\nlibcrypt1\t1:4.4.38-1\nlibdb5.3t64\t5.3.28+dfsg2-9\nlibdebconfclient0\t0.280\nlibgcc-s1\t14.2.0-19\nlibgmp10\t2:6.3.0+dfsg-3\nlibhogweed6t64\t3.10.1-1\nliblastlog2-2\t2.41.5-0+deb13u1\nliblz4-1\t1.10.0-4\nliblzma5\t5.8.1-1+deb13u1\nlibmagic-mgc\t1:5.46-5\nlibmagic1t64\t1:5.46-5\nlibmd0\t1.1.0-2+b1\nlibmount1\t2.41.5-0+deb13u1\nlibnettle8t64\t3.10.1-1\nlibpam-modules\t1.7.0-5\nlibpam-modules-bin\t1.7.0-5\nlibpam-runtime\t1.7.0-5\nlibpam0g\t1.7.0-5\nlibpcre2-8-0\t10.46-1~deb13u2\nlibseccomp2\t2.6.0-2\nlibselinux1\t3.8.1-1\nlibsemanage-common\t3.8.1-1\nlibsemanage2\t3.8.1-1\nlibsepol2\t3.8.1-1\nlibsmartcols1\t2.41.5-0+deb13u1\nlibsqlite3-0\t3.46.1-7+deb13u2\nlibssl3t64\t3.5.7-1~deb13u2\nlibstdc++6\t14.2.0-19\nlibsystemd0\t257.13-1~deb13u1\nlibtinfo6\t6.5+20250216-2\nlibudev1\t257.13-1~deb13u1\nlibuuid1\t2.41.5-0+deb13u1\nlibxxhash0\t0.8.3-2\nlibzstd1\t1.5.7+dfsg-1\nlogin\t1:4.16.0-2+really2.41.5-0+deb13u1\nlogin.defs\t1:4.17.4-2\nmawk\t1.3.4.20250131-1\nmount\t2.41.5-0+deb13u1\nncurses-base\t6.5+20250216-2\nncurses-bin\t6.5+20250216-2\nopenssl\t3.5.7-1~deb13u2\nopenssl-provider-legacy\t3.5.7-1~deb13u2\npasswd\t1:4.17.4-2\nperl-base\t5.40.1-6+deb13u1\nsed\t4.9-2+deb13u1\nsqv\t1.3.0-3+b2\nsysvinit-utils\t3.14-4\ntar\t1.35+dfsg-3.1\ntini\t0.19.0-3+b8\ntzdata\t2026c-0+deb13u1\nutil-linux\t2.41.5-0+deb13u1\nzlib1g\t1:1.3.dfsg+really1.3.1-1+b1\n"
+        },
+        "scope": "Local build observation; not signed release provenance"
+      },
+      "packageTestsPassed": 121,
+      "codecTestsPassed": 13,
+      "evidence": [
+        {
+          "path": ".local/linux-current-package-arm64.log",
+          "sha256": "c96bf29ec68e52439c51a3467e1c01bdfcd8fb57762a0fa4398c6be72e8008cf"
+        },
+        {
+          "path": ".local/linux-current-codecs-arm64.log",
+          "sha256": "d1d802c1cf104d57b7a2ad19835d5f4f0122b53d56804338122f254b727ce311"
+        },
+        {
+          "path": ".local/linux-current-arm64-build.log",
+          "sha256": "27bee5e7984f25126f1e3836d4e14e7a816d28ae8c520f899f40ff6e8a4ab0a8"
+        },
+        {
+          "path": ".local/linux-current-inspect-arm64.json",
+          "sha256": "308a9650f91108c4233a64c0dfc7e0395749abecf322dc537ae76569ca2b79a2"
+        }
+      ]
+    },
+    {
+      "architecture": "amd64",
+      "observation": {
+        "schemaVersion": 1,
+        "imageId": "sha256:a2ebf19392352b55a7d741edb06e53ae51ddbbe732825e14431ac7a9fb14bac8",
+        "architecture": "amd64",
+        "inputSha256": "1844d5900dd563ee2c81ea6fb20c6f6077fe10c6b11f04ddf87133b114424b15",
+        "runtime": {
+          "inputSha256": "1844d5900dd563ee2c81ea6fb20c6f6077fe10c6b11f04ddf87133b114424b15",
+          "node": "v24.21.0",
+          "nodeExecutableSha256": "f6d4191e574860337843a44ea989c8e9d90ce131b72d0cefa096761d11e026f9",
+          "nodeDependencies": {
+            "node": "24.21.0",
+            "acorn": "8.18.0",
+            "ada": "4.0.0",
+            "amaro": "1.1.11",
+            "ares": "1.34.8",
+            "brotli": "1.2.0",
+            "cldr": "48.0",
+            "icu": "78.3",
+            "llhttp": "9.4.3",
+            "merve": "1.2.2",
+            "modules": "137",
+            "napi": "10",
+            "nbytes": "0.1.4",
+            "ncrypto": "0.0.1",
+            "nghttp2": "1.70.0",
+            "nghttp3": "",
+            "ngtcp2": "",
+            "openssl": "3.5.8",
+            "simdjson": "4.6.7",
+            "simdutf": "6.4.0",
+            "sqlite": "3.53.4",
+            "tz": "2026c",
+            "undici": "7.29.1",
+            "unicode": "17.0",
+            "uv": "1.52.1",
+            "uvwasi": "0.0.23",
+            "v8": "13.6.233.17-node.53",
+            "zlib": "1.3.2.1-motley-8002e91",
+            "zstd": "1.5.7"
+          },
+          "nodeSharedOpenSSL": false,
+          "platform": "linux",
+          "architecture": "x64",
+          "uid": 1000,
+          "bbctlSha256": "b450dd81d5afde0754b9da0da9b9c9f96a941d6315c46283af7506a4a70f7f79",
+          "matrixArtifact": {
+            "architecture": "amd64",
+            "name": "matrix-sdk-crypto.linux-x64-gnu.node",
+            "bytes": 16200456,
+            "sha256": "6208d5f54312cb76f1ff5a4816e6025f42281a97d62ca7bee7c1f61d574de735",
+            "sourceCommit": "d71b99cc0b5bd06597a7dc718a73eb4e4ff6d3f1",
+            "inputSha256": "8598cdca9d1dfb0d272d54781a7c6cd3bd65b795b2d455061816f546fdee94df",
+            "buildReportSha256": "9b217a2defdd1d8357de600f4731b4768ae010b25be450632a142fded9afa7a4",
+            "origin": "local-source-build"
+          },
+          "binaries": [
+            {
+              "path": ".local/sources/threema-desktop/node_modules/.pnpm/_de7567b0c2609005ba1d8a129510b499/node_modules/better-sqlcipher/build/Release/better_sqlcipher.node",
+              "sha256": "28d09b14d436e343c2c83bd57372564a848c4c74be0f4104ff23e08e1fc41961",
+              "libraries": "\tlibstdc++.so.6 => /lib/x86_64-linux-gnu/libstdc++.so.6 (0x00007fffff385000)\n\tlibm.so.6 => /lib/x86_64-linux-gnu/libm.so.6 (0x00007fffff295000)\n\tlibc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007fffff0a1000)\n\t/lib64/ld-linux-x86-64.so.2 (0x00007ffffffc8000)\n\tlibgcc_s.so.1 => /lib/x86_64-linux-gnu/libgcc_s.so.1 (0x00007fffff074000)\n"
+            },
+            {
+              "path": ".local/sources/threema-desktop/node_modules/.pnpm/_656ea90ba37ccf93d864aeba0fe61785/node_modules/argon2/build/Release/argon2.node",
+              "sha256": "41dd17085f402b73ddd29dbe5312c4a764d70425d98773efc563d0894dc021dc",
+              "libraries": "\tlibstdc++.so.6 => /lib/x86_64-linux-gnu/libstdc++.so.6 (0x00007fffff54e000)\n\tlibgcc_s.so.1 => /lib/x86_64-linux-gnu/libgcc_s.so.1 (0x00007fffff521000)\n\tlibc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007fffff32d000)\n\tlibm.so.6 => /lib/x86_64-linux-gnu/libm.so.6 (0x00007fffff23d000)\n\t/lib64/ld-linux-x86-64.so.2 (0x00007ffffffc8000)\n"
+            },
+            {
+              "path": ".local/sources/matrix-appservice-bridge/node_modules/@matrix-org/matrix-sdk-crypto-nodejs/matrix-sdk-crypto.linux-x64-gnu.node",
+              "sha256": "6208d5f54312cb76f1ff5a4816e6025f42281a97d62ca7bee7c1f61d574de735",
+              "libraries": "\tlibgcc_s.so.1 => /lib/x86_64-linux-gnu/libgcc_s.so.1 (0x00007ffffe820000)\n\tlibm.so.6 => /lib/x86_64-linux-gnu/libm.so.6 (0x00007ffffe730000)\n\tlibc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007ffffe53c000)\n\t/lib64/ld-linux-x86-64.so.2 (0x00007ffffffc8000)\n"
+            }
+          ],
+          "debianPackages": "adduser\t3.152\napt\t3.0.3\nbase-files\t13.8+deb13u7\nbase-passwd\t3.6.7\nbash\t5.2.37-2+b10\nbsdutils\t1:2.41.5-0+deb13u1\nca-certificates\t20250419\ncoreutils\t9.7-3\ndash\t0.5.12-12\ndebconf\t1.5.91\ndebian-archive-keyring\t2025.1\ndebianutils\t5.23.2\ndiffutils\t1:3.10-4\ndpkg\t1.22.22\nfile\t1:5.46-5\nfindutils\t4.10.0-3\ngcc-14-base\t14.2.0-19\ngrep\t3.11-4\ngzip\t1.13-1+deb13u1\nhostname\t3.25\ninit-system-helpers\t1.69~deb13u1\nlibacl1\t2.3.2-2+b1\nlibapt-pkg7.0\t3.0.3\nlibattr1\t1:2.5.2-3\nlibaudit-common\t1:4.0.2-2+deb13u1\nlibaudit1\t1:4.0.2-2+deb13u1\nlibblkid1\t2.41.5-0+deb13u1\nlibbsd0\t0.12.2-2\nlibbz2-1.0\t1.0.8-6\nlibc-bin\t2.41-12+deb13u4\nlibc6\t2.41-12+deb13u4\nlibcap-ng0\t0.8.5-4+b1\nlibcap2\t1:2.75-10+deb13u1+b3\nlibcrypt1\t1:4.4.38-1\nlibdb5.3t64\t5.3.28+dfsg2-9\nlibdebconfclient0\t0.280\nlibgcc-s1\t14.2.0-19\nlibgmp10\t2:6.3.0+dfsg-3\nlibhogweed6t64\t3.10.1-1\nliblastlog2-2\t2.41.5-0+deb13u1\nliblz4-1\t1.10.0-4\nliblzma5\t5.8.1-1+deb13u1\nlibmagic-mgc\t1:5.46-5\nlibmagic1t64\t1:5.46-5\nlibmd0\t1.1.0-2+b1\nlibmount1\t2.41.5-0+deb13u1\nlibnettle8t64\t3.10.1-1\nlibpam-modules\t1.7.0-5\nlibpam-modules-bin\t1.7.0-5\nlibpam-runtime\t1.7.0-5\nlibpam0g\t1.7.0-5\nlibpcre2-8-0\t10.46-1~deb13u2\nlibseccomp2\t2.6.0-2\nlibselinux1\t3.8.1-1\nlibsemanage-common\t3.8.1-1\nlibsemanage2\t3.8.1-1\nlibsepol2\t3.8.1-1\nlibsmartcols1\t2.41.5-0+deb13u1\nlibsqlite3-0\t3.46.1-7+deb13u2\nlibssl3t64\t3.5.7-1~deb13u2\nlibstdc++6\t14.2.0-19\nlibsystemd0\t257.13-1~deb13u1\nlibtinfo6\t6.5+20250216-2\nlibudev1\t257.13-1~deb13u1\nlibuuid1\t2.41.5-0+deb13u1\nlibxxhash0\t0.8.3-2\nlibzstd1\t1.5.7+dfsg-1\nlogin\t1:4.16.0-2+really2.41.5-0+deb13u1\nlogin.defs\t1:4.17.4-2\nmawk\t1.3.4.20250131-1\nmount\t2.41.5-0+deb13u1\nncurses-base\t6.5+20250216-2\nncurses-bin\t6.5+20250216-2\nopenssl\t3.5.7-1~deb13u2\nopenssl-provider-legacy\t3.5.7-1~deb13u2\npasswd\t1:4.17.4-2\nperl-base\t5.40.1-6+deb13u1\nsed\t4.9-2+deb13u1\nsqv\t1.3.0-3+b2\nsysvinit-utils\t3.14-4\ntar\t1.35+dfsg-3.1\ntini\t0.19.0-3+b8\ntzdata\t2026c-0+deb13u1\nutil-linux\t2.41.5-0+deb13u1\nzlib1g\t1:1.3.dfsg+really1.3.1-1+b1\n"
+        },
+        "scope": "Local build observation; not signed release provenance"
+      },
+      "packageTestsPassed": 121,
+      "codecTestsPassed": 13,
+      "evidence": [
+        {
+          "path": ".local/linux-current-package-amd64.log",
+          "sha256": "84e8e06e28a96ff3456e96c501c3b5c70ea5c5da19cd401900432231a20facd4"
+        },
+        {
+          "path": ".local/linux-current-codecs-amd64.log",
+          "sha256": "038eca525b6fd5d733d68ea63ad8f6e2924f647d975df93c9de06d60bb13ea65"
+        },
+        {
+          "path": ".local/linux-current-amd64-build.log",
+          "sha256": "db071d0e0a6b26e247c680a65cabd745f2ee221e8377795b9b62c811e2a1ed05"
+        },
+        {
+          "path": ".local/linux-current-inspect-amd64.json",
+          "sha256": "30597ad4a73381045122a743533a2052871e0e19c7cf1f2bb084ac8d7264e539"
+        }
+      ]
+    }
+  ],
+  "packageTestFiles": [
+    "tests/entry.backup-store-drill.ts",
+    "tests/entry.heartbeat-https.ts",
+    "tests/entry.heartbeat.ts",
+    "tests/entry.history-validation.ts",
+    "tests/entry.history-window.ts",
+    "tests/entry.history.ts",
+    "tests/entry.linux-config.ts",
+    "tests/entry.media-runtime.ts",
+    "tests/entry.profile-runtime.ts",
+    "tests/entry.proxy.ts",
+    "tests/entry.send-failure-notices.ts",
+    "tests/entry.snapshot-page.ts",
+    "tests/entry.tar-long-path.ts",
+    "tests/entry.transaction-server.ts",
+    "tests/entry.unsupported-content.ts",
+    "tests/entry.validator-fuzz.ts",
+    "tests/entry.media-replies.ts",
+    "tests/entry.recovery-controls.ts",
+    "tests/entry.upstream-monitor.ts",
+    "tests/entry.upstream-monitor-restart.ts",
+    "tests/entry.upstream-notices.ts",
+    "tests/entry.management-room.ts",
+    "tests/entry.management-room-policy.ts",
+    "tests/entry.management-worker.ts",
+    "tests/entry.management-actions.ts",
+    "tests/entry.backup-retention.ts",
+    "tests/entry.backup-notices.ts",
+    "tests/entry.yaml-runtime.ts",
+    "tests/entry.cidr-runtime.ts",
+    "tests/entry.security-scan.ts",
+    "tests/entry.security-notices.ts",
+    "tests/entry.security-database.ts",
+    "tests/entry.security-host-script.ts",
+    "tests/entry.reconnect-policy.ts",
+    "tests/entry.reconnect-notices.ts",
+    "tests/entry.connection-issue.ts",
+    "tests/entry.connection-issue-notices.ts",
+    "tests/entry.backend-controller.ts",
+    "tests/entry.service-start.ts",
+    "tests/entry.disk-notices.ts",
+    "tests/entry.outbox-crash.ts",
+    "tests/entry.media-crash.ts",
+    "tests/entry.portal-migration-rollback.ts",
+    "tests/entry.local-echo-confirmation.ts",
+    "tests/entry.media-reply-crash.ts",
+    "tests/entry.status-crash.ts",
+    "tests/entry.retained-confirmation.ts",
+    "tests/entry.profile-sync.ts"
+  ],
+  "codecTestFiles": [
+    "tests/entry.avif-first-frame.ts",
+    "tests/entry.image-codec.ts",
+    "tests/entry.jpeg-encode.ts",
+    "tests/entry.opus-preparation.ts",
+    "tests/entry.video-encoder.ts",
+    "tests/entry.webp-first-frame.ts"
+  ],
+  "runnerEvidence": {
+    "path": ".local/test-current-package.py",
+    "sha256": "ac0a06a597b98bdd1a6cb55dcaed2464085a8d438f468060d097f6898934d788"
+  },
+  "releaseReady": false,
+  "limitations": [
+    "AMD64 tested under emulation; target-host acceptance remains open.",
+    "Package tests used no source mounts or account data; recipient effects are synthetic.",
+    "No fresh dependency scan or complete source-distribution claim. Existing dependency findings remain under review.",
+    "Live Mac update and ECHOECHO verification are recorded separately in LIVE-CURRENT-UPGRADE.json."
+  ]
+}

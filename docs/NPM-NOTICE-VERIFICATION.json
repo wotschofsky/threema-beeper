@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "packagesWithNoticeEvidence": 7,
+  "unresolved": [
+    {
+      "packages": [
+        "ip-cidr"
+      ],
+      "reason": "No conventionally named root notice at the recorded revision"
+    },
+    {
+      "packages": [
+        "launder"
+      ],
+      "reason": "Exact source revision absent from version metadata; no current-branch substitution"
+    }
+  ],
+  "verifiedArchiveFiles": 14,
+  "licenseReviewComplete": false,
+  "scope": "Notice evidence for nine flagged entries. Embedded notices and containing-package attribution are preserved; remote revisions come from exact-version npm metadata, not independently verified release signatures. This is not a complete legal or nested-notice review.",
+  "evidence": [
+    {
+      "path": ".local/npm-notices-verified-20260916/notices.json",
+      "sha256": "0bbbf601e9ac773c786153edd690b8dc594e1ceda8fd56224d1653b849b89569",
+      "bytes": 5200
+    },
+    {
+      "path": ".local/npm-notices-verified-20260916.tar.gz",
+      "sha256": "f2c390a18eb879221a16bdd790cfd18c42c6d1ce7118fe10b288da760ec6d849",
+      "bytes": 14791
+    },
+    {
+      "path": ".local/npm-notices-verified-20260916.log",
+      "sha256": "827cadb28514a08d87ab7700148bce43861b06140cb200697bcc8f9ba1f278fb",
+      "bytes": 44
+    }
+  ]
+}

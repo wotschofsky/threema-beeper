@@ -1,0 +1,4 @@
+
+# Preserve upstream evidence patches byte-for-byte, including blank context markers.
+native/security-evidence/*.patch -whitespace
+native/node24/*.patch -whitespace

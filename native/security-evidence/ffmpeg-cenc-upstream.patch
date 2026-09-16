@@ -1,0 +1,54 @@
+From 2b14ba12669d75f5f73d8634c6db36e704144532 Mon Sep 17 00:00:00 2001
+From: Michael Niedermayer <michael@niedermayer.cc>
+Date: Tue, 24 Feb 2026 03:47:15 +0100
+Subject: [PATCH] avformat/mov: use 64bit in CENC subsample bounds checks
+
+Found-by: Quang Luong <oss@engineer.ink>
+Found-by: PrymEvol
+Signed-off-by: Michael Niedermayer <michael@niedermayer.cc>
+(cherry picked from commit e392fb8c9c3949d975531d2b23c645d2465a7ebc)
+Signed-off-by: Michael Niedermayer <michael@niedermayer.cc>
+---
+ libavformat/mov.c | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/libavformat/mov.c b/libavformat/mov.c
+index 219e2f28b55c9..047de9e681cd6 100644
+--- a/libavformat/mov.c
++++ b/libavformat/mov.c
+@@ -8107,7 +8107,7 @@ static int cenc_scheme_decrypt(MOVContext *c, MOVStreamContext *sc, AVEncryption
+     }
+ 
+     for (i = 0; i < sample->subsample_count; i++) {
+-        if (sample->subsamples[i].bytes_of_clear_data + sample->subsamples[i].bytes_of_protected_data > size) {
++        if (sample->subsamples[i].bytes_of_clear_data + (int64_t)sample->subsamples[i].bytes_of_protected_data > size) {
+             av_log(c->fc, AV_LOG_ERROR, "subsample size exceeds the packet size left\n");
+             return AVERROR_INVALIDDATA;
+         }
+@@ -8162,7 +8162,7 @@ static int cbc1_scheme_decrypt(MOVContext *c, MOVStreamContext *sc, AVEncryption
+     }
+ 
+     for (i = 0; i < sample->subsample_count; i++) {
+-        if (sample->subsamples[i].bytes_of_clear_data + sample->subsamples[i].bytes_of_protected_data > size) {
++        if (sample->subsamples[i].bytes_of_clear_data + (int64_t)sample->subsamples[i].bytes_of_protected_data > size) {
+             av_log(c->fc, AV_LOG_ERROR, "subsample size exceeds the packet size left\n");
+             return AVERROR_INVALIDDATA;
+         }
+@@ -8224,7 +8224,7 @@ static int cens_scheme_decrypt(MOVContext *c, MOVStreamContext *sc, AVEncryption
+     }
+ 
+     for (i = 0; i < sample->subsample_count; i++) {
+-        if (sample->subsamples[i].bytes_of_clear_data + sample->subsamples[i].bytes_of_protected_data > size) {
++        if (sample->subsamples[i].bytes_of_clear_data + (int64_t)sample->subsamples[i].bytes_of_protected_data > size) {
+             av_log(c->fc, AV_LOG_ERROR, "subsample size exceeds the packet size left\n");
+             return AVERROR_INVALIDDATA;
+         }
+@@ -8289,7 +8289,7 @@ static int cbcs_scheme_decrypt(MOVContext *c, MOVStreamContext *sc, AVEncryption
+     }
+ 
+     for (i = 0; i < sample->subsample_count; i++) {
+-        if (sample->subsamples[i].bytes_of_clear_data + sample->subsamples[i].bytes_of_protected_data > size) {
++        if (sample->subsamples[i].bytes_of_clear_data + (int64_t)sample->subsamples[i].bytes_of_protected_data > size) {
+             av_log(c->fc, AV_LOG_ERROR, "subsample size exceeds the packet size left\n");
+             return AVERROR_INVALIDDATA;
+         }

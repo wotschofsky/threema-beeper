@@ -1,0 +1,17 @@
+{
+  "name": "threema-beeper-probes",
+  "private": true,
+  "type": "module",
+  "license": "MIT",
+  "engines": {
+    "node": ">=24 <25"
+  },
+  "scripts": {
+    "build:native": "node ../../scripts/entry.build-native.ts",
+    "test:native": "node entry.native-persistence-probe.ts",
+    "probe:matrix": "node entry.matrix-encryption-probe.ts",
+    "probe:headless": "node entry.run-headless-probe.ts",
+    "typecheck": "node ../../.local/sources/threema-desktop/node_modules/typescript/bin/tsc --noEmit -p tsconfig.json",
+    "probe:matrix-native": "node entry.matrix-native-persistence-probe.ts"
+  }
+}

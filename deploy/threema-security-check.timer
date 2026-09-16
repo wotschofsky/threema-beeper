@@ -1,0 +1,8 @@
+[Unit]
+Description=Weekly Threema dependency scan
+[Timer]
+OnCalendar=Tue *-*-* 09:00:00
+RandomizedDelaySec=1h
+Persistent=true
+[Install]
+WantedBy=timers.target

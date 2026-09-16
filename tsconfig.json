@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "target": "es2023",
+    "module": "nodenext",
+    "moduleResolution": "nodenext",
+    "strict": true,
+    "skipLibCheck": true,
+    "types": [
+      "node"
+    ],
+    "typeRoots": [
+      "./.local/sources/threema-desktop/apps/desktop/node_modules/@types"
+    ],
+    "noEmit": true,
+    "allowImportingTsExtensions": true
+  },
+  "include": [
+    "scripts/**/*.ts",
+    "src/**/*.ts",
+    "tests/**/*.ts"
+  ]
+}

@@ -1,0 +1,127 @@
+{
+  "schemaVersion": 1,
+  "sourceCommit": "45743c2c940260b13f5ac59f0b49118fc75225d9",
+  "images": [
+    {
+      "architecture": "amd64",
+      "imageId": "sha256:24e213529781b88b1358251c6580134e26536bd89e5c242fcc9bc9c082f59af3",
+      "inputSha256": "c257c28344214652ed4ba884d255b894db74e25d988f740e254d01f1c8d67c34"
+    },
+    {
+      "architecture": "arm64",
+      "imageId": "sha256:9659510686f5665fbbdc61f398d9e76ff63cae8e95e3aab5ae320832875cf5bb",
+      "inputSha256": "c257c28344214652ed4ba884d255b894db74e25d988f740e254d01f1c8d67c34"
+    }
+  ],
+  "archives": [
+    {
+      "component": "ffmpeg",
+      "archive": "ffmpeg-8.0.3.tar.xz",
+      "sha256": "6136812ea6d4e68bdba27e33c2a94382711cdf4f8602ffef056ff792bd6f9818",
+      "url": "https://ffmpeg.org/releases/ffmpeg-8.0.3.tar.xz",
+      "version": "8.0.3",
+      "bytes": 11407656,
+      "noticeFiles": 6
+    },
+    {
+      "component": "jpeg",
+      "archive": "libjpeg-turbo-3.2.0.tar.gz",
+      "sha256": "6f30092cef9fb839779646608f4ee14ae3cbac989c47fa05e841b0841f09878e",
+      "url": "https://github.com/libjpeg-turbo/libjpeg-turbo/releases/download/3.2.0/libjpeg-turbo-3.2.0.tar.gz",
+      "version": "3.2.0",
+      "bytes": 2537858,
+      "noticeFiles": 5
+    },
+    {
+      "component": "webp",
+      "archive": "libwebp-1.6.0.tar.gz",
+      "sha256": "e4ab7009bf0629fd11982d4c2aa83964cf244cffba7347ecd39019a9e38c4564",
+      "url": "https://storage.googleapis.com/downloads.webmproject.org/releases/webp/libwebp-1.6.0.tar.gz",
+      "version": "1.6.0",
+      "bytes": 4296070,
+      "noticeFiles": 2
+    },
+    {
+      "component": "openh264",
+      "archive": "openh264-2.6.0.tar.gz",
+      "sha256": "558544ad358283a7ab2930d69a9ceddf913f4a51ee9bf1bfb9e377322af81a69",
+      "url": "https://github.com/cisco/openh264/archive/refs/tags/v2.6.0.tar.gz",
+      "version": "2.6.0",
+      "bytes": 60302243,
+      "noticeFiles": 1
+    },
+    {
+      "component": "opus",
+      "archive": "opus-1.6.1.tar.gz",
+      "sha256": "6ffcb593207be92584df15b32466ed64bbec99109f007c82205f0194572411a1",
+      "url": "https://downloads.xiph.org/releases/opus/opus-1.6.1.tar.gz",
+      "version": "1.6.1",
+      "bytes": 10472813,
+      "noticeFiles": 2
+    },
+    {
+      "component": "avif",
+      "archive": "libavif-1.4.2.tar.gz",
+      "sha256": "2b645287340ba5a631d268b551dc2d72bd73ac33335962dd36dcdb6d8366921d",
+      "url": "https://github.com/AOMediaCodec/libavif/archive/refs/tags/v1.4.2.tar.gz",
+      "version": "1.4.2",
+      "bytes": 14665927,
+      "noticeFiles": 2
+    },
+    {
+      "component": "dav1d",
+      "archive": "dav1d-1.5.4.tar.xz",
+      "sha256": "686616b7c69eb88d44459391ab25cac13b6647a3b288835c5784e71c1514a5c5",
+      "url": "https://downloads.videolan.org/pub/videolan/dav1d/1.5.4/dav1d-1.5.4.tar.xz",
+      "version": "1.5.4",
+      "bytes": 1038852,
+      "noticeFiles": 1
+    },
+    {
+      "component": "lcms",
+      "archive": "lcms2-2.19.tar.gz",
+      "sha256": "6acc3eb5fac194acc85331194133ad1d4a60419dad16b3bc225a7d27380a5b3a",
+      "url": "https://github.com/mm2/Little-CMS/archive/refs/tags/lcms2.19.tar.gz",
+      "version": "2.19",
+      "bytes": 5732575,
+      "noticeFiles": 5
+    },
+    {
+      "component": "node",
+      "archive": "node-v24.21.0.tar.xz",
+      "sha256": "a6f54defb6fd7c84f41dba13d61e78e9b4e0961712cf61f29715c05f5ced94fc",
+      "url": "https://nodejs.org/dist/v24.21.0/node-v24.21.0.tar.xz",
+      "version": "24.21.0",
+      "bytes": 57357488,
+      "noticeFiles": 247
+    }
+  ],
+  "buildFiles": 25,
+  "verifiedArchiveFiles": 307,
+  "executableModesVerified": true,
+  "checksumVerificationPassed": true,
+  "completeCorrespondingSource": false,
+  "scope": "Original archive checksums match pinned source inputs in the tested image context. Notices are preserved verbatim. This is not a new signature verification, legal review, independently signed build attestation, or complete runtime dependency source bundle.",
+  "evidence": [
+    {
+      "path": ".local/native-source-verified-20260916/native-source.json",
+      "sha256": "52f96c1c3a3149e050ef8035b37b5b08838cd9709b67b855cfcc6bfcb55cfb9b",
+      "bytes": 63433
+    },
+    {
+      "path": ".local/native-source-verified-20260916.tar.gz",
+      "sha256": "82822bcafcc2fc771d6b9936c585005e922ae85f977603c58963422e6de7c84b",
+      "bytes": 168140203
+    },
+    {
+      "path": ".local/native-source-verified-20260916.log",
+      "sha256": "b1dffb2d10e85e36198156af69b339e507c92c9e6848bc621c72602a7c4d3c6b",
+      "bytes": 439
+    },
+    {
+      "path": ".local/native-source-checksums-20260916.log",
+      "sha256": "f9d1a257a757abca752417056d46e7ba97c3f33e711e66afdd67d5faa2893b07",
+      "bytes": 20433
+    }
+  ]
+}

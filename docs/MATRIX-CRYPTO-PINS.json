@@ -1,0 +1,24 @@
+{
+  "version": "0.6.6",
+  "releaseId": 369898035,
+  "releaseUrl": "https://github.com/matrix-org/matrix-rust-sdk-crypto-nodejs/releases/tag/v0.6.6",
+  "publishedAt": "2026-08-13T13:50:48Z",
+  "assets": [
+    {
+      "name": "matrix-sdk-crypto.linux-arm64-gnu.node",
+      "size": 22354632,
+      "sha256": "c43c347f39786ee9f2d11b5ae3088d182c1a81636f2b68dc2297fe6716be2891",
+      "url": "https://github.com/matrix-org/matrix-rust-sdk-crypto-nodejs/releases/download/v0.6.6/matrix-sdk-crypto.linux-arm64-gnu.node"
+    },
+    {
+      "name": "matrix-sdk-crypto.linux-x64-gnu.node",
+      "size": 24788544,
+      "sha256": "aeb21029ac6bb29cd06493f67b19a5a75b3d0371a1ab452fe59f78249350f0f7",
+      "url": "https://github.com/matrix-org/matrix-rust-sdk-crypto-nodejs/releases/download/v0.6.6/matrix-sdk-crypto.linux-x64-gnu.node"
+    }
+  ],
+  "sourceRepository": "https://github.com/matrix-org/matrix-rust-sdk-crypto-nodejs.git",
+  "sourceTag": "v0.6.6",
+  "sourceTagObject": "9d6851721fc685cba57f2af028faf95e41adc8f2",
+  "sourceCommit": "d71b99cc0b5bd06597a7dc718a73eb4e4ff6d3f1"
+}

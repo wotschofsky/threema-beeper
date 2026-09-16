@@ -1,0 +1,225 @@
+{
+  "schemaVersion": 1,
+  "observedOn": "2026-09-16",
+  "sourceCommit": "a429035",
+  "context": ".local/linux-maintenance-20260916",
+  "images": [
+    {
+      "architecture": "amd64",
+      "observation": {
+        "schemaVersion": 1,
+        "imageId": "sha256:db55b1e86a18c248299d42aca0e365d4e27bfb27d7eb02d3813800463a8fcfe4",
+        "architecture": "amd64",
+        "inputSha256": "16250899a1af580e525f0b4ac6bd376f74fd796f81c91640c6553066fa1e6247",
+        "runtime": {
+          "inputSha256": "16250899a1af580e525f0b4ac6bd376f74fd796f81c91640c6553066fa1e6247",
+          "node": "v24.21.0",
+          "nodeExecutableSha256": "f6d4191e574860337843a44ea989c8e9d90ce131b72d0cefa096761d11e026f9",
+          "nodeDependencies": {
+            "node": "24.21.0",
+            "acorn": "8.18.0",
+            "ada": "4.0.0",
+            "amaro": "1.1.11",
+            "ares": "1.34.8",
+            "brotli": "1.2.0",
+            "cldr": "48.0",
+            "icu": "78.3",
+            "llhttp": "9.4.3",
+            "merve": "1.2.2",
+            "modules": "137",
+            "napi": "10",
+            "nbytes": "0.1.4",
+            "ncrypto": "0.0.1",
+            "nghttp2": "1.70.0",
+            "nghttp3": "",
+            "ngtcp2": "",
+            "openssl": "3.5.8",
+            "simdjson": "4.6.7",
+            "simdutf": "6.4.0",
+            "sqlite": "3.53.4",
+            "tz": "2026c",
+            "undici": "7.29.1",
+            "unicode": "17.0",
+            "uv": "1.52.1",
+            "uvwasi": "0.0.23",
+            "v8": "13.6.233.17-node.53",
+            "zlib": "1.3.2.1-motley-8002e91",
+            "zstd": "1.5.7"
+          },
+          "nodeSharedOpenSSL": false,
+          "platform": "linux",
+          "architecture": "x64",
+          "uid": 1000,
+          "bbctlSha256": "b450dd81d5afde0754b9da0da9b9c9f96a941d6315c46283af7506a4a70f7f79",
+          "matrixArtifact": {
+            "architecture": "amd64",
+            "name": "matrix-sdk-crypto.linux-x64-gnu.node",
+            "bytes": 16200456,
+            "sha256": "6208d5f54312cb76f1ff5a4816e6025f42281a97d62ca7bee7c1f61d574de735",
+            "sourceCommit": "d71b99cc0b5bd06597a7dc718a73eb4e4ff6d3f1",
+            "inputSha256": "8598cdca9d1dfb0d272d54781a7c6cd3bd65b795b2d455061816f546fdee94df",
+            "buildReportSha256": "9b217a2defdd1d8357de600f4731b4768ae010b25be450632a142fded9afa7a4",
+            "origin": "local-source-build"
+          },
+          "binaries": [
+            {
+              "path": ".local/sources/threema-desktop/node_modules/.pnpm/_de7567b0c2609005ba1d8a129510b499/node_modules/better-sqlcipher/build/Release/better_sqlcipher.node",
+              "sha256": "28d09b14d436e343c2c83bd57372564a848c4c74be0f4104ff23e08e1fc41961",
+              "libraries": "\tlibstdc++.so.6 => /lib/x86_64-linux-gnu/libstdc++.so.6 (0x00007fffff385000)\n\tlibm.so.6 => /lib/x86_64-linux-gnu/libm.so.6 (0x00007fffff295000)\n\tlibc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007fffff0a1000)\n\t/lib64/ld-linux-x86-64.so.2 (0x00007ffffffc8000)\n\tlibgcc_s.so.1 => /lib/x86_64-linux-gnu/libgcc_s.so.1 (0x00007fffff074000)\n"
+            },
+            {
+              "path": ".local/sources/threema-desktop/node_modules/.pnpm/_656ea90ba37ccf93d864aeba0fe61785/node_modules/argon2/build/Release/argon2.node",
+              "sha256": "41dd17085f402b73ddd29dbe5312c4a764d70425d98773efc563d0894dc021dc",
+              "libraries": "\tlibstdc++.so.6 => /lib/x86_64-linux-gnu/libstdc++.so.6 (0x00007fffff54e000)\n\tlibgcc_s.so.1 => /lib/x86_64-linux-gnu/libgcc_s.so.1 (0x00007fffff521000)\n\tlibc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007fffff32d000)\n\tlibm.so.6 => /lib/x86_64-linux-gnu/libm.so.6 (0x00007fffff23d000)\n\t/lib64/ld-linux-x86-64.so.2 (0x00007ffffffc8000)\n"
+            },
+            {
+              "path": ".local/sources/matrix-appservice-bridge/node_modules/@matrix-org/matrix-sdk-crypto-nodejs/matrix-sdk-crypto.linux-x64-gnu.node",
+              "sha256": "6208d5f54312cb76f1ff5a4816e6025f42281a97d62ca7bee7c1f61d574de735",
+              "libraries": "\tlibgcc_s.so.1 => /lib/x86_64-linux-gnu/libgcc_s.so.1 (0x00007ffffe820000)\n\tlibm.so.6 => /lib/x86_64-linux-gnu/libm.so.6 (0x00007ffffe730000)\n\tlibc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007ffffe53c000)\n\t/lib64/ld-linux-x86-64.so.2 (0x00007ffffffc8000)\n"
+            }
+          ],
+          "debianPackages": "adduser\t3.152\napt\t3.0.3\nbase-files\t13.8+deb13u7\nbase-passwd\t3.6.7\nbash\t5.2.37-2+b10\nbsdutils\t1:2.41.5-0+deb13u1\nca-certificates\t20250419\ncoreutils\t9.7-3\ndash\t0.5.12-12\ndebconf\t1.5.91\ndebian-archive-keyring\t2025.1\ndebianutils\t5.23.2\ndiffutils\t1:3.10-4\ndpkg\t1.22.22\nfile\t1:5.46-5\nfindutils\t4.10.0-3\ngcc-14-base\t14.2.0-19\ngrep\t3.11-4\ngzip\t1.13-1+deb13u1\nhostname\t3.25\ninit-system-helpers\t1.69~deb13u1\nlibacl1\t2.3.2-2+b1\nlibapt-pkg7.0\t3.0.3\nlibattr1\t1:2.5.2-3\nlibaudit-common\t1:4.0.2-2+deb13u1\nlibaudit1\t1:4.0.2-2+deb13u1\nlibblkid1\t2.41.5-0+deb13u1\nlibbsd0\t0.12.2-2\nlibbz2-1.0\t1.0.8-6\nlibc-bin\t2.41-12+deb13u4\nlibc6\t2.41-12+deb13u4\nlibcap-ng0\t0.8.5-4+b1\nlibcap2\t1:2.75-10+deb13u1+b3\nlibcrypt1\t1:4.4.38-1\nlibdb5.3t64\t5.3.28+dfsg2-9\nlibdebconfclient0\t0.280\nlibgcc-s1\t14.2.0-19\nlibgmp10\t2:6.3.0+dfsg-3\nlibhogweed6t64\t3.10.1-1\nliblastlog2-2\t2.41.5-0+deb13u1\nliblz4-1\t1.10.0-4\nliblzma5\t5.8.1-1+deb13u1\nlibmagic-mgc\t1:5.46-5\nlibmagic1t64\t1:5.46-5\nlibmd0\t1.1.0-2+b1\nlibmount1\t2.41.5-0+deb13u1\nlibnettle8t64\t3.10.1-1\nlibpam-modules\t1.7.0-5\nlibpam-modules-bin\t1.7.0-5\nlibpam-runtime\t1.7.0-5\nlibpam0g\t1.7.0-5\nlibpcre2-8-0\t10.46-1~deb13u2\nlibseccomp2\t2.6.0-2\nlibselinux1\t3.8.1-1\nlibsemanage-common\t3.8.1-1\nlibsemanage2\t3.8.1-1\nlibsepol2\t3.8.1-1\nlibsmartcols1\t2.41.5-0+deb13u1\nlibsqlite3-0\t3.46.1-7+deb13u2\nlibssl3t64\t3.5.7-1~deb13u2\nlibstdc++6\t14.2.0-19\nlibsystemd0\t257.13-1~deb13u1\nlibtinfo6\t6.5+20250216-2\nlibudev1\t257.13-1~deb13u1\nlibuuid1\t2.41.5-0+deb13u1\nlibxxhash0\t0.8.3-2\nlibzstd1\t1.5.7+dfsg-1\nlogin\t1:4.16.0-2+really2.41.5-0+deb13u1\nlogin.defs\t1:4.17.4-2\nmawk\t1.3.4.20250131-1\nmount\t2.41.5-0+deb13u1\nncurses-base\t6.5+20250216-2\nncurses-bin\t6.5+20250216-2\nopenssl\t3.5.7-1~deb13u2\nopenssl-provider-legacy\t3.5.7-1~deb13u2\npasswd\t1:4.17.4-2\nperl-base\t5.40.1-6+deb13u1\nsed\t4.9-2+deb13u1\nsqv\t1.3.0-3+b2\nsysvinit-utils\t3.14-4\ntar\t1.35+dfsg-3.1\ntini\t0.19.0-3+b8\ntzdata\t2026c-0+deb13u1\nutil-linux\t2.41.5-0+deb13u1\nzlib1g\t1:1.3.dfsg+really1.3.1-1+b1\n"
+        },
+        "scope": "Local build observation; not signed release provenance"
+      },
+      "packageTestsPassed": 66,
+      "codecTestsPassed": 13,
+      "evidence": [
+        {
+          "path": ".local/linux-maintenance-service-build-amd64.log",
+          "sha256": "e3e82da722056b365fa7170d4bf82f6cde606478731598b24be2493244382591"
+        },
+        {
+          "path": ".local/linux-maintenance-service-inspect-amd64.json",
+          "sha256": "72f4a10e05aad7c17d366c1c1a59d7b3acda4017848b08f89a2d7f1987389533"
+        },
+        {
+          "path": ".local/linux-maintenance-service-package-amd64.log",
+          "sha256": "5fc7d1f7bcdaaa825129cc4b285c2ff60d8f18a045247d1422ba101b9b4d4ef2"
+        },
+        {
+          "path": ".local/linux-maintenance-service-codecs-amd64.log",
+          "sha256": "b23748b72a83ddaa0b180078412674a9a6003a836493ee8b81ebcad1d07a0adc"
+        }
+      ],
+      "accountDataMounted": false,
+      "network": "none; local loopback for HTTP/TLS fixtures",
+      "packageTmpfs": "exec solely for temporary host-script executables",
+      "codecTmpfs": "noexec",
+      "amd64MediaAddressSpaceBytes": 4294967296
+    },
+    {
+      "architecture": "arm64",
+      "observation": {
+        "schemaVersion": 1,
+        "imageId": "sha256:3ece3319e50aba822cae065a26a0fd351575da47b4b92d5872322fafd0d8a675",
+        "architecture": "arm64",
+        "inputSha256": "16250899a1af580e525f0b4ac6bd376f74fd796f81c91640c6553066fa1e6247",
+        "runtime": {
+          "inputSha256": "16250899a1af580e525f0b4ac6bd376f74fd796f81c91640c6553066fa1e6247",
+          "node": "v24.21.0",
+          "nodeExecutableSha256": "be95378e78fea731052f8ecb1a010ed8178a14b33e586c9d2ee955278e8265ef",
+          "nodeDependencies": {
+            "node": "24.21.0",
+            "acorn": "8.18.0",
+            "ada": "4.0.0",
+            "amaro": "1.1.11",
+            "ares": "1.34.8",
+            "brotli": "1.2.0",
+            "cldr": "48.0",
+            "icu": "78.3",
+            "llhttp": "9.4.3",
+            "merve": "1.2.2",
+            "modules": "137",
+            "napi": "10",
+            "nbytes": "0.1.4",
+            "ncrypto": "0.0.1",
+            "nghttp2": "1.70.0",
+            "nghttp3": "",
+            "ngtcp2": "",
+            "openssl": "3.5.8",
+            "simdjson": "4.6.7",
+            "simdutf": "6.4.0",
+            "sqlite": "3.53.4",
+            "tz": "2026c",
+            "undici": "7.29.1",
+            "unicode": "17.0",
+            "uv": "1.52.1",
+            "uvwasi": "0.0.23",
+            "v8": "13.6.233.17-node.53",
+            "zlib": "1.3.2.1-motley-8002e91",
+            "zstd": "1.5.7"
+          },
+          "nodeSharedOpenSSL": false,
+          "platform": "linux",
+          "architecture": "arm64",
+          "uid": 1000,
+          "bbctlSha256": "dbcc293148976d993c6b9fb5d01d1836c1ec388fefb7fc0c10e6533fb024176f",
+          "matrixArtifact": {
+            "architecture": "arm64",
+            "name": "matrix-sdk-crypto.linux-arm64-gnu.node",
+            "bytes": 13725224,
+            "sha256": "c9b70375643216e246636a5f2c1f816914b11f6cc9c8373e218a6039ca9d8d0f",
+            "sourceCommit": "d71b99cc0b5bd06597a7dc718a73eb4e4ff6d3f1",
+            "inputSha256": "8598cdca9d1dfb0d272d54781a7c6cd3bd65b795b2d455061816f546fdee94df",
+            "buildReportSha256": "70f9ee0232a14705960c7a0b0ada68df51a451a99a1b5314c395bc343876e351",
+            "origin": "local-source-build"
+          },
+          "binaries": [
+            {
+              "path": ".local/sources/threema-desktop/node_modules/.pnpm/_de7567b0c2609005ba1d8a129510b499/node_modules/better-sqlcipher/build/Release/better_sqlcipher.node",
+              "sha256": "95ffc4b6588450aeb1acd7f3cb6d8f1784b7cde1d44723fae266eaf1d30632cc",
+              "libraries": "\tlinux-vdso.so.1 (0x0000ffff971a7000)\n\tlibstdc++.so.6 => /lib/aarch64-linux-gnu/libstdc++.so.6 (0x0000ffff96d20000)\n\tlibm.so.6 => /lib/aarch64-linux-gnu/libm.so.6 (0x0000ffff96c70000)\n\tlibc.so.6 => /lib/aarch64-linux-gnu/libc.so.6 (0x0000ffff96ab0000)\n\tlibgcc_s.so.1 => /lib/aarch64-linux-gnu/libgcc_s.so.1 (0x0000ffff96a70000)\n\t/lib/ld-linux-aarch64.so.1 (0x0000ffff97160000)\n"
+            },
+            {
+              "path": ".local/sources/threema-desktop/node_modules/.pnpm/_656ea90ba37ccf93d864aeba0fe61785/node_modules/argon2/build/Release/argon2.node",
+              "sha256": "7919696e166db2c639be3a41bd59ab33520072e59cc761f788ce1fa9b1072504",
+              "libraries": "\tlinux-vdso.so.1 (0x0000ffffa125b000)\n\tlibstdc++.so.6 => /lib/aarch64-linux-gnu/libstdc++.so.6 (0x0000ffffa0f70000)\n\tlibgcc_s.so.1 => /lib/aarch64-linux-gnu/libgcc_s.so.1 (0x0000ffffa0f30000)\n\tlibc.so.6 => /lib/aarch64-linux-gnu/libc.so.6 (0x0000ffffa0d70000)\n\tlibm.so.6 => /lib/aarch64-linux-gnu/libm.so.6 (0x0000ffffa0cc0000)\n\t/lib/ld-linux-aarch64.so.1 (0x0000ffffa1210000)\n"
+            },
+            {
+              "path": ".local/sources/matrix-appservice-bridge/node_modules/@matrix-org/matrix-sdk-crypto-nodejs/matrix-sdk-crypto.linux-arm64-gnu.node",
+              "sha256": "c9b70375643216e246636a5f2c1f816914b11f6cc9c8373e218a6039ca9d8d0f",
+              "libraries": "\tlinux-vdso.so.1 (0x0000ffffa6c48000)\n\tlibgcc_s.so.1 => /lib/aarch64-linux-gnu/libgcc_s.so.1 (0x0000ffffa5ea0000)\n\tlibm.so.6 => /lib/aarch64-linux-gnu/libm.so.6 (0x0000ffffa5df0000)\n\tlibc.so.6 => /lib/aarch64-linux-gnu/libc.so.6 (0x0000ffffa5c30000)\n\t/lib/ld-linux-aarch64.so.1 (0x0000ffffa6c00000)\n"
+            }
+          ],
+          "debianPackages": "adduser\t3.152\napt\t3.0.3\nbase-files\t13.8+deb13u7\nbase-passwd\t3.6.7\nbash\t5.2.37-2+b10\nbsdutils\t1:2.41.5-0+deb13u1\nca-certificates\t20250419\ncoreutils\t9.7-3\ndash\t0.5.12-12\ndebconf\t1.5.91\ndebian-archive-keyring\t2025.1\ndebianutils\t5.23.2\ndiffutils\t1:3.10-4\ndpkg\t1.22.22\nfile\t1:5.46-5\nfindutils\t4.10.0-3\ngcc-14-base\t14.2.0-19\ngrep\t3.11-4+b1\ngzip\t1.13-1+deb13u1\nhostname\t3.25\ninit-system-helpers\t1.69~deb13u1\nlibacl1\t2.3.2-2+b1\nlibapt-pkg7.0\t3.0.3\nlibattr1\t1:2.5.2-3\nlibaudit-common\t1:4.0.2-2+deb13u1\nlibaudit1\t1:4.0.2-2+deb13u1\nlibblkid1\t2.41.5-0+deb13u1\nlibbsd0\t0.12.2-2\nlibbz2-1.0\t1.0.8-6\nlibc-bin\t2.41-12+deb13u4\nlibc6\t2.41-12+deb13u4\nlibcap-ng0\t0.8.5-4+b1\nlibcap2\t1:2.75-10+deb13u1+b3\nlibcrypt1\t1:4.4.38-1\nlibdb5.3t64\t5.3.28+dfsg2-9\nlibdebconfclient0\t0.280\nlibgcc-s1\t14.2.0-19\nlibgmp10\t2:6.3.0+dfsg-3\nlibhogweed6t64\t3.10.1-1\nliblastlog2-2\t2.41.5-0+deb13u1\nliblz4-1\t1.10.0-4\nliblzma5\t5.8.1-1+deb13u1\nlibmagic-mgc\t1:5.46-5\nlibmagic1t64\t1:5.46-5\nlibmd0\t1.1.0-2+b1\nlibmount1\t2.41.5-0+deb13u1\nlibnettle8t64\t3.10.1-1\nlibpam-modules\t1.7.0-5\nlibpam-modules-bin\t1.7.0-5\nlibpam-runtime\t1.7.0-5\nlibpam0g\t1.7.0-5\nlibpcre2-8-0\t10.46-1~deb13u2\nlibseccomp2\t2.6.0-2\nlibselinux1\t3.8.1-1\nlibsemanage-common\t3.8.1-1\nlibsemanage2\t3.8.1-1\nlibsepol2\t3.8.1-1\nlibsmartcols1\t2.41.5-0+deb13u1\nlibsqlite3-0\t3.46.1-7+deb13u2\nlibssl3t64\t3.5.7-1~deb13u2\nlibstdc++6\t14.2.0-19\nlibsystemd0\t257.13-1~deb13u1\nlibtinfo6\t6.5+20250216-2\nlibudev1\t257.13-1~deb13u1\nlibuuid1\t2.41.5-0+deb13u1\nlibxxhash0\t0.8.3-2\nlibzstd1\t1.5.7+dfsg-1\nlogin\t1:4.16.0-2+really2.41.5-0+deb13u1\nlogin.defs\t1:4.17.4-2\nmawk\t1.3.4.20250131-1\nmount\t2.41.5-0+deb13u1\nncurses-base\t6.5+20250216-2\nncurses-bin\t6.5+20250216-2\nopenssl\t3.5.7-1~deb13u2\nopenssl-provider-legacy\t3.5.7-1~deb13u2\npasswd\t1:4.17.4-2\nperl-base\t5.40.1-6+deb13u1\nsed\t4.9-2+deb13u1\nsqv\t1.3.0-3+b2\nsysvinit-utils\t3.14-4\ntar\t1.35+dfsg-3.1\ntini\t0.19.0-3+b8\ntzdata\t2026c-0+deb13u1\nutil-linux\t2.41.5-0+deb13u1\nzlib1g\t1:1.3.dfsg+really1.3.1-1+b1\n"
+        },
+        "scope": "Local build observation; not signed release provenance"
+      },
+      "packageTestsPassed": 66,
+      "codecTestsPassed": 13,
+      "evidence": [
+        {
+          "path": ".local/linux-maintenance-service-build-arm64.log",
+          "sha256": "8b126e553806c4f5a548f2737c2f2c541ff9cb09b55d68734cae38076af2e450"
+        },
+        {
+          "path": ".local/linux-maintenance-service-inspect-arm64.json",
+          "sha256": "6bc643cb75764bd258dc1643e8dfb259f37cdf667aaaabbcb7d5ca57a4f4a5d4"
+        },
+        {
+          "path": ".local/linux-maintenance-service-package-arm64.log",
+          "sha256": "29477c0de68658e2f254e1baaeff3fdff7e8fe7f07131e650cc6adc7c422cdee"
+        },
+        {
+          "path": ".local/linux-maintenance-service-codecs-arm64.log",
+          "sha256": "e67066e066f7a734c2f7d2bec4dafbc6d877460ac73a927a7b7716f84bd80df6"
+        }
+      ],
+      "accountDataMounted": false,
+      "network": "none; local loopback for HTTP/TLS fixtures",
+      "packageTmpfs": "exec solely for temporary host-script executables",
+      "codecTmpfs": "noexec",
+      "amd64MediaAddressSpaceBytes": null
+    }
+  ],
+  "releaseReady": false,
+  "limitations": [
+    "Initial default probe-target builds were corrected to explicit service-target builds; all listed checks rerun against final images.",
+    "Host-script mocks need executable temporary storage; deployment compose retains noexec.",
+    "AMD64 is emulated, not native target-host acceptance.",
+    "Integrated real weekly host scan, live management notices, target deployment and remaining original acceptance gates remain open."
+  ],
+  "inventoryReview": "docs/SBOM-COVERAGE.json",
+  "vulnerabilityReview": "docs/VULNERABILITY-SCAN.json"
+}

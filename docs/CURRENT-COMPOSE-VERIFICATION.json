@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "composeVersion": "5.1.2",
+  "composeSha256": "317bca1dc08e28f22acd873f3758aee29371be1fb323e6863848ff305970bf07",
+  "results": [
+    {
+      "architecture": "arm64",
+      "imageId": "sha256:f869a4742f8a8823747a2cfb5538c84c5df1c7e66d7f7c452395d786533e4bc9",
+      "composeParsed": true,
+      "persistentDataMount": true,
+      "readOnlySecretsAndConfig": true,
+      "restartPolicy": "unless-stopped",
+      "publishedPorts": 0,
+      "envSha256": "5badf382af489a992359e34a8161d010e06cd3efa95afcf9637ae356c833e008"
+    },
+    {
+      "architecture": "amd64",
+      "imageId": "sha256:a2ebf19392352b55a7d741edb06e53ae51ddbbe732825e14431ac7a9fb14bac8",
+      "composeParsed": true,
+      "persistentDataMount": true,
+      "readOnlySecretsAndConfig": true,
+      "restartPolicy": "unless-stopped",
+      "publishedPorts": 0,
+      "envSha256": "65676715a7453265b1e2a2ccc753da1913975c1871529ffa938c654f9f25ea19"
+    }
+  ],
+  "containersStarted": false,
+  "limitations": [
+    "Configuration validation only; no target-host startup, reboot or connectivity claim."
+  ]
+}

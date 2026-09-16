@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "packagesWithRecoveredNoticeCandidates": 37,
+  "repositoryRevisions": 26,
+  "verifiedNoticeFiles": 34,
+  "verifiedArchiveFiles": 61,
+  "packagesWithoutRecoveredNotice": [],
+  "licenseReviewComplete": false,
+  "scope": "Unmodified notices recovered from crate-recorded repository revisions. Candidate applicability follows crate ancestor directories; no legal compatibility or complete third-party notice review is implied.",
+  "evidence": [
+    {
+      "path": ".local/matrix-source-notices-complete-20260916/notices.json",
+      "bytes": 30876,
+      "sha256": "6e2fb11abba6cb7099dff135ef48717f1684d6e7d9d00e16db3d1a8923f5bf7f"
+    },
+    {
+      "path": ".local/matrix-source-notices-verified-20260916.tar.gz",
+      "bytes": 965793,
+      "sha256": "271544f74551931fa3cae73b41ee83efb5641b4695f475a003efb46b9b9c2a3d"
+    },
+    {
+      "path": ".local/matrix-source-notices-complete-20260916.log",
+      "bytes": 1148,
+      "sha256": "19dc26fab62609c81bf1829c96ae570adf5a769abcfd835fca38f4d56c8c7c62"
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "observedAt": "2026-09-16T05:12:52.416Z",
+  "sourceCommit": "48a8428e32722ce00884aea23ce89431db9c1518",
+  "gracefulExitObserved": true,
+  "encryptedBackupCreated": true,
+  "backupAuthenticatedAndRestoredOffline": true,
+  "restoreManifestVerified": true,
+  "restoredProfileStarted": false,
+  "accountRelinked": false,
+  "existingConfigurationRetained": true,
+  "postUpgradeHealth": {
+    "bridge": "running",
+    "threema": "connected",
+    "healthy": true
+  },
+  "postUpgradeEcho": {
+    "recipient": "ECHOECHO",
+    "submittedMessages": 1,
+    "ownCopiesObserved": 1,
+    "echoCopiesObserved": 1
+  },
+  "serviceStartedLogged": true,
+  "serviceStartFailedLogged": false,
+  "evidence": [
+    {
+      "path": ".local/live-upgrade-20260916.json",
+      "sha256": "5bd4669b03b106cfae17919f54276706e95092b5a671198657b7dddbb43673b1"
+    },
+    {
+      "path": ".local/upgrade-live-20260916.py",
+      "sha256": "63142c5d33e95fb159ed78f9fde8e0ff8219cfc1d8ad7412081a469a7fd435cb"
+    },
+    {
+      "path": ".local/live-echo-20260916-1789535572416.json",
+      "sha256": "10ef9592de13c0eca522eb207dcc7efa6aa78f558e91b31f9484f79a1280efcd"
+    },
+    {
+      "path": ".local/verify-live-echo-20260916.ts",
+      "sha256": "6292d338a8854b3bc6b70464ce9b516a2e6318881073acfb250bba6183564cef"
+    }
+  ],
+  "limitations": [
+    "Mac execution of the current source is not Linux deployment acceptance.",
+    "Restore validation authenticated the archive and checked its completion/file manifest; restored-profile startup, independent-host recovery and rollback remain open.",
+    "Live disk/maintenance-warning fault injection and long canary remain open.",
+    "The live service was launched as a detached process; target-host automatic startup remains separate."
+  ]
+}

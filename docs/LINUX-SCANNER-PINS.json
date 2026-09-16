@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "tools": [
+    {
+      "name": "syft",
+      "version": "v1.51.1",
+      "releaseId": 377988884,
+      "releaseUrl": "https://github.com/anchore/syft/releases/tag/v1.51.1",
+      "checksums": {
+        "url": "https://github.com/anchore/syft/releases/download/v1.51.1/syft_1.51.1_checksums.txt",
+        "sha256": "105346699e7cb694afa37a21e2386432df6278c99f71331c24b1e0bb0f38cc75"
+      },
+      "platforms": {
+        "amd64": {
+          "asset": "syft_1.51.1_linux_amd64.tar.gz",
+          "url": "https://github.com/anchore/syft/releases/download/v1.51.1/syft_1.51.1_linux_amd64.tar.gz",
+          "archiveSha256": "8fcb33017a0dc1058298c923c436d19dfa68ae93968e0b423248542e3afb9fc3",
+          "executableSha256": "abca2def61de9952fa06d3977bb1e064818facb9badfce502b450d3d6846a91f"
+        },
+        "arm64": {
+          "asset": "syft_1.51.1_linux_arm64.tar.gz",
+          "url": "https://github.com/anchore/syft/releases/download/v1.51.1/syft_1.51.1_linux_arm64.tar.gz",
+          "archiveSha256": "a7fd2b784e6664acd44719270574f6cd8c6864fc2b1700bf9099bd1cccda7d7f",
+          "executableSha256": "617cef943234e0cae184b4901414ca4059ad6c6923a9c9decb46f49f6a2c6573"
+        }
+      }
+    },
+    {
+      "name": "grype",
+      "version": "v0.118.0",
+      "releaseId": 378093156,
+      "releaseUrl": "https://github.com/anchore/grype/releases/tag/v0.118.0",
+      "checksums": {
+        "url": "https://github.com/anchore/grype/releases/download/v0.118.0/grype_0.118.0_checksums.txt",
+        "sha256": "7a0cfafb6082951a68f89199c3a45f84b0ed8670491e509529ab5f8ee4977a2b"
+      },
+      "platforms": {
+        "amd64": {
+          "asset": "grype_0.118.0_linux_amd64.tar.gz",
+          "url": "https://github.com/anchore/grype/releases/download/v0.118.0/grype_0.118.0_linux_amd64.tar.gz",
+          "archiveSha256": "1d444c5e7360471815f7158f71935fcecc68a3c417d85c7344f770854300bba2",
+          "executableSha256": "91705979c6ccb736b87e3250831f5e1a35f13767fd2032ffa85c55b1e6f58f90"
+        },
+        "arm64": {
+          "asset": "grype_0.118.0_linux_arm64.tar.gz",
+          "url": "https://github.com/anchore/grype/releases/download/v0.118.0/grype_0.118.0_linux_arm64.tar.gz",
+          "archiveSha256": "32aceeb8ee837244775fcb522372c8b3a47914986385f3148f4ee2c930482a84",
+          "executableSha256": "abbadfff923ea8d328272c2a750314244dcc948c420c1f615645570cea8e480b"
+        }
+      }
+    }
+  ]
+}

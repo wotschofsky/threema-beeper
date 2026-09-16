@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "observedAt": "2026-09-16T05:09:20.829Z",
+  "recipient": "ECHOECHO",
+  "submittedMessages": 1,
+  "ownCopiesObserved": 1,
+  "echoCopiesObserved": 1,
+  "bridgeHealthBeforeSend": {
+    "bridge": "running",
+    "threema": "connected",
+    "healthy": true
+  },
+  "guards": [
+    "Existing hard-coded ECHOECHO room only",
+    "Bridge marker matches bot, owner, native ECHOECHO identity and linked account",
+    "Room uses Megolm encryption and owner is joined",
+    "Desktop account matches configured namespace and linked identity"
+  ],
+  "evidence": [
+    {
+      "path": ".local/live-echo-20260916-1789535360829.json",
+      "sha256": "4a8092c04dba77419a8109117bf4399a1c481ea104626717a2d1ed7c21b57d00"
+    },
+    {
+      "path": ".local/verify-live-echo-20260916.ts",
+      "sha256": "6292d338a8854b3bc6b70464ce9b516a2e6318881073acfb250bba6183564cef"
+    }
+  ],
+  "liveWorkerRestarted": false,
+  "linkedProfileOpenedByTest": false,
+  "realContactsMessaged": false,
+  "limitations": [
+    "This confirms the existing Mac worker and Beeper/Threema round trip, not deployment of the current Linux recovery candidate.",
+    "No outage, restart, native media upload or long-canary acceptance was exercised.",
+    "Counts describe the observed response window; they are not a universal exactly-once guarantee."
+  ]
+}

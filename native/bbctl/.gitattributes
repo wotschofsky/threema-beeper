@@ -1,0 +1,2 @@
+# Unified diffs intentionally prefix context lines (including Go tabs) with a space.
+*.patch -whitespace

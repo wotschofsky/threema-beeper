@@ -1,0 +1,107 @@
+{
+  "baseline": {
+    "messages": 100000,
+    "chats": 100,
+    "databaseBytes": 176611328,
+    "rounds": [
+      {
+        "round": "cold",
+        "durationMs": 45000,
+        "pages": 1000,
+        "maxRssBytes": 146194432
+      },
+      {
+        "round": "warm",
+        "durationMs": 44115,
+        "pages": 1000,
+        "maxRssBytes": 191086592
+      }
+    ],
+    "scope": "Synthetic backend with real encrypted journal and synchronizer; excludes native model loading, Matrix delivery and network latency"
+  },
+  "batched": {
+    "messages": 100000,
+    "chats": 100,
+    "databaseBytes": 176644096,
+    "rounds": [
+      {
+        "round": "cold",
+        "durationMs": 11970,
+        "pages": 1000,
+        "maxRssBytes": 219676672
+      },
+      {
+        "round": "warm",
+        "durationMs": 10003,
+        "pages": 1000,
+        "maxRssBytes": 244318208
+      }
+    ],
+    "scope": "Synthetic backend with real encrypted journal and synchronizer; excludes native model loading, Matrix delivery and network latency"
+  },
+  "schemaVersion": 1,
+  "observedOn": "2026-09-15",
+  "host": "macOS arm64 development machine",
+  "node": "24.13.1",
+  "heapLimitArgument": "--max-old-space-size=256",
+  "baselineRevision": "4aaf898",
+  "benchmarkSha256": "7f8a83455ea47f1c87858c294f9172f0b9800a41e2f41ed2d1d66730231b2180",
+  "notes": [
+    "Single measured run per implementation; not statistical performance characterization.",
+    "maxRssBytes is process lifetime high-water RSS; warm values include the earlier cold run.",
+    "Encrypted temporary database is verified row-by-row after each run, then removed.",
+    "Native model loading, network latency, delivery and target-host performance are excluded."
+  ],
+  "linuxPackages": [
+    {
+      "messages": 100000,
+      "chats": 100,
+      "databaseBytes": 176611328,
+      "rounds": [
+        {
+          "round": "cold",
+          "durationMs": 17552,
+          "pages": 1000,
+          "maxRssBytes": 188600320
+        },
+        {
+          "round": "warm",
+          "durationMs": 19706,
+          "pages": 1000,
+          "maxRssBytes": 191782912
+        }
+      ],
+      "scope": "Synthetic backend with real encrypted journal and synchronizer; excludes native model loading, Matrix delivery and network latency",
+      "architecture": "amd64",
+      "imageId": "sha256:0e0125a039604f015b364fb48e23305df7e2caad497bbeb9739dc719e3e17f39",
+      "inputSha256": "4b1adaa6db43d67d0c5a62414efb6a84b8f91b01075fe48ac35d442e17e0ae26",
+      "storage": "768 MiB tmpfs inside Docker on macOS; not target disk",
+      "harness": "Read-only host benchmark script; production modules from image"
+    },
+    {
+      "messages": 100000,
+      "chats": 100,
+      "databaseBytes": 176717824,
+      "rounds": [
+        {
+          "round": "cold",
+          "durationMs": 13415,
+          "pages": 1000,
+          "maxRssBytes": 160706560
+        },
+        {
+          "round": "warm",
+          "durationMs": 11822,
+          "pages": 1000,
+          "maxRssBytes": 162410496
+        }
+      ],
+      "scope": "Synthetic backend with real encrypted journal and synchronizer; excludes native model loading, Matrix delivery and network latency",
+      "architecture": "arm64",
+      "imageId": "sha256:f672bcb14cd147c2ee1a16bbecc68c476bdfcacc7e433f932599a3d493a52746",
+      "inputSha256": "4b1adaa6db43d67d0c5a62414efb6a84b8f91b01075fe48ac35d442e17e0ae26",
+      "storage": "768 MiB tmpfs inside Docker on macOS; not target disk",
+      "harness": "Read-only host benchmark script; production modules from image"
+    }
+  ]
+}

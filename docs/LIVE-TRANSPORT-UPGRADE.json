@@ -1,0 +1,69 @@
+{
+  "schemaVersion": 1,
+  "observedAt": "2026-09-16T06:33:04.044Z",
+  "sourceCommit": "ae2fefb3d2f95aa4d9b34c50a2c5c10d00788835",
+  "change": "Require upstream transport evidence before local echoes resolve uncertain delivery",
+  "gracefulExitObserved": true,
+  "encryptedBackupCreated": true,
+  "backupAuthenticatedAndRestoredOffline": true,
+  "restoreManifestVerified": true,
+  "restoredProfileStarted": false,
+  "accountRelinked": false,
+  "retained": {
+    "restoreMatchesCurrentConfiguration": true,
+    "profileSecretUnchanged": true,
+    "matrixMasterKeyUnchanged": true,
+    "registrationUnchanged": true,
+    "serviceStartedLogged": true,
+    "serviceStartFailedLogged": false
+  },
+  "postUpgradeHealth": {
+    "scope": "Local bridge and Threema connection; does not test Beeper message delivery.",
+    "bridge": "running",
+    "threema": "connected",
+    "healthy": true
+  },
+  "postUpgradeEcho": {
+    "recipient": "ECHOECHO",
+    "submittedMessages": 1,
+    "ownCopiesObserved": 1,
+    "echoCopiesObserved": 1
+  },
+  "evidence": [
+    {
+      "path": ".local/live-transport-upgrade-20260916.json",
+      "sha256": "52f5f9f72e5302a4d32373f61f33c1585fd425ec3c0ebdd16cfbf742af4f0e9e"
+    },
+    {
+      "path": ".local/upgrade-live-transport-20260916.py",
+      "sha256": "09f3c6aeaa4ae0d7061f1590b266dd6fa2bc60fc4985a6d9810b08d0a3c8cc8c"
+    },
+    {
+      "path": ".local/live-transport-health-20260916.json",
+      "sha256": "e618e52170752fab67104e58987b6a18892a225824389d45886516462bbe535a"
+    },
+    {
+      "path": ".local/live-transport-retained-20260916.json",
+      "sha256": "85be32207fc3afd1c3afe8244c5011556ac18c5e91c3c64cc5f104b5ff91bce1"
+    },
+    {
+      "path": ".local/check-transport-upgrade.ts",
+      "sha256": "b218a766084ce40d24173af3bebda495e4d987c9c936598012ae4badcf45a666"
+    },
+    {
+      "path": ".local/live-echo-20260916-1789540384044.json",
+      "sha256": "f3ad99ce359004b165a16ddc60eb40dd43303940de82ced53f4441974b016cfb"
+    },
+    {
+      "path": ".local/verify-live-echo-20260916.ts",
+      "sha256": "6292d338a8854b3bc6b70464ce9b516a2e6318881073acfb250bba6183564cef"
+    }
+  ],
+  "limitations": [
+    "Mac source execution is not target Linux deployment acceptance.",
+    "Backup authentication and manifest/profile binding passed; this fresh restored copy was not started.",
+    "Only one ECHOECHO round trip checked; no broad exactly-once claim.",
+    "Process is detached; target-host automatic startup, external monitoring, rollback and long canary remain open.",
+    "Native Threema task recovery after process termination and legacy prematurely acknowledged rows remain unverified."
+  ]
+}

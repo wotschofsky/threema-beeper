@@ -1,0 +1,242 @@
+{
+  "schemaVersion": 1,
+  "nodeVersion": "24.21.0",
+  "distribution": "Debian 13 (trixie)",
+  "image": "docker.io/library/node:24.21.0-trixie-slim",
+  "indexDigest": "sha256:db3ae80f5d8df06e04dabdf7b44cbf008d32de168205fa0294444aabbc08c590",
+  "platforms": [
+    {
+      "platform": "linux/amd64",
+      "digest": "sha256:9f8cef0626c992f3f3ccaa80fb4868783d557c1f58bdb467fed782241d597c8b"
+    },
+    {
+      "platform": "linux/arm64/v8",
+      "digest": "sha256:f6cc20bdfbdb98de10c1bbbb54710bb2228545372ee4e8db25cf5a3db5b08f49"
+    }
+  ],
+  "status": "both-current-packages-passed-release-acceptance-pending",
+  "releaseReady": false,
+  "runtimeSource": {
+    "manifest": "docs/NODE-CLEANUP-BUILD.json",
+    "recipe": "spikes/gate0/Dockerfile.native",
+    "description": "Official signed Node source plus the recorded cleanup-hook backport, compiled locally. The image reference above is the base, not the final runtime binary."
+  },
+  "compatibility": {
+    "arm64": {
+      "status": "package-checks-passed-release-acceptance-pending",
+      "imageId": "sha256:9659510686f5665fbbdc61f398d9e76ff63cae8e95e3aab5ae320832875cf5bb",
+      "inputSha256": "c257c28344214652ed4ba884d255b894db74e25d988f740e254d01f1c8d67c34",
+      "nodeExecutableSha256": "be95378e78fea731052f8ecb1a010ed8178a14b33e586c9d2ee955278e8265ef",
+      "packageTestsPassed": 86,
+      "nativeCodecTestsPassed": 13,
+      "sourceOverlays": false,
+      "accountDataMounted": false,
+      "network": "none; loopback used by local HTTP/TLS tests",
+      "evidence": [
+        {
+          "path": ".local/linux-alerts-build-arm64.log",
+          "sha256": "a86c8c46fbb4127c9129d59c79e1929051fb1caeb4d2ea546bfdc191277d5cb8"
+        },
+        {
+          "path": ".local/linux-alerts-inspect-arm64.json",
+          "sha256": "0db09587d24dfc316ad434d6835db79898c3bd2ce94f07cff9a64708bdd08afa"
+        },
+        {
+          "path": ".local/linux-alerts-package-arm64.log",
+          "sha256": "923800f6b3264387f0f3a2ba2bea62aa07d53d3ced439f5f3b06c4e132fcc92e"
+        },
+        {
+          "path": ".local/linux-alerts-codecs-arm64.log",
+          "sha256": "6b513eea2116f84b3817c6802058189a7429fb7748c93f4f4a2918210a5972ae"
+        }
+      ],
+      "limitations": [
+        "Single local ARM64 Docker run, not target-host acceptance.",
+        "Dependency review, release packaging and live acceptance remain pending."
+      ],
+      "imageReview": "docs/NODE-CLEANUP-IMAGE-REVIEW.json",
+      "dependencyOverrides": {
+        "js-yaml": "4.3.2",
+        "ip-cidr": "4.0.2 with checksum-checked bigint API adaptation",
+        "ip-address": "10.3.1"
+      },
+      "proxyDependencies": {
+        "golang.org/x/crypto": "v0.56.0",
+        "golang.org/x/text": "v0.41.0"
+      },
+      "packageTmpfs": "exec for temporary host-script stand-ins",
+      "codecTmpfs": "noexec"
+    },
+    "amd64": {
+      "status": "package-checks-passed-release-acceptance-pending",
+      "imageId": "sha256:24e213529781b88b1358251c6580134e26536bd89e5c242fcc9bc9c082f59af3",
+      "inputSha256": "c257c28344214652ed4ba884d255b894db74e25d988f740e254d01f1c8d67c34",
+      "nodeExecutableSha256": "f6d4191e574860337843a44ea989c8e9d90ce131b72d0cefa096761d11e026f9",
+      "packageTestsPassed": 86,
+      "nativeCodecTestsPassed": 13,
+      "sourceOverlays": false,
+      "accountDataMounted": false,
+      "network": "none; loopback used by local HTTP/TLS tests",
+      "evidence": [
+        {
+          "path": ".local/linux-alerts-build-amd64.log",
+          "sha256": "eef88b658b406a8227cc4c7927d001aafca17458219c0cb8ee66591875c6d7b8"
+        },
+        {
+          "path": ".local/linux-alerts-inspect-amd64.json",
+          "sha256": "2bca68d8fc76a68bb4741a3095d289e216615b0c6f3940ad3cee0215b583683d"
+        },
+        {
+          "path": ".local/linux-alerts-package-amd64.log",
+          "sha256": "e2454227039a75c4b01a7c660401a1ec28127e40272bc773c3a4ddd7317b0d56"
+        },
+        {
+          "path": ".local/linux-alerts-codecs-amd64.log",
+          "sha256": "3308484d139552104607805d03f667aafb270c82b04cdccb0c532818d1e3b36a"
+        }
+      ],
+      "limitations": [
+        "Single AMD64 run under Rosetta, not native x86-64 target-host acceptance.",
+        "Media tests use 4 GiB address-space allowance under emulation.",
+        "Dependency review, release packaging and live acceptance remain pending."
+      ],
+      "imageReview": "docs/NODE-CLEANUP-IMAGE-REVIEW.json",
+      "dependencyOverrides": {
+        "js-yaml": "4.3.2",
+        "ip-cidr": "4.0.2 with checksum-checked bigint API adaptation",
+        "ip-address": "10.3.1"
+      },
+      "proxyDependencies": {
+        "golang.org/x/crypto": "v0.56.0",
+        "golang.org/x/text": "v0.41.0"
+      },
+      "packageTmpfs": "exec for temporary host-script stand-ins",
+      "codecTmpfs": "noexec"
+    }
+  },
+  "previousCandidate": {
+    "schemaVersion": 1,
+    "nodeVersion": "24.18.1",
+    "distribution": "Debian 13 (trixie)",
+    "image": "docker.io/library/node:24.18.1-trixie-slim",
+    "indexDigest": "sha256:ac39e4b5fcb2b1b34b20364fd58b2e898f3bb80731ee6f62a7536f9df3d6aadc",
+    "platforms": [
+      {
+        "platform": "linux/amd64",
+        "digest": "sha256:10c950bed4f33b3cedac92b6a46a14f18b8bf4bed18affbf86c871d9bc0d0a91"
+      },
+      {
+        "platform": "linux/arm64/v8",
+        "digest": "sha256:fe272c0a786d385714da5cfc6fb54325bb99a60f0584b756319827fe01916389"
+      }
+    ],
+    "releaseNotes": "https://nodejs.org/en/blog/release/v24.18.1",
+    "manifestInspectionSha256": "af4e9a436b237ef6702d84e2dd4703e1f914180b751bc285d8f331039c516828",
+    "status": "compatibility-verified-security-review-pending",
+    "codecBuildBase": {
+      "image": "docker.io/library/node:24.21.0-trixie-slim",
+      "indexDigest": "sha256:db3ae80f5d8df06e04dabdf7b44cbf008d32de168205fa0294444aabbc08c590",
+      "nodeVersion": "24.21.0"
+    },
+    "rejectedCandidates": [
+      {
+        "schemaVersion": 1,
+        "nodeVersion": "24.21.0",
+        "distribution": "Debian 13 (trixie)",
+        "image": "docker.io/library/node:24.21.0-trixie-slim",
+        "indexDigest": "sha256:db3ae80f5d8df06e04dabdf7b44cbf008d32de168205fa0294444aabbc08c590",
+        "platforms": [
+          {
+            "platform": "linux/amd64",
+            "digest": "sha256:9f8cef0626c992f3f3ccaa80fb4868783d557c1f58bdb467fed782241d597c8b"
+          },
+          {
+            "platform": "linux/arm64/v8",
+            "digest": "sha256:f6cc20bdfbdb98de10c1bbbb54710bb2228545372ee4e8db25cf5a3db5b08f49"
+          }
+        ],
+        "officialImageSource": "https://github.com/nodejs/docker-node/tree/93a7bafc324a85ac1ee461604cff87cffacb6d7a/24/trixie-slim",
+        "releaseNotes": "https://nodejs.org/en/blog/release/v24.21.0",
+        "manifestInspectionSha256": "dfdd47beb377c3faaaf7228d32fbe28fb3155e77deca5850c4e0f2336263edb8",
+        "status": "candidate-rejected-database-cleanup-crash",
+        "compatibility": {
+          "arm64": {
+            "mediaTestsPassed": 13,
+            "packageTestsPassed": 25,
+            "failedTestFiles": [
+              "entry.media-replies.ts",
+              "entry.recovery-controls.ts"
+            ]
+          },
+          "amd64": {
+            "failedTestFiles": [
+              "entry.media-replies.ts",
+              "entry.recovery-controls.ts"
+            ]
+          },
+          "runtimeAccepted": false
+        }
+      }
+    ],
+    "upgradeCondition": "Evaluate newer Node 24 releases after the cleanup-hook regression passes; this pin does not complete vulnerability review.",
+    "releaseReady": false,
+    "compatibility": {
+      "amd64": {
+        "imageId": "sha256:132a5b05df5be3382ea72bb97d4610373c805cdf0fb29b431961ccf16364f102",
+        "inputSha256": "69cc218847b3f6bd42f05a302ada780b7cb9f8872019aa68be96dfe1210f94c3",
+        "packageTestsPassed": 29,
+        "mediaTestsPassed": 13,
+        "evidence": [
+          {
+            "path": ".local/linux-node2418-regression-amd64.log",
+            "sha256": "e115a038dc687b166f4d76f9cef6e44c532aef6763012714d9de21cf686ccac5",
+            "passed": 4
+          },
+          {
+            "path": ".local/linux-node2418-tests-amd64.log",
+            "sha256": "33a8dc3481b2e6538ad8403bdae6f1c3f83d5a11b03bd795bb97a74133fa7b27",
+            "passed": 25
+          },
+          {
+            "path": ".local/linux-node2418-codecs-amd64.log",
+            "sha256": "6801545d4f95c48d3ba202060b4a939a661cd0b8658c84df02caff8f654a1548",
+            "passed": 13
+          }
+        ]
+      },
+      "arm64": {
+        "imageId": "sha256:b9f97a6bab5a3d60c5fd2fbeed13866ac466e9fc961f39705a1a5c61e1f56cf4",
+        "inputSha256": "69cc218847b3f6bd42f05a302ada780b7cb9f8872019aa68be96dfe1210f94c3",
+        "packageTestsPassed": 29,
+        "mediaTestsPassed": 13,
+        "evidence": [
+          {
+            "path": ".local/linux-node2418-regression-arm64.log",
+            "sha256": "76905c7d5613b41a62cf85740b905477acc1f699c470b15a6c3b1341eaccc840",
+            "passed": 4
+          },
+          {
+            "path": ".local/linux-node2418-tests-arm64.log",
+            "sha256": "3b7b37d59612c0bbe36bbc9c967bf7fd1a056e234c6cc09915675b668e993de5",
+            "passed": 25
+          },
+          {
+            "path": ".local/linux-node2418-codecs-arm64.log",
+            "sha256": "985396080d279c1783ac7bf8e9627f95113e5a4bc834fc8c660fd2d5a5c58070",
+            "passed": 13
+          }
+        ]
+      }
+    },
+    "limitations": [
+      "Node bundled OpenSSL is 3.5.7 and statically linked; Debian OpenSSL package fixes do not establish its acceptance.",
+      "AMD64 media tests used a 4 GiB address-space allowance under Rosetta; native target-host acceptance remains pending.",
+      "No account data was mounted and no live installation or exported release was changed."
+    ]
+  },
+  "limitations": [
+    "No new release images have been exported or deployed.",
+    "Dependency applicability/static-component review, target-host acceptance remain pending.",
+    "Debian build dependencies are not yet snapshot-pinned."
+  ]
+}

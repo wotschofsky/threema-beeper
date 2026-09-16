@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 1,
+  "directory": ".local/source-supplements-with-proxy-20260916",
+  "sourceCommit": "45743c2c940260b13f5ac59f0b49118fc75225d9",
+  "inputSha256": "c257c28344214652ed4ba884d255b894db74e25d988f740e254d01f1c8d67c34",
+  "verifiedInputFiles": 70,
+  "archiveReadbackVerified": true,
+  "debianSourceVersionsIncluded": 59,
+  "proxyBinaryDependencyModulesCovered": 30,
+  "goSourceVersionIncluded": "go1.27.1",
+  "fullCandidateExportVerified": false,
+  "completeCorrespondingSource": false,
+  "evidence": [
+    {
+      "path": ".local/source-supplements-with-proxy-20260916/sources.tar.gz",
+      "bytes": 680179709,
+      "sha256": "89cd89c8856ab1abe368ef28f316c4b8cd69466cd57b1d9bff3d2f7747d15d47"
+    },
+    {
+      "path": ".local/source-supplements-with-proxy-20260916/sources.json",
+      "bytes": 19045,
+      "sha256": "5a1d95bc55361c6a14b71501c36f13fd25b993a6631b5fa456dccd5f2fe94693"
+    }
+  ],
+  "remaining": [
+    "OS source license review and reproducibility",
+    "Preferred sources for generated/bundled npm packages",
+    "SQLCipher original source and regeneration provenance",
+    "Unresolved npm notices and full license review",
+    "Complete build-tool inputs, reproducibility and signed provenance"
+  ],
+  "previousVerification": {
+    "schemaVersion": 1,
+    "directory": ".local/source-supplements-with-debian-20260916",
+    "sourceCommit": "45743c2c940260b13f5ac59f0b49118fc75225d9",
+    "inputSha256": "c257c28344214652ed4ba884d255b894db74e25d988f740e254d01f1c8d67c34",
+    "verifiedInputFiles": 62,
+    "archiveReadbackVerified": true,
+    "debianSourceVersionsIncluded": 59,
+    "osNoticeArchitecturesIncluded": [
+      "amd64",
+      "arm64"
+    ],
+    "fullCandidateExportVerified": false,
+    "completeCorrespondingSource": false,
+    "evidence": [
+      {
+        "path": ".local/source-supplements-with-debian-20260916/sources.tar.gz",
+        "sha256": "e3d624f93a274869efbe9bcaf9f1c8298822290a06e4205e75ae54576bb4b068",
+        "bytes": 639118984
+      },
+      {
+        "path": ".local/source-supplements-with-debian-20260916/sources.json",
+        "sha256": "f124d34b1383928e0fda69adda69fcd76201760e724b4d007a5925fc9674cd9d",
+        "bytes": 17069
+      }
+    ],
+    "remaining": [
+      "OS source license review and reproducibility",
+      "Preferred sources for generated/bundled npm packages",
+      "SQLCipher original source and regeneration provenance",
+      "Unresolved npm notices and full license review",
+      "Complete build-tool inputs, reproducibility and signed provenance"
+    ],
+    "previousVerification": {
+      "schemaVersion": 1,
+      "directory": ".local/source-supplements-release-20260916",
+      "sourceCommit": "45743c2c940260b13f5ac59f0b49118fc75225d9",
+      "inputSha256": "c257c28344214652ed4ba884d255b894db74e25d988f740e254d01f1c8d67c34",
+      "verifiedInputFiles": 49,
+      "archiveReadbackVerified": true,
+      "checksumVerificationPassed": true,
+      "candidateExporterTypecheckPassed": true,
+      "fullCandidateExportVerified": true,
+      "completeCorrespondingSource": false,
+      "evidence": [
+        {
+          "path": ".local/source-supplements-release-20260916/sources.tar.gz",
+          "sha256": "18ae5f3036f154023ac2383698bfd7258d6a1ed05f1b9af27debfd539b03cc84",
+          "bytes": 311335793
+        },
+        {
+          "path": ".local/source-supplements-release-20260916/sources.json",
+          "sha256": "34ee8d270f4ce3f842f1ac208c034d89f5a4d31d9579c1f9ce2208db9d6c3437",
+          "bytes": 13762
+        }
+      ],
+      "remaining": [
+        "OS package source and notice coverage",
+        "Preferred sources for generated/bundled npm packages",
+        "SQLCipher original source and regeneration provenance",
+        "Unresolved npm notices and full license review",
+        "Complete build-tool inputs, reproducibility and signed provenance"
+      ],
+      "verifiedCandidateDirectory": ".local/releases-sources-20260916",
+      "candidateReleaseManifestSha256": "b1c866e8f4e1df6be9e8432adcc133d74c7e8de247a131a89d43f390f5ab3947",
+      "candidateVerifiedChecksumFiles": 9,
+      "candidateSourceArchiveEntriesVerified": 50
+    },
+    "checksumVerificationPassed": true
+  },
+  "checksumVerificationPassed": true
+}

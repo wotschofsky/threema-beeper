@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 1,
+  "observedOn": "2026-09-16",
+  "backupSourceEvidence": "docs/LIVE-RECOVERY-UPGRADE.json",
+  "results": [
+    {
+      "platform": "host",
+      "result": {
+        "architecture": "arm64",
+        "wrongPasswordRejected": true,
+        "identityMatches": true,
+        "databaseIntegrity": true,
+        "reopenPassed": true,
+        "sourceUnchanged": true,
+        "backendStarted": false
+      },
+      "evidence": {
+        "path": ".local/restored-threema-host-20260916.log",
+        "sha256": "2f131e933cd52b874f77f63690e4b12217007a013e1f5468400cb255675fce22"
+      }
+    },
+    {
+      "platform": "arm64",
+      "result": {
+        "architecture": "arm64",
+        "wrongPasswordRejected": true,
+        "identityMatches": true,
+        "databaseIntegrity": true,
+        "reopenPassed": true,
+        "sourceUnchanged": true,
+        "backendStarted": false
+      },
+      "evidence": {
+        "path": ".local/restored-threema-arm64-20260916.log",
+        "sha256": "2f131e933cd52b874f77f63690e4b12217007a013e1f5468400cb255675fce22"
+      },
+      "imageId": "sha256:3b4d2c3944ea04d1cd567cc9e21234a5a3f5d88cbbe5914b31f9e666df9ce5f4"
+    },
+    {
+      "platform": "amd64",
+      "result": {
+        "architecture": "x64",
+        "wrongPasswordRejected": true,
+        "identityMatches": true,
+        "databaseIntegrity": true,
+        "reopenPassed": true,
+        "sourceUnchanged": true,
+        "backendStarted": false
+      },
+      "evidence": {
+        "path": ".local/restored-threema-amd64-20260916.log",
+        "sha256": "723fd1377e4646689c1fa4384714b8404b4b80e8617def5755540cb4e93fa7f9"
+      },
+      "imageId": "sha256:898a2dffe68b67aed3e55f860886b5894db8a214d64a44a1e33c87d49459b902"
+    }
+  ],
+  "sources": [
+    {
+      "path": "scripts/entry.build-restore-probe.mjs",
+      "sha256": "56bb7258c1e37515411f735723642f9deaebcdce98071589fca23e99747405dc"
+    },
+    {
+      "path": "scripts/entry.verify-restored-profile.ts",
+      "sha256": "de77b04d0d8ecfd9e9d2d5229caa05f7af6154d68271202ca22b81e04cc7b23f"
+    },
+    {
+      "path": "spikes/gate0/desktop-overlay/src/headless/restore-probe.ts",
+      "sha256": "e2aa633d0c75b21e512ef79610c1472aa8b6e1fa1e1d460b4454b1feba08c477"
+    },
+    {
+      "path": "spikes/gate0/desktop-overlay/src/headless/node-factories.ts",
+      "sha256": "2b6fcbe14673e68e8d503a0b656efdbac8738dffacaf6a3ee9b3ec55c4fabd7b"
+    }
+  ],
+  "bundle": {
+    "path": ".local/sources/threema-desktop/apps/desktop/build/restore-probe/restore-probe.cjs",
+    "sha256": "4fc36adf97055f90067e067bbf1d4b2176507e835398d805b981b2cb8792c22b"
+  },
+  "buildLog": {
+    "path": ".local/build-restore-probe.log",
+    "sha256": "650bf3a1820278a0a7ca6a4952f42ced3e13549d697fbe219b7f1c7f72de2ffe"
+  },
+  "typechecks": {
+    "root": "passed",
+    "headless": "passed"
+  },
+  "linuxConstraints": {
+    "network": "none",
+    "installationMount": "read-only",
+    "root": "read-only",
+    "capabilities": "all dropped",
+    "scratch": "private noexec tmpfs",
+    "user": "host owner UID/GID"
+  },
+  "scope": "Existing consumer Threema keystore and native database from the authenticated adopted restore. Temporary copies only. Upstream storage factories unlock, migrate, check integrity and close; no Backend, session, transport or bridge service is created. Original selected files remain byte-identical.",
+  "limitations": [
+    "The separately built diagnostic bundle was mounted into the existing images; it is not part of the exported release. Native dependencies came from each image.",
+    "Does not verify every media file, message record or Matrix identity, or decrypt old Matrix events.",
+    "Remote-secret protected profiles are deliberately rejected by this offline probe.",
+    "Does not prove target-host startup, off-site restore, failed-migration rollback or live connectivity of the restored account.",
+    "AMD64 used local emulation; ARM64 used the local Docker VM, not a target Linux host."
+  ]
+}

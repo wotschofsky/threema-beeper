@@ -1,0 +1,314 @@
+{
+  "schemaVersion": 1,
+  "libthreema": {
+    "schemaVersion": 1,
+    "source": {
+      "name": "threema-desktop",
+      "url": "https://github.com/threema-ch/threema-desktop.git",
+      "tag": "v2.0-beta65",
+      "commit": "63f65806398400017201ef2aaa4f97dfc122e5b0"
+    },
+    "inputs": [
+      {
+        "repositoryPath": "packages/libthreema-wasm/libs/libthreema/Cargo.lock",
+        "bytes": 82727,
+        "sha256": "8942516005c7ad7b3bd6c7c8a0351aebda75db5cf1f9e87bbc278f459fd0db74"
+      },
+      {
+        "repositoryPath": "packages/libthreema-wasm/libs/libthreema/Cargo.toml",
+        "bytes": 5974,
+        "sha256": "7cdc179f4e5c73831c279a6c25e54fb1ba2d0127bb4f384503a051e1f5f1e2be"
+      },
+      {
+        "repositoryPath": "packages/libthreema-wasm/libs/libthreema/lib/Cargo.toml",
+        "bytes": 5028,
+        "sha256": "641c78a1c0801982b66c80703bde7263389fa7f45f258435d529e9ba75c88710"
+      },
+      {
+        "repositoryPath": "packages/libthreema-wasm/libs/libthreema/macros/Cargo.toml",
+        "bytes": 353,
+        "sha256": "0d440f565076346504ce83698c8634d85bcc24bf51d66df7dad7cff51aab18f2"
+      },
+      {
+        "repositoryPath": "packages/libthreema-wasm/libs/libthreema/patches/blake2/Cargo.toml",
+        "bytes": 747,
+        "sha256": "b41c8a579c65187ddcb621ad9057dd31fd70c6f62450991fde5029e63ce32bc3"
+      },
+      {
+        "repositoryPath": "packages/libthreema-wasm/libs/libthreema/patches/blake2/LICENSE-APACHE",
+        "bytes": 10849,
+        "sha256": "a9040321c3712d8fd0b09cf52b17445de04a23a10165049ae187cd39e5c86be5"
+      },
+      {
+        "repositoryPath": "packages/libthreema-wasm/libs/libthreema/patches/blake2/LICENSE-MIT",
+        "bytes": 1121,
+        "sha256": "9c768944eb4a0422ca2efc25ea9fb2fb9e7fbd3fdb04e86b87366339cb7466db"
+      },
+      {
+        "repositoryPath": "packages/libthreema-wasm/libs/libthreema/tools/build-wasm.sh",
+        "bytes": 2091,
+        "sha256": "1fad60fc286c11425dada4b62b815f8469c6df67e666fe6d324dd3e54d486f23"
+      },
+      {
+        "repositoryPath": "packages/libthreema-wasm/libs/libthreema/tools/uniffi-bindgen/Cargo.toml",
+        "bytes": 237,
+        "sha256": "e694f1e53bc43c34e8b7861035ac2f625834be7c76599ba04815df4b68244623"
+      }
+    ],
+    "scanner": {
+      "version": "v1.51.1",
+      "sha256": "47cd0bc89537c80eed48f34766743d54574e5830deff243cf54d99696a8e9ce0"
+    },
+    "outputs": [
+      {
+        "filename": "libthreema.cdx.json",
+        "bytes": 445293,
+        "sha256": "9333825ed9a7f96763241d4a44eacc551949666e21e391a687b53ae72b070bda"
+      },
+      {
+        "filename": "libthreema.spdx.json",
+        "bytes": 771893,
+        "sha256": "9aad4162861a5878ea4a9061570a3c6fa6ade61f91dec6b5ea2211fd98ee997c"
+      },
+      {
+        "filename": "libthreema.syft.json",
+        "bytes": 547583,
+        "sha256": "3ccc42b1a7824e6e07847769f7431923e55c6a01b0ba3eb53febfbff6745b650"
+      }
+    ],
+    "detectedPackages": 337,
+    "buildSelection": {
+      "package": "libthreema",
+      "feature": "wasm",
+      "target": "wasm32-unknown-unknown",
+      "profile": "release",
+      "locked": true
+    },
+    "observedWasmSha256": "1b5caa61e88726635b5cbb8d5fb5cd00e23f6805f71334db060dbd278fbf65d6",
+    "compiledDependencySetProven": false,
+    "scope": "Pinned workspace lockfile inventory includes dependencies for other features, targets and tools; it is not the selected compiled WASM dependency graph.",
+    "observedBuild": {
+      "source": {
+        "name": "threema-desktop",
+        "url": "https://github.com/threema-ch/threema-desktop.git",
+        "tag": "v2.0-beta65",
+        "commit": "63f65806398400017201ef2aaa4f97dfc122e5b0"
+      },
+      "inputSha256": "7d5ed9227ffa1859c40e4d6943604304898ec41ca4a6565b537a729486320904",
+      "wasmSha256": "1b5caa61e88726635b5cbb8d5fb5cd00e23f6805f71334db060dbd278fbf65d6",
+      "rawWasmSha256": "ce77450f12d5c0ed2e93db441f681436707290ceb27d394ef4f5088fee06e9ca",
+      "rustc": "rustc 1.94.0 (4a4ef493e 2026-03-02)\nbinary: rustc\ncommit-hash: 4a4ef493e3a1488c6e321570238084b38948f6db\ncommit-date: 2026-03-02\nhost: aarch64-unknown-linux-gnu\nrelease: 1.94.0\nLLVM version: 21.1.8\n",
+      "cargo": "cargo 1.94.0 (85eff7c80 2026-01-15)",
+      "observedCompilerUnits": 166,
+      "observedPackages": 132,
+      "wasmTargetPackages": 83,
+      "hostBuildPackages": 73,
+      "scope": "Observed Cargo build participation and features, including cached units; not proof that every crate contributes retained bytes after linking/optimization, or independent signed build provenance.",
+      "evidenceFiles": [
+        {
+          "filename": "cargo-build.jsonl",
+          "sha256": "c9eb5b5fbd91fe460511dee028b1a72eb2e12b7e2b3c48cf739568bf7a6ecde9"
+        },
+        {
+          "filename": "cargo-metadata.json",
+          "sha256": "c78746ab240ff516639571dadf72fab436e6871e56b056d5fd693b1596b6a13e"
+        },
+        {
+          "filename": "build-hashes.txt",
+          "sha256": "6378046a55060d216c98b2fb444c7f550d947342957f8f72c1ffc7717af57c88"
+        },
+        {
+          "filename": "rustc-version.txt",
+          "sha256": "6806abbfd02ed3fa68718758a7edcfff45e1d205ca093d24492bbf4a20309e28"
+        },
+        {
+          "filename": "cargo-version.txt",
+          "sha256": "6a36a8bf8bd42aa197681c3cbafaf785b3a6cf5ed0361cc7240a31c458d10db9"
+        }
+      ],
+      "fullReport": {
+        "path": ".local/wasm-build-evidence-v2/build-coverage.json",
+        "sha256": "a84ac1585d0a2e9e26cd90b8c324d0ecfc10471b07d88665677acd13354e5255",
+        "bytes": 128949
+      },
+      "buildParticipationObserved": true,
+      "matchesExistingWasmArtifact": true,
+      "compilerReplayUsedCachedUnits": true
+    }
+  },
+  "matrixNativeCrypto": {
+    "schemaVersion": 1,
+    "sourceRepository": "https://github.com/matrix-org/matrix-rust-sdk-crypto-nodejs.git",
+    "sourceCommit": "d71b99cc0b5bd06597a7dc718a73eb4e4ff6d3f1",
+    "sourceTag": "v0.6.6",
+    "releaseVersion": "0.6.6",
+    "releaseToolchain": "nightly-2026-06-04",
+    "inputs": [
+      {
+        "repositoryPath": "Cargo.toml",
+        "bytes": 1449,
+        "sha256": "377114b2f58aeab63c3af0c8d2470983a0028d8730706b2fe3f2acfe8472cfdc"
+      },
+      {
+        "repositoryPath": "Cargo.lock",
+        "bytes": 79641,
+        "sha256": "2ab9eb478c3e756519fe79681c3aeeea87dacd584625a0341d37928610e48268"
+      },
+      {
+        "repositoryPath": "LICENSE",
+        "bytes": 10174,
+        "sha256": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594"
+      },
+      {
+        "repositoryPath": "package.json",
+        "bytes": 1184,
+        "sha256": "ab1f8ebc0fa2c4d2680b159fa3235fb6f13dc7ed83d534232eb12b1fb9ec6b3d"
+      },
+      {
+        "repositoryPath": ".github/workflows/release.yml",
+        "bytes": 8937,
+        "sha256": "9cae41aba58a2123101ca3ea41bbc363aae38d86bfe91ae8ddb29f455bc3670e"
+      }
+    ],
+    "gitSources": [
+      "git+https://github.com/matrix-org/matrix-rust-sdk#90db5fe383a9a325667c817e144ea6a711c90468"
+    ],
+    "nativeBinaries": [
+      {
+        "name": "matrix-sdk-crypto.linux-arm64-gnu.node",
+        "bytes": 22354632,
+        "sha256": "c43c347f39786ee9f2d11b5ae3088d182c1a81636f2b68dc2297fe6716be2891"
+      },
+      {
+        "name": "matrix-sdk-crypto.linux-x64-gnu.node",
+        "bytes": 24788544,
+        "sha256": "aeb21029ac6bb29cd06493f67b19a5a75b3d0371a1ab452fe59f78249350f0f7"
+      }
+    ],
+    "scanner": {
+      "version": "v1.51.1",
+      "sha256": "47cd0bc89537c80eed48f34766743d54574e5830deff243cf54d99696a8e9ce0"
+    },
+    "outputs": [
+      {
+        "filename": "matrix-native.cdx.json",
+        "bytes": 434409,
+        "sha256": "152f774578d8fc4d28b54fad261f46549762b3df6a48fc53f0f2e3b6c7f7e0f1"
+      },
+      {
+        "filename": "matrix-native.spdx.json",
+        "bytes": 746740,
+        "sha256": "38fb870cd3d4b5ca3875fcbc443bf8c5299e274dc7accd03854f1fe16a4c4676"
+      },
+      {
+        "filename": "matrix-native.syft.json",
+        "bytes": 532037,
+        "sha256": "05d19628e8065b23e3f1371cd38fc6b7d20fd7dfc7d7cef111009f7b6cb0d6d1"
+      }
+    ],
+    "detectedPackages": 326,
+    "compiledDependencySetProven": false,
+    "scope": "Tagged native-library Cargo.lock inventory; not proof that published binaries were built from this exact resolved graph. Separate xtask tooling is excluded.",
+    "observedBuilds": {
+      "arm64": {
+        "sourceCommit": "d71b99cc0b5bd06597a7dc718a73eb4e4ff6d3f1",
+        "releaseVersion": "0.6.6",
+        "inputSha256": "8598cdca9d1dfb0d272d54781a7c6cd3bd65b795b2d455061816f546fdee94df",
+        "target": "aarch64-unknown-linux-gnu",
+        "nativeFilename": "matrix-sdk-crypto.linux-arm64-gnu.node",
+        "nativeSha256": "c9b70375643216e246636a5f2c1f816914b11f6cc9c8373e218a6039ca9d8d0f",
+        "publishedReleaseSha256": "c43c347f39786ee9f2d11b5ae3088d182c1a81636f2b68dc2297fe6716be2891",
+        "matchesPublishedRelease": false,
+        "rustc": "rustc 1.98.0-nightly (b354133fb 2026-06-03)\nbinary: rustc\ncommit-hash: b354133fb126352871bea4b40795a45739adff2b\ncommit-date: 2026-06-03\nhost: aarch64-unknown-linux-gnu\nrelease: 1.98.0-nightly\nLLVM version: 22.1.6\n",
+        "cargo": "cargo 1.98.0-nightly (0b1123a48 2026-06-01)",
+        "observedCompilerUnits": 277,
+        "observedPackages": 228,
+        "nativeTargetPackages": 177,
+        "hostBuildPackages": 91,
+        "evidenceFiles": [
+          {
+            "filename": "cargo-build.jsonl",
+            "sha256": "08d737f283f88638812509fe14f04d4966fa1803793a5b062f0ba4fe9da74ce5"
+          },
+          {
+            "filename": "cargo-metadata.json",
+            "sha256": "b6e1376980cd18a5b898e3a757a2c0f70f83f81585ed854267560780eb86ebf5"
+          },
+          {
+            "filename": "build-hashes.txt",
+            "sha256": "c43a868dee77f8c896ab96626b382a1e260a9323743ee97cd2f048e864a8a81b"
+          },
+          {
+            "filename": "rustc-version.txt",
+            "sha256": "755eea3699d50fe407583eb77f22f4b9de0f1ca93ee104dabfc926e2558fca40"
+          },
+          {
+            "filename": "cargo-version.txt",
+            "sha256": "73079022d75e2845fa0633a623507ae35f57fab4e65bf541e383abaf8536f7b9"
+          }
+        ],
+        "scope": "Locally compiled pinned Rust crate using direct locked Cargo build and stripping. Requires Node compatibility tests; not an attestation of upstream release binary inputs.",
+        "fullReport": {
+          "path": ".local/matrix-native-build-arm64/build-coverage.json",
+          "bytes": 225974,
+          "sha256": "70f9ee0232a14705960c7a0b0ada68df51a451a99a1b5314c395bc343876e351"
+        },
+        "buildParticipationObserved": true,
+        "compatibilityTestsPassed": 3,
+        "adoptedByServiceImages": true,
+        "serviceImageId": "sha256:044f4a9e02bafc97f4cf5a1235e80b315a741121dca5a20b3d6b7fa8dc4c4f01",
+        "serviceIntegrationTestsPassed": 13
+      },
+      "amd64": {
+        "sourceCommit": "d71b99cc0b5bd06597a7dc718a73eb4e4ff6d3f1",
+        "releaseVersion": "0.6.6",
+        "inputSha256": "8598cdca9d1dfb0d272d54781a7c6cd3bd65b795b2d455061816f546fdee94df",
+        "target": "x86_64-unknown-linux-gnu",
+        "nativeFilename": "matrix-sdk-crypto.linux-x64-gnu.node",
+        "nativeSha256": "6208d5f54312cb76f1ff5a4816e6025f42281a97d62ca7bee7c1f61d574de735",
+        "publishedReleaseSha256": "aeb21029ac6bb29cd06493f67b19a5a75b3d0371a1ab452fe59f78249350f0f7",
+        "matchesPublishedRelease": false,
+        "rustc": "rustc 1.98.0-nightly (b354133fb 2026-06-03)\nbinary: rustc\ncommit-hash: b354133fb126352871bea4b40795a45739adff2b\ncommit-date: 2026-06-03\nhost: x86_64-unknown-linux-gnu\nrelease: 1.98.0-nightly\nLLVM version: 22.1.6\n",
+        "cargo": "cargo 1.98.0-nightly (0b1123a48 2026-06-01)",
+        "observedCompilerUnits": 279,
+        "observedPackages": 230,
+        "nativeTargetPackages": 178,
+        "hostBuildPackages": 92,
+        "evidenceFiles": [
+          {
+            "filename": "cargo-build.jsonl",
+            "sha256": "08496f12c6de15a388b59386ca919f4b1a4a8eec11fa9d867ed97048d28a38bd"
+          },
+          {
+            "filename": "cargo-metadata.json",
+            "sha256": "b6e1376980cd18a5b898e3a757a2c0f70f83f81585ed854267560780eb86ebf5"
+          },
+          {
+            "filename": "build-hashes.txt",
+            "sha256": "7c0ce83acd58ce87d9bd4f26fb46877b5b44276d1cd6d2132be8c72dd3f74dc7"
+          },
+          {
+            "filename": "rustc-version.txt",
+            "sha256": "ab73add0ed265bde7f8373711dade65477dab9d669b361911e4f8f2ec3efbc89"
+          },
+          {
+            "filename": "cargo-version.txt",
+            "sha256": "73079022d75e2845fa0633a623507ae35f57fab4e65bf541e383abaf8536f7b9"
+          }
+        ],
+        "scope": "Locally compiled pinned Rust crate using direct locked Cargo build and stripping. Requires Node compatibility tests; not an attestation of upstream release binary inputs.",
+        "fullReport": {
+          "path": ".local/matrix-native-build-amd64/build-coverage.json",
+          "bytes": 227113,
+          "sha256": "9b217a2defdd1d8357de600f4731b4768ae010b25be450632a142fded9afa7a4"
+        },
+        "buildParticipationObserved": true,
+        "compatibilityTestsPassed": 3,
+        "adoptedByServiceImages": true,
+        "serviceImageId": "sha256:3b1086bced1aee05b82d3f88e302325ef45c020af1be362b211c199ca026175b",
+        "serviceIntegrationTestsPassed": 13
+      }
+    }
+  },
+  "releaseReady": false
+}

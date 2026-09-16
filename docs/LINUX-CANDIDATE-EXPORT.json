@@ -1,0 +1,288 @@
+{
+  "directory": ".local/releases-migration-20260916",
+  "verifiedChecksumFiles": [
+    "threema-beeper-amd64.tar.gz",
+    "threema-beeper-arm64.tar.gz",
+    "deployment.tar.gz",
+    "evidence.tar.gz",
+    "sources.tar.gz",
+    "source-supplements.json",
+    "scanner-tools-linux-amd64.tar.gz",
+    "scanner-tools-linux-arm64.tar.gz",
+    "release.json"
+  ],
+  "images": [
+    {
+      "architecture": "amd64",
+      "imageId": "sha256:2989e8c10a88049c8fdf614ccb65fca278158571b983f5849e60fa0dbda6269e"
+    },
+    {
+      "architecture": "arm64",
+      "imageId": "sha256:14e248f2b34ac1472e6c8daf9ae036145c645bd5fdec6c95b4a7d32a9e614b01"
+    }
+  ],
+  "sourceArchiveFilesVerified": 79,
+  "archiveConfigIdentityVerified": true,
+  "deploymentImageReferencesVerified": true,
+  "sourceManifestMatchesRelease": true,
+  "releaseReady": false,
+  "scope": "Local archive verification only. No account startup or target-host acceptance.",
+  "schemaVersion": 1,
+  "releaseManifestSha256": "968b5572a519106da85d59c965a6692cb50a04eba7b7955c996624434ca915af",
+  "evidenceCommit": "1ddc8b5f74cfb3d749d33f3a638846abd5e4f91e",
+  "sourceCommit": "26e916c02ed7624e5a2ab08626ffc6bb3e93b03f",
+  "inputSha256": "be053b43380877587641b3724908518b3e626faa2e953ee69d4a0dd6e7d1ae84",
+  "sourceSupplements": {
+    "manifest": "source-supplements.json",
+    "archive": "sources.tar.gz",
+    "completeCorrespondingSource": false
+  },
+  "verificationEvidence": [
+    {
+      "path": ".local/releases-migration-export-20260916.log",
+      "sha256": "072958659b7899535e202a1b4ead57d432412c6b563d1c61dbda9247d9d7618b",
+      "bytes": 361
+    },
+    {
+      "path": ".local/releases-migration-artifact-verification-20260916.json",
+      "sha256": "403e89666a05b46826e13212b7b239cee5cf1a6a7b37aa0ab3de409355b28378",
+      "bytes": 928
+    },
+    {
+      "path": ".local/verify-migration-candidate.py",
+      "sha256": "8e1fde1d964b52b84f0f78b0eb4e97ee3f5a37b8af5e1f762167846499d3324c",
+      "bytes": 2521
+    }
+  ],
+  "limitations": [
+    "No clean-daemon restore or target-host installation acceptance.",
+    "Complete source coverage, advisory applicability, live notifications and original long-running acceptance remain open."
+  ],
+  "previousExport": {
+    "directory": ".local/releases-recovery-20260916",
+    "verifiedChecksumFiles": [
+      "threema-beeper-amd64.tar.gz",
+      "threema-beeper-arm64.tar.gz",
+      "deployment.tar.gz",
+      "evidence.tar.gz",
+      "sources.tar.gz",
+      "source-supplements.json",
+      "scanner-tools-linux-amd64.tar.gz",
+      "scanner-tools-linux-arm64.tar.gz",
+      "release.json"
+    ],
+    "images": [
+      {
+        "architecture": "amd64",
+        "imageId": "sha256:898a2dffe68b67aed3e55f860886b5894db8a214d64a44a1e33c87d49459b902"
+      },
+      {
+        "architecture": "arm64",
+        "imageId": "sha256:3b4d2c3944ea04d1cd567cc9e21234a5a3f5d88cbbe5914b31f9e666df9ce5f4"
+      }
+    ],
+    "sourceArchiveFilesVerified": 79,
+    "archiveConfigIdentityVerified": true,
+    "deploymentImageReferencesVerified": true,
+    "sourceManifestMatchesRelease": true,
+    "releaseReady": false,
+    "scope": "Local archive verification only. No account startup or target-host acceptance.",
+    "schemaVersion": 1,
+    "releaseManifestSha256": "f567d35d5ebf29ee4585b3a49f3f3fdddae1164be098ce5dd9ad17af3cdbc08b",
+    "evidenceCommit": "3cab8012ea895b758f9be49855b5a1c928d4098f",
+    "sourceCommit": "062c1dd2063033cffaa430a83455aee3694e4b86",
+    "inputSha256": "e28951fe6fdbac7b25c8218870c26d06553ef15a04b7714244420c473f7464ee",
+    "sourceSupplements": {
+      "manifest": "source-supplements.json",
+      "archive": "sources.tar.gz",
+      "completeCorrespondingSource": false
+    },
+    "verificationEvidence": [
+      {
+        "path": ".local/releases-recovery-export-20260916.log",
+        "sha256": "c372bdaac788d253f61ea0148794bdd02a63c307308dbd6cda71ad2f5b77f46f",
+        "bytes": 360
+      },
+      {
+        "path": ".local/releases-recovery-artifact-verification-20260916.json",
+        "sha256": "aca81b9882c3086f489db1f0b33f365a2cd22d2409a38df5a8e5de859c5ffed1",
+        "bytes": 927
+      },
+      {
+        "path": ".local/verify-recovery-candidate.py",
+        "sha256": "a8b9234358fa684d222a335e462b3cfee54f7efd6d116a99457a2df32c73075b",
+        "bytes": 2519
+      }
+    ],
+    "limitations": [
+      "No clean-daemon restore or target-host installation acceptance.",
+      "Complete source coverage, advisory applicability, live notifications and original long-running acceptance remain open."
+    ],
+    "previousExport": {
+      "directory": ".local/releases-disk-20260916",
+      "verifiedChecksumFiles": [
+        "threema-beeper-amd64.tar.gz",
+        "threema-beeper-arm64.tar.gz",
+        "deployment.tar.gz",
+        "evidence.tar.gz",
+        "sources.tar.gz",
+        "source-supplements.json",
+        "scanner-tools-linux-amd64.tar.gz",
+        "scanner-tools-linux-arm64.tar.gz",
+        "release.json"
+      ],
+      "images": [
+        {
+          "architecture": "amd64",
+          "imageId": "sha256:063147f109aa0f4ef423c93d3d266735e649626442d12dc58329e19da42d7b4f"
+        },
+        {
+          "architecture": "arm64",
+          "imageId": "sha256:ce22f27c2bfaa0b011a8e2964bb82c812d3c0c2bc981d0107ed12472558d3894"
+        }
+      ],
+      "sourceArchiveFilesVerified": 79,
+      "archiveConfigIdentityVerified": true,
+      "deploymentImageReferencesVerified": true,
+      "sourceManifestMatchesRelease": true,
+      "releaseReady": false,
+      "scope": "Local archive verification only. No account startup or target-host acceptance.",
+      "schemaVersion": 1,
+      "releaseManifestSha256": "9888ee22802487334f4ba855f71feb032f62747655365e9f45f6bb20d63dc431",
+      "evidenceCommit": "58954b27219b8aaccf492efeb099ab83b8eeaea4",
+      "sourceCommit": "af928e16d3a7c8f4fc065a515a1889a666ffb53c",
+      "inputSha256": "f5b0d2e1936bc8c78930f2c5b288230ad1baaa4e54e2787f6134013d2dcc3a06",
+      "sourceSupplements": {
+        "manifest": "source-supplements.json",
+        "archive": "sources.tar.gz",
+        "completeCorrespondingSource": false
+      },
+      "verificationEvidence": [
+        {
+          "path": ".local/releases-disk-export-20260916.log",
+          "sha256": "fb343efdc4e21205ae1b0cfb9a4599a1ca6b4157a883878d288c89224d5ee8d4",
+          "bytes": 356
+        },
+        {
+          "path": ".local/releases-disk-artifact-verification-20260916.json",
+          "sha256": "1c431990b0259cec3194f26d8cce327ea73a95f469ade6491dab29d8bb7ee9ff",
+          "bytes": 923
+        },
+        {
+          "path": ".local/verify-disk-candidate.py",
+          "sha256": "2500554cfd07cfb7de1b1213402eb449373038a2fea664a3d8465ce2c8f5ec2c",
+          "bytes": 2511
+        }
+      ],
+      "limitations": [
+        "No clean-daemon restore or target-host installation acceptance.",
+        "Complete source coverage, advisory applicability, live notifications and original long-running acceptance remain open."
+      ],
+      "previousExport": {
+        "schemaVersion": 1,
+        "directory": ".local/releases-sources-20260916",
+        "images": [
+          {
+            "architecture": "amd64",
+            "imageId": "sha256:24e213529781b88b1358251c6580134e26536bd89e5c242fcc9bc9c082f59af3"
+          },
+          {
+            "architecture": "arm64",
+            "imageId": "sha256:9659510686f5665fbbdc61f398d9e76ff63cae8e95e3aab5ae320832875cf5bb"
+          }
+        ],
+        "sourceArchiveFilesVerified": 50,
+        "archiveConfigIdentityVerified": true,
+        "deploymentImageReferencesVerified": true,
+        "sourceManifestMatchesRelease": true,
+        "releaseReady": false,
+        "scope": "Complete exporter run and archive/hash verification only; no clean-daemon restore, service startup, target-host deployment or complete source claim.",
+        "releaseManifestSha256": "b1c866e8f4e1df6be9e8432adcc133d74c7e8de247a131a89d43f390f5ab3947",
+        "verifiedChecksumFiles": [
+          "threema-beeper-amd64.tar.gz",
+          "threema-beeper-arm64.tar.gz",
+          "deployment.tar.gz",
+          "evidence.tar.gz",
+          "sources.tar.gz",
+          "source-supplements.json",
+          "scanner-tools-linux-amd64.tar.gz",
+          "scanner-tools-linux-arm64.tar.gz",
+          "release.json"
+        ],
+        "evidenceCommit": "dca4797a8bc585ee2b25cfef837d166fc50c61d4",
+        "sourceCommit": "45743c2",
+        "inputSha256": "c257c28344214652ed4ba884d255b894db74e25d988f740e254d01f1c8d67c34",
+        "sourceSupplements": {
+          "manifest": "source-supplements.json",
+          "archive": "sources.tar.gz",
+          "completeCorrespondingSource": false
+        },
+        "verificationEvidence": [
+          {
+            "path": ".local/releases-sources-export-20260916.log",
+            "sha256": "f65228a043e7ed5cd9efad6027357c7114f85e82cb4decdefdcf8560ae16970b",
+            "bytes": 169
+          },
+          {
+            "path": ".local/releases-sources-checksums-20260916.log",
+            "sha256": "eb72540d1d26b6397e1fa7bced90719124b797e207b4e508bb2bfede0ebc9c04",
+            "bytes": 244
+          },
+          {
+            "path": ".local/releases-sources-artifact-verification-20260916.json",
+            "sha256": "3f5a31b66f908e48a7bad2df59753620cd9a6175f200d45fef7f5bec80556b0a",
+            "bytes": 714
+          }
+        ],
+        "limitations": [
+          "No clean-daemon restore or target-host installation acceptance.",
+          "Dependency applicability, complete source/license coverage, signing and full original acceptance gates remain open."
+        ],
+        "previousExport": {
+          "schemaVersion": 1,
+          "directory": ".local/releases-alerts-20260916",
+          "releaseManifestSha256": "eb7d5e44f30308240de1766e6e06cea3e65d020522ed1f3c6e2f61af211b7b78",
+          "verifiedChecksumFiles": [
+            "threema-beeper-amd64.tar.gz",
+            "threema-beeper-arm64.tar.gz",
+            "deployment.tar.gz",
+            "evidence.tar.gz",
+            "scanner-tools-linux-amd64.tar.gz",
+            "scanner-tools-linux-arm64.tar.gz",
+            "release.json"
+          ],
+          "images": [
+            {
+              "architecture": "amd64",
+              "imageId": "sha256:24e213529781b88b1358251c6580134e26536bd89e5c242fcc9bc9c082f59af3"
+            },
+            {
+              "architecture": "arm64",
+              "imageId": "sha256:9659510686f5665fbbdc61f398d9e76ff63cae8e95e3aab5ae320832875cf5bb"
+            }
+          ],
+          "archiveConfigIdentityVerified": true,
+          "publicArchiveContentsVerified": true,
+          "releaseReady": false,
+          "deploymentGuideCommit": "1b521799c34c09992129695d347dde3985dd29b4",
+          "limitations": [
+            "Docker Desktop load accepted; no clean-daemon restore or target-host installation acceptance.",
+            "Dependency applicability, source/license completeness, signing and full original acceptance gates remain open."
+          ],
+          "dockerLoad": {
+            "amd64": {
+              "path": ".local/alerts-load-amd64.log",
+              "sha256": "394d13268eb39d0454c288d27386500c88899255f5773dbbddb32e867ae72975",
+              "imageId": "sha256:24e213529781b88b1358251c6580134e26536bd89e5c242fcc9bc9c082f59af3"
+            },
+            "arm64": {
+              "path": ".local/alerts-load-arm64.log",
+              "sha256": "7e29f4b466dba052beeded9d2c3ed3b66fa089b14f5693368254a803edb887d4",
+              "imageId": "sha256:9659510686f5665fbbdc61f398d9e76ff63cae8e95e3aab5ae320832875cf5bb"
+            }
+          }
+        }
+      }
+    }
+  }
+}

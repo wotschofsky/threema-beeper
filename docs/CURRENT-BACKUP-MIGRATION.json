@@ -1,0 +1,109 @@
+{
+  "schemaVersion": 1,
+  "backupEvidence": "docs/LIVE-CURRENT-UPGRADE.json",
+  "restoredProfileStarted": false,
+  "results": [
+    {
+      "platform": "arm64",
+      "imageId": "sha256:f869a4742f8a8823747a2cfb5538c84c5df1c7e66d7f7c452395d786533e4bc9",
+      "result": {
+        "architecture": "arm64",
+        "restoredManifestVerified": true,
+        "results": [
+          {
+            "store": "journal",
+            "beforeSchema": 4,
+            "afterSchema": 4,
+            "existingTableRowCountsPreserved": true,
+            "integrityPassed": true,
+            "reopenStable": true,
+            "sourceUnchanged": true
+          },
+          {
+            "store": "inbox",
+            "beforeSchema": 3,
+            "afterSchema": 3,
+            "existingTableRowCountsPreserved": true,
+            "integrityPassed": true,
+            "reopenStable": true,
+            "sourceUnchanged": true
+          },
+          {
+            "store": "portals",
+            "beforeSchema": 9,
+            "afterSchema": 9,
+            "existingTableRowCountsPreserved": true,
+            "integrityPassed": true,
+            "reopenStable": true,
+            "sourceUnchanged": true
+          },
+          {
+            "store": "outbox",
+            "beforeSchema": 16,
+            "afterSchema": 17,
+            "existingTableRowCountsPreserved": true,
+            "integrityPassed": true,
+            "reopenStable": true,
+            "sourceUnchanged": true
+          }
+        ],
+        "network": "disabled by Docker",
+        "serviceStarted": false
+      },
+      "logSha256": "77a205e1153a203ff1de28cdf2cc5664f8b68c55b50b61a55d28e8241388381d"
+    },
+    {
+      "platform": "amd64",
+      "imageId": "sha256:a2ebf19392352b55a7d741edb06e53ae51ddbbe732825e14431ac7a9fb14bac8",
+      "result": {
+        "architecture": "x64",
+        "restoredManifestVerified": true,
+        "results": [
+          {
+            "store": "journal",
+            "beforeSchema": 4,
+            "afterSchema": 4,
+            "existingTableRowCountsPreserved": true,
+            "integrityPassed": true,
+            "reopenStable": true,
+            "sourceUnchanged": true
+          },
+          {
+            "store": "inbox",
+            "beforeSchema": 3,
+            "afterSchema": 3,
+            "existingTableRowCountsPreserved": true,
+            "integrityPassed": true,
+            "reopenStable": true,
+            "sourceUnchanged": true
+          },
+          {
+            "store": "portals",
+            "beforeSchema": 9,
+            "afterSchema": 9,
+            "existingTableRowCountsPreserved": true,
+            "integrityPassed": true,
+            "reopenStable": true,
+            "sourceUnchanged": true
+          },
+          {
+            "store": "outbox",
+            "beforeSchema": 16,
+            "afterSchema": 17,
+            "existingTableRowCountsPreserved": true,
+            "integrityPassed": true,
+            "reopenStable": true,
+            "sourceUnchanged": true
+          }
+        ],
+        "network": "disabled by Docker",
+        "serviceStarted": false
+      },
+      "logSha256": "9eeb9c33771b20d9bd04afcaade856f166d86ecc555d95ef8802770be1e1979e"
+    }
+  ],
+  "limitations": [
+    "Only the four bridge databases were opened and migrated on temporary copies.",
+    "This is not a connected-profile startup, target-host deployment or complete native-store restore test."
+  ]
+}

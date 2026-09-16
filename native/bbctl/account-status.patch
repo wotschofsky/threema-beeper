@@ -1,0 +1,616 @@
+diff --git a/cmd/bbctl/proxy.go b/cmd/bbctl/proxy.go
+index 5fa4063..fc6e659 100644
+--- a/cmd/bbctl/proxy.go
++++ b/cmd/bbctl/proxy.go
+@@ -30,6 +30,8 @@ var proxyCommand = &cli.Command{
+ 	Aliases: []string{"x"},
+ 	Usage:   "Connect to an appservice websocket, and proxy it to a local appservice HTTP server",
+ 	Flags: []cli.Flag{
++		&cli.StringFlag{Name: "transaction-spool", Usage: "Private encrypted transaction queue directory"},
++		&cli.BoolFlag{Name: "bridge-status", Usage: "Forward account status from the authenticated local /_threema/bridge-state endpoint"},
+ 		&cli.StringFlag{
+ 			Name:     "registration",
+ 			Required: true,
+@@ -45,13 +47,17 @@ const defaultReconnectBackoff = 2 * time.Second
+ const maxReconnectBackoff = 2 * time.Minute
+ const reconnectBackoffReset = 5 * time.Minute
+ 
+-func runAppserviceWebsocket(ctx context.Context, doneCallback func(), as *appservice.AppService) {
++func runAppserviceWebsocket(ctx context.Context, doneCallback func(), as *appservice.AppService, accountStatus ...bool) {
+ 	defer doneCallback()
+ 	reconnectBackoff := defaultReconnectBackoff
+ 	lastDisconnect := time.Now()
+ 	for {
+ 		err := as.StartWebsocket(ctx, "", func() {
+-			// TODO support states properly instead of just sending unconfigured
++			if len(accountStatus) > 0 && accountStatus[0] {
++				forwardLocalBridgeStatus(ctx, as)
++				return
++			}
++			// Legacy behavior when local account status forwarding is not enabled.
+ 			_ = as.SendWebsocket(ctx, &appservice.WebsocketRequest{
+ 				Command: "bridge_status",
+ 				Data:    &status.BridgeState{StateEvent: status.StateUnconfigured},
+@@ -168,6 +174,28 @@ func proxyWebsocketRequest(baseURL *url.URL, cmd appservice.WebsocketCommand) (b
+ 	}
+ }
+ 
++func localTransactionHandler(as *appservice.AppService, parsedURL *url.URL) appservice.WebsocketTransactionHandler {
++	return func(ctx context.Context, msg appservice.WebsocketMessage) (bool, any) {
++		err := proxyWebsocketTransaction(ctx, as.Registration.ServerToken, parsedURL, msg)
++		if err != nil {
++			// Do not send a terminal error response for an uncommitted transaction.
++			// Close first so the server can replay it on the next connection.
++			as.StopWebsocket(errors.New("local transaction delivery unavailable"))
++			// StartWebsocket clears its socket before returning. Avoid racing an
++			// error acknowledgement against that close on the reader goroutine.
++			for as.HasWebsocket() {
++				select {
++				case <-ctx.Done():
++					return false, nil
++				case <-time.After(10 * time.Millisecond):
++				}
++			}
++			return false, nil
++		}
++		return true, &appservice.WebsocketTransactionResponse{TxnID: msg.TxnID}
++	}
++}
++
+ func prepareAppserviceWebsocketProxy(ctx *cli.Context, as *appservice.AppService) {
+ 	parsedURL, _ := url.Parse(as.Registration.URL)
+ 	zerolog.TimeFieldFormat = time.RFC3339Nano
+@@ -175,13 +203,7 @@ func prepareAppserviceWebsocketProxy(ctx *cli.Context, as *appservice.AppService
+ 		w.TimeFormat = time.StampMilli
+ 	})).With().Timestamp().Logger()
+ 	as.PrepareWebsocket()
+-	as.WebsocketTransactionHandler = func(ctx context.Context, msg appservice.WebsocketMessage) (bool, any) {
+-		err := proxyWebsocketTransaction(ctx, as.Registration.ServerToken, parsedURL, msg)
+-		if err != nil {
+-			return false, err
+-		}
+-		return true, &appservice.WebsocketTransactionResponse{TxnID: msg.TxnID}
+-	}
++	as.WebsocketTransactionHandler = localTransactionHandler(as, parsedURL)
+ 	as.SetWebsocketCommandHandler(appservice.WebsocketCommandHTTPProxy, func(cmd appservice.WebsocketCommand) (bool, any) {
+ 		if cmd.Ctx == nil {
+ 			cmd.Ctx = ctx.Context
+@@ -248,14 +270,80 @@ func proxyAppserviceWebsocket(ctx *cli.Context) error {
+ 	as.Registration = reg
+ 	as.HomeserverDomain = "beeper.local"
+ 	prepareAppserviceWebsocketProxy(ctx, as)
++	var spool *transactionSpool
++	if path := ctx.String("transaction-spool"); path != "" {
++		spool, err = openTransactionSpool(path, reg.AppToken)
++		if err != nil {
++			return errors.New("unable to open private transaction spool")
++		}
++		defer spool.Close()
++		as.WebsocketTransactionHandler = func(c context.Context, msg appservice.WebsocketMessage) (bool, any) {
++			if spool.save(msg) != nil {
++				as.StopWebsocket(errors.New("unable to persist transaction"))
++				for as.HasWebsocket() {
++					select {
++					case <-c.Done():
++						return false, nil
++					case <-time.After(10 * time.Millisecond):
++					}
++				}
++				return false, nil
++			}
++			return true, &appservice.WebsocketTransactionResponse{TxnID: msg.TxnID}
++		}
++	}
+ 
+ 	c := make(chan os.Signal, 1)
+ 	signal.Notify(c, os.Interrupt, syscall.SIGTERM)
+ 
+ 	wsCtx, cancel := context.WithCancel(ctx.Context)
+ 	var wg sync.WaitGroup
++	if spool != nil {
++		wg.Add(1)
++		go func() {
++			defer wg.Done()
++			parsed, _ := url.Parse(reg.URL)
++			delay := time.Second
++			for {
++				if err := spool.replay(wsCtx, func(c context.Context, m appservice.WebsocketMessage) error {
++					return proxyWebsocketTransaction(c, reg.ServerToken, parsed, m)
++				}); err != nil {
++					as.Log.Warn().Msg("Encrypted transaction queue waiting for local bridge")
++					delay *= 2
++					if delay > 30*time.Second {
++						delay = 30 * time.Second
++					}
++				} else {
++					delay = time.Second
++				}
++				select {
++				case <-wsCtx.Done():
++					return
++				case <-time.After(delay):
++				}
++			}
++		}()
++	}
+ 	wg.Add(2)
+-	go runAppserviceWebsocket(wsCtx, wg.Done, as)
++	go runAppserviceWebsocket(wsCtx, wg.Done, as, ctx.Bool("bridge-status"))
++	if ctx.Bool("bridge-status") {
++		wg.Add(1)
++		go func() {
++			defer wg.Done()
++			ticker := time.NewTicker(30 * time.Second)
++			defer ticker.Stop()
++			for {
++				select {
++				case <-wsCtx.Done():
++					return
++				case <-ticker.C:
++					if as.HasWebsocket() {
++						forwardLocalBridgeStatus(wsCtx, as)
++					}
++				}
++			}
++		}()
++	}
+ 	go keepaliveAppserviceWebsocket(wsCtx, wg.Done, as)
+ 
+ 	<-c
+@@ -267,3 +355,54 @@ func proxyAppserviceWebsocket(ctx *cli.Context) error {
+ 	wg.Wait()
+ 	return nil
+ }
++
++// Failure to read local status must not keep publishing a stale CONNECTED state.
++// Its short TTL lets the server expire the last known state if this process fails.
++func forwardLocalBridgeStatus(ctx context.Context, as *appservice.AppService) {
++	states, err := readLocalBridgeStatus(ctx, as.Registration.URL, as.Registration.ServerToken)
++	if err != nil {
++		as.Log.Warn().Msg("Local bridge account status unavailable")
++		return
++	}
++	for _, state := range states {
++		if err := as.SendWebsocket(ctx, &appservice.WebsocketRequest{Command: "bridge_status", Data: state}); err != nil {
++			as.Log.Warn().Msg("Failed to forward bridge account status")
++			return
++		}
++	}
++}
++
++func readLocalBridgeStatus(ctx context.Context, base, token string) ([]status.BridgeState, error) {
++	parsed, err := url.Parse(base)
++	if err != nil || parsed.Scheme != "http" || (parsed.Hostname() != "127.0.0.1" && parsed.Hostname() != "::1" && parsed.Hostname() != "localhost") {
++		return nil, errors.New("bridge status requires a loopback appservice URL")
++	}
++	fullURL := parsed.JoinPath("_threema", "bridge-state")
++	req, err := http.NewRequestWithContext(ctx, http.MethodGet, fullURL.String(), nil)
++	if err != nil {
++		return nil, err
++	}
++	req.Header.Set("Authorization", "Bearer "+token)
++	client := http.Client{Timeout: 5 * time.Second, CheckRedirect: func(_ *http.Request, _ []*http.Request) error { return http.ErrUseLastResponse }}
++	resp, err := client.Do(req)
++	if err != nil {
++		return nil, err
++	}
++	defer resp.Body.Close()
++	if resp.StatusCode != http.StatusOK {
++		return nil, errors.New("local bridge status unavailable")
++	}
++	var states []status.BridgeState
++	if err := json.NewDecoder(io.LimitReader(resp.Body, 65536)).Decode(&states); err != nil {
++		return nil, err
++	}
++	if len(states) != 2 || states[0].RemoteID != "" || states[1].RemoteID == "" || states[1].UserID == "" {
++		return nil, errors.New("invalid local bridge states")
++	}
++	for _, state := range states {
++		if !state.StateEvent.IsValid() || state.TTL < 1 || state.TTL > 90 {
++			return nil, errors.New("invalid local bridge state lifetime")
++		}
++	}
++	return states, nil
++}
+diff --git a/cmd/bbctl/proxy_status_test.go b/cmd/bbctl/proxy_status_test.go
+new file mode 100644
+--- /dev/null
++++ b/cmd/bbctl/proxy_status_test.go
+@@ -0,0 +1,198 @@
++package main
++
++import (
++	"bytes"
++	"context"
++	"encoding/json"
++	"errors"
++	"fmt"
++	"github.com/coder/websocket"
++	"github.com/coder/websocket/wsjson"
++	"maunium.net/go/mautrix/appservice"
++	"net/http"
++	"net/http/httptest"
++	"net/url"
++	"os"
++	"path/filepath"
++	"strings"
++	"testing"
++	"time"
++)
++
++func TestLocalBridgeStatus(t *testing.T) {
++	payload := `[{"state_event":"RUNNING","ttl":90},{"state_event":"CONNECTED","ttl":90,"remote_id":"TEST1234","user_id":"@owner:example.invalid"}]`
++	srv := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
++		if r.Method != "GET" || r.URL.Path != "/_threema/bridge-state" || r.Header.Get("Authorization") != "Bearer synthetic-token" {
++			t.Error("invalid authenticated status request")
++		}
++		fmt.Fprint(w, payload)
++	}))
++	defer srv.Close()
++	states, err := readLocalBridgeStatus(context.Background(), srv.URL, "synthetic-token")
++	if err != nil || len(states) != 2 {
++		t.Fatalf("valid status failed: %v", err)
++	}
++	for _, invalid := range []string{`[]`, `[{}]`, `[{"state_event":"RUNNING","ttl":90},{"state_event":"CONNECTED","ttl":9999,"remote_id":"TEST1234","user_id":"@owner:example.invalid"}]`} {
++		payload = invalid
++		if _, err := readLocalBridgeStatus(context.Background(), srv.URL, "synthetic-token"); err == nil {
++			t.Error("invalid state accepted")
++		}
++	}
++	if _, err := readLocalBridgeStatus(context.Background(), "https://example.invalid", "synthetic-token"); err == nil {
++		t.Error("non-loopback URL accepted")
++	}
++}
++
++func TestLocalBridgeStatusNoRedirect(t *testing.T) {
++	target := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) { t.Error("followed redirect with status credentials") }))
++	defer target.Close()
++	srv := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) { http.Redirect(w, r, target.URL, http.StatusFound) }))
++	defer srv.Close()
++	if _, err := readLocalBridgeStatus(context.Background(), srv.URL, "synthetic-token"); err == nil {
++		t.Error("redirect accepted")
++	}
++}
++
++func TestLocalBridgeStatusTransactionFailureClosesWithoutAcknowledgement(t *testing.T) {
++	for _, available := range []bool{false, true} {
++		t.Run(fmt.Sprint(available), func(t *testing.T) {
++			ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
++			defer cancel()
++			local := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
++				if r.Method != "PUT" || r.Header.Get("Authorization") != "Bearer synthetic-server" {
++					t.Error("invalid transaction forwarding")
++				}
++				if !available {
++					w.WriteHeader(503)
++					fmt.Fprint(w, `{"errcode":"M_UNAVAILABLE","error":"offline"}`)
++					return
++				}
++				fmt.Fprint(w, `{}`)
++			}))
++			defer local.Close()
++			checked := make(chan bool, 1)
++			remote := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
++				ws, err := websocket.Accept(w, r, nil)
++				if err != nil {
++					t.Error(err)
++					return
++				}
++				defer ws.CloseNow()
++				if err = wsjson.Write(ctx, ws, map[string]any{"id": 1, "command": "transaction", "txn_id": "stable-test-id", "events": []any{}}); err != nil {
++					t.Error(err)
++					return
++				}
++				var response appservice.WebsocketRequest
++				err = wsjson.Read(ctx, ws, &response)
++				checked <- (available && err == nil && response.Command == "response") || (!available && err != nil)
++			}))
++			defer remote.Close()
++			as := appservice.Create()
++			as.Registration = &appservice.Registration{AppToken: "synthetic-app", ServerToken: "synthetic-server", SenderLocalpart: "bot"}
++			as.HomeserverDomain = "example.invalid"
++			if err := as.SetHomeserverURL(remote.URL); err != nil {
++				t.Fatal(err)
++			}
++			parsed, _ := url.Parse(local.URL)
++			as.WebsocketTransactionHandler = localTransactionHandler(as, parsed)
++			done := make(chan struct{})
++			go func() { _ = as.StartWebsocket(ctx, remote.URL, nil); close(done) }()
++			select {
++			case ok := <-checked:
++				if !ok {
++					t.Fatal("transaction response did not match durable availability")
++				}
++			case <-ctx.Done():
++				t.Fatal("timed out")
++			}
++			select {
++			case <-done:
++			case <-ctx.Done():
++				t.Fatal("socket did not close")
++			}
++		})
++	}
++}
++
++func TestLocalBridgeStatusSpoolSurvivesRestartAndLostLocalResponse(t *testing.T) {
++	root, _ := filepath.EvalSymlinks(t.TempDir())
++	dir := filepath.Join(root, "queue")
++	spool, err := openTransactionSpool(dir, "synthetic-secret")
++	if err != nil {
++		t.Fatal(err)
++	}
++	if second, e := openTransactionSpool(dir, "synthetic-secret"); e == nil {
++		second.Close()
++		t.Fatal("allowed concurrent queue owner")
++	}
++	var msg appservice.WebsocketMessage
++	if err = json.Unmarshal([]byte(`{"txn_id":"remote-range","events":[{"type":"m.room.encrypted","event_id":"$fixture","content":{"ciphertext":"synthetic private payload"}}]}`), &msg); err != nil {
++		t.Fatal(err)
++	}
++	if err = spool.save(msg); err != nil {
++		t.Fatal(err)
++	}
++	entries, _ := os.ReadDir(dir)
++	var filename string
++	for _, e := range entries {
++		if strings.HasSuffix(e.Name(), ".txn") {
++			filename = filepath.Join(dir, e.Name())
++		}
++	}
++	disk, _ := os.ReadFile(filename)
++	if bytes.Contains(disk, []byte("synthetic private")) {
++		t.Fatal("plaintext transaction on disk")
++	}
++	var ids []string
++	send := func(_ context.Context, m appservice.WebsocketMessage) error {
++		ids = append(ids, m.TxnID)
++		if len(m.Events) != 1 {
++			t.Fatal("lost queued event")
++		}
++		if len(ids) == 1 {
++			return errors.New("lost local response")
++		}
++		return nil
++	}
++	if err = spool.replay(context.Background(), send); err == nil {
++		t.Fatal("expected failed delivery")
++	}
++	spool.Close()
++	wrong, e := openTransactionSpool(dir, "wrong-secret")
++	if e != nil {
++		t.Fatal(e)
++	}
++	if e = wrong.replay(context.Background(), send); e == nil {
++		t.Fatal("wrong key accepted")
++	}
++	wrong.Close()
++	spool, e = openTransactionSpool(dir, "synthetic-secret")
++	if e != nil {
++		t.Fatal(e)
++	}
++	defer spool.Close()
++	if e = spool.replay(context.Background(), send); e != nil {
++		t.Fatal(e)
++	}
++	if len(ids) != 2 || ids[0] != ids[1] {
++		t.Fatal("local idempotency identity changed")
++	}
++	if e = spool.replay(context.Background(), send); e != nil || len(ids) != 2 {
++		t.Fatal("settled queue replayed")
++	}
++	if e = spool.save(msg); e != nil {
++		t.Fatal(e)
++	}
++	entries, _ = os.ReadDir(dir)
++	for _, entry := range entries {
++		if strings.HasSuffix(entry.Name(), ".txn") {
++			path := filepath.Join(dir, entry.Name())
++			data, _ := os.ReadFile(path)
++			data[len(data)-1] ^= 1
++			_ = os.WriteFile(path, data, 0600)
++		}
++	}
++	if e = spool.replay(context.Background(), send); e == nil {
++		t.Fatal("corrupted queue accepted")
++	}
++}
+diff --git a/cmd/bbctl/proxy_spool.go b/cmd/bbctl/proxy_spool.go
+new file mode 100644
+--- /dev/null
++++ b/cmd/bbctl/proxy_spool.go
+@@ -0,0 +1,194 @@
++package main
++
++import (
++	"context"
++	"crypto/aes"
++	"crypto/cipher"
++	"crypto/rand"
++	"crypto/sha256"
++	"encoding/hex"
++	"encoding/json"
++	"errors"
++	"fmt"
++	"io"
++	"os"
++	"path/filepath"
++	"strings"
++	"sync"
++	"syscall"
++	"time"
++
++	"maunium.net/go/mautrix/appservice"
++)
++
++// Transactions are acknowledged only after authenticated encryption, file fsync,
++// atomic publication and directory fsync. The local inbox remains idempotent.
++type transactionSpool struct {
++	dir  string
++	aead cipher.AEAD
++	lock *os.File
++	mu   sync.Mutex
++}
++
++const spoolLimit = 50 * 1024 * 1024
++
++func openTransactionSpool(dir, token string) (*transactionSpool, error) {
++	if !filepath.IsAbs(dir) || token == "" {
++		return nil, errors.New("invalid spool configuration")
++	}
++	if err := os.MkdirAll(dir, 0700); err != nil {
++		return nil, err
++	}
++	real, err := filepath.EvalSymlinks(dir)
++	if err != nil || real != dir {
++		return nil, errors.New("spool path must be real")
++	}
++	stat, err := os.Stat(dir)
++	if err != nil || !stat.IsDir() || stat.Mode().Perm() != 0700 || stat.Sys().(*syscall.Stat_t).Uid != uint32(os.Getuid()) {
++		return nil, errors.New("spool must be private and owned")
++	}
++	fd, err := syscall.Open(filepath.Join(dir, ".lock"), syscall.O_CREAT|syscall.O_RDWR|syscall.O_NOFOLLOW, 0600)
++	if err != nil {
++		return nil, err
++	}
++	lock := os.NewFile(uintptr(fd), "spool-lock")
++	if err = syscall.Flock(fd, syscall.LOCK_EX|syscall.LOCK_NB); err != nil {
++		lock.Close()
++		return nil, errors.New("spool already open")
++	}
++	key := sha256.Sum256([]byte("threema-beeper transaction spool v1\x00" + token))
++	block, err := aes.NewCipher(key[:])
++	clear(key[:])
++	if err != nil {
++		lock.Close()
++		return nil, err
++	}
++	aead, err := cipher.NewGCM(block)
++	if err != nil {
++		lock.Close()
++		return nil, err
++	}
++	return &transactionSpool{dir: dir, aead: aead, lock: lock}, nil
++}
++func (s *transactionSpool) Close() { _ = s.lock.Close() }
++func (s *transactionSpool) syncDir() error {
++	f, err := os.Open(s.dir)
++	if err != nil {
++		return err
++	}
++	defer f.Close()
++	return f.Sync()
++}
++func (s *transactionSpool) save(msg appservice.WebsocketMessage) error {
++	s.mu.Lock()
++	defer s.mu.Unlock()
++	body, err := json.Marshal(msg)
++	if err != nil || len(body) > spoolLimit {
++		return errors.New("transaction exceeds spool limit")
++	}
++	defer clear(body)
++	entries, err := os.ReadDir(s.dir)
++	if err != nil {
++		return err
++	}
++	var total int64
++	count := 0
++	for _, entry := range entries {
++		if strings.HasSuffix(entry.Name(), ".txn") {
++			info, e := entry.Info()
++			if e != nil {
++				return e
++			}
++			total += info.Size()
++			count++
++		}
++	}
++	if count >= 10000 || total+int64(len(body)) > 1024*1024*1024 {
++		return errors.New("transaction spool full")
++	}
++	nonce := make([]byte, s.aead.NonceSize())
++	if _, err = rand.Read(nonce); err != nil {
++		return err
++	}
++	name := fmt.Sprintf("%020d-%s.txn", time.Now().UnixNano(), hex.EncodeToString(nonce))
++	sealed := s.aead.Seal(nonce, nonce, body, []byte(name))
++	f, err := os.CreateTemp(s.dir, ".pending-")
++	if err != nil {
++		return err
++	}
++	defer os.Remove(f.Name())
++	if _, err = f.Write(sealed); err != nil {
++		f.Close()
++		return err
++	}
++	if err = f.Sync(); err != nil {
++		f.Close()
++		return err
++	}
++	if err = f.Close(); err != nil {
++		return err
++	}
++	if err = os.Rename(f.Name(), filepath.Join(s.dir, name)); err != nil {
++		return err
++	}
++	return s.syncDir()
++}
++func (s *transactionSpool) replay(ctx context.Context, send func(context.Context, appservice.WebsocketMessage) error) error {
++	entries, err := os.ReadDir(s.dir)
++	if err != nil {
++		return err
++	}
++	for _, entry := range entries {
++		if !strings.HasSuffix(entry.Name(), ".txn") {
++			continue
++		}
++		if err = ctx.Err(); err != nil {
++			return err
++		}
++		path := filepath.Join(s.dir, entry.Name())
++		info, e := os.Lstat(path)
++		if e != nil {
++			return e
++		}
++		if !info.Mode().IsRegular() || info.Mode().Perm() != 0600 || info.Size() > spoolLimit+128 {
++			return errors.New("invalid spool file")
++		}
++		f, e := os.Open(path)
++		if e != nil {
++			return e
++		}
++		sealed, e := io.ReadAll(io.LimitReader(f, spoolLimit+129))
++		f.Close()
++		if e != nil {
++			return e
++		}
++		n := s.aead.NonceSize()
++		if len(sealed) < n {
++			return errors.New("invalid spool ciphertext")
++		}
++		body, e := s.aead.Open(nil, sealed[:n], sealed[n:], []byte(entry.Name()))
++		if e != nil {
++			return errors.New("spool authentication failed")
++		}
++		var msg appservice.WebsocketMessage
++		e = json.Unmarshal(body, &msg)
++		digest := sha256.Sum256(body)
++		clear(body)
++		if e != nil {
++			return errors.New("invalid spooled transaction")
++		}
++		// Payload hashes avoid collisions when the remote replay keeps a transaction
++		// range ID but has already discarded its expired event payload.
++		msg.TxnID = "spool_" + hex.EncodeToString(digest[:])
++		if err = send(ctx, msg); err != nil {
++			return err
++		}
++		if err = os.Remove(path); err != nil {
++			return err
++		}
++		if err = s.syncDir(); err != nil {
++			return err
++		}
++	}
++	return nil
++}

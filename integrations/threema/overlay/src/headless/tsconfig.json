@@ -1,0 +1,9 @@
+{
+  "extends": "../tsconfig.base.json",
+  "compilerOptions": {
+    "lib": ["esnext", "webworker"],
+    "types": ["node"],
+    "outDir": "../../build/headless-spike"
+  },
+  "include": ["../common/dom/vite-client.d.ts", "**/*.ts"]
+}

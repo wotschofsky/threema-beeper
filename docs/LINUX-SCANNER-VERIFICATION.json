@@ -1,0 +1,135 @@
+{
+  "schemaVersion": 1,
+  "observedOn": "2026-09-16",
+  "pins": "docs/LINUX-SCANNER-PINS.json",
+  "architectures": {
+    "amd64": {
+      "bundle": ".local/linux-scanner-bundles-20260916/scanner-tools-linux-amd64.tar.gz",
+      "bundleSha256": "a335d1ee318b1cf310f4b2c51286d3886ead952ad8499ff3a746d57c09ec0d22",
+      "versions": [
+        {
+          "application": "syft",
+          "buildDate": "2026-08-27T16:55:02Z",
+          "compiler": "gc",
+          "gitCommit": "91a0032987d91b7411b52f6f5c185c5e7f775495",
+          "gitDescription": "v1.51.1",
+          "goVersion": "go1.26.3",
+          "platform": "linux/amd64",
+          "schemaVersion": "16.1.10",
+          "version": "1.51.1"
+        },
+        {
+          "application": "grype",
+          "buildDate": "2026-08-27T19:58:02Z",
+          "compiler": "gc",
+          "gitCommit": "756eb9a24f7beeafb6871a24e943e8a3ae210695",
+          "gitDescription": "v0.118.0",
+          "goVersion": "go1.26.3",
+          "platform": "linux/amd64",
+          "supportedDbSchema": 6,
+          "syftVersion": "v1.51.1",
+          "version": "0.118.0"
+        }
+      ],
+      "versionEvidence": {
+        "path": ".local/linux-scanner-tools-amd64-versions.jsonl",
+        "sha256": "7c19eff37d3d4d565836cebc1177efef4a918ec7d75932e9a1d2285ddd99054a"
+      },
+      "scanEvidence": {
+        "path": ".local/linux-scanner-tools/amd64.grype.json",
+        "sha256": "dc1cf3dbdc39d1924b72c3f4a41f32682f44d6d4904a329d21e7d63a13af0829"
+      },
+      "imageId": "sha256:9f433edd721b651fc7e359aded4350a308ae154f1b0b2c9e02aad4e2f1685769",
+      "matchCount": 170,
+      "severity": {
+        "High": 64,
+        "Negligible": 44,
+        "Medium": 50,
+        "Low": 6,
+        "Critical": 1,
+        "Unknown": 5
+      },
+      "identicalFindingTuplesToHostScan": true,
+      "realImageInventory": {
+        "path": ".local/linux-scanner-tools/amd64-real-inventory.syft.json",
+        "sha256": "2b187bff6cc843fc5c1c6a1582e19a309f4d3a9f174887e175a65974790353b8",
+        "imageId": "sha256:db55b1e86a18c248299d42aca0e365d4e27bfb27d7eb02d3813800463a8fcfe4",
+        "detectedPackages": 341,
+        "identicalPackageTuplesToHostInventory": true,
+        "network": "none",
+        "accountVolumesMounted": false,
+        "dockerSocketMounted": true,
+        "containerUser": "root for Docker socket access",
+        "rootFilesystem": "read-only",
+        "temporaryFilesystem": "noexec tmpfs"
+      }
+    },
+    "arm64": {
+      "bundle": ".local/linux-scanner-bundles-20260916/scanner-tools-linux-arm64.tar.gz",
+      "bundleSha256": "c5ca55c0e115eb78829073ef9477fe89aab5da626e1cf56e5950263d7c5bfc28",
+      "versions": [
+        {
+          "application": "syft",
+          "buildDate": "2026-08-27T16:55:02Z",
+          "compiler": "gc",
+          "gitCommit": "91a0032987d91b7411b52f6f5c185c5e7f775495",
+          "gitDescription": "v1.51.1",
+          "goVersion": "go1.26.3",
+          "platform": "linux/arm64",
+          "schemaVersion": "16.1.10",
+          "version": "1.51.1"
+        },
+        {
+          "application": "grype",
+          "buildDate": "2026-08-27T19:58:02Z",
+          "compiler": "gc",
+          "gitCommit": "756eb9a24f7beeafb6871a24e943e8a3ae210695",
+          "gitDescription": "v0.118.0",
+          "goVersion": "go1.26.3",
+          "platform": "linux/arm64",
+          "supportedDbSchema": 6,
+          "syftVersion": "v1.51.1",
+          "version": "0.118.0"
+        }
+      ],
+      "versionEvidence": {
+        "path": ".local/linux-scanner-tools-arm64-versions.jsonl",
+        "sha256": "a6afac9ff41b74cc5954a9eccda599e2d32289aee4d3e40cf95d1eae0e1e69fe"
+      },
+      "scanEvidence": {
+        "path": ".local/linux-scanner-tools/arm64.grype.json",
+        "sha256": "8a3cd781db1e1cdebe93cf88d7e90edfdd746035a91d632b1653535aedbc4584"
+      },
+      "imageId": "sha256:f812765c2ee56c1cc6de095093a2b3c967fb6699cb662cbc11f20acc3562c082",
+      "matchCount": 170,
+      "severity": {
+        "High": 64,
+        "Negligible": 44,
+        "Medium": 50,
+        "Low": 6,
+        "Critical": 1,
+        "Unknown": 5
+      },
+      "identicalFindingTuplesToHostScan": true,
+      "realImageInventory": {
+        "path": ".local/linux-scanner-tools/arm64-real-inventory.syft.json",
+        "sha256": "f94e5e548bca20af8c67a4c0aaf52c13fc3735131831eea45d0e508df849dc2f",
+        "imageId": "sha256:3ece3319e50aba822cae065a26a0fd351575da47b4b92d5872322fafd0d8a675",
+        "detectedPackages": 341,
+        "identicalPackageTuplesToHostInventory": true,
+        "network": "none",
+        "accountVolumesMounted": false,
+        "dockerSocketMounted": true,
+        "containerUser": "root for Docker socket access",
+        "rootFilesystem": "read-only",
+        "temporaryFilesystem": "noexec tmpfs"
+      }
+    }
+  },
+  "limitations": [
+    "Version smoke tests run under Docker Desktop; AMD64 uses emulation.",
+    "Publisher API/checksum agreement is not independent signature verification.",
+    "Weekly host integration and target-server activation remain unverified.",
+    "Offline Linux Grype runs use the preceding proxy-update inventories; Linux Syft additionally inventoried both current maintenance images through Docker. No complete scheduled-host job acceptance yet."
+  ]
+}

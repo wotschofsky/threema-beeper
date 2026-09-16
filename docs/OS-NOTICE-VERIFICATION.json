@@ -1,0 +1,300 @@
+{
+  "schemaVersion": 1,
+  "directory": ".local/os-notices-20260916",
+  "images": [
+    {
+      "architecture": "amd64",
+      "imageId": "sha256:24e213529781b88b1358251c6580134e26536bd89e5c242fcc9bc9c082f59af3",
+      "installedPackagesVerified": 85,
+      "resolvedCopyrightPaths": 85,
+      "archives": [
+        {
+          "path": "amd64/status.tar",
+          "bytes": 77312,
+          "sha256": "3a702603b2410ed54524c4581a11e2aade9177c42933854df39fd7904f9a2d9f"
+        },
+        {
+          "path": "amd64/doc.tar",
+          "bytes": 1147392,
+          "sha256": "0c15f49f70ad19429c5c211cefdbba4ce63d16081d52caf1579e4b7053f817c4"
+        },
+        {
+          "path": "amd64/common-licenses.tar",
+          "bytes": 405504,
+          "sha256": "ce9abc9bc98e219b059679e2ac4fda732f4634fad5337cae9e73b4a2af38a5ff"
+        }
+      ]
+    },
+    {
+      "architecture": "arm64",
+      "imageId": "sha256:9659510686f5665fbbdc61f398d9e76ff63cae8e95e3aab5ae320832875cf5bb",
+      "installedPackagesVerified": 85,
+      "resolvedCopyrightPaths": 85,
+      "archives": [
+        {
+          "path": "arm64/status.tar",
+          "bytes": 77824,
+          "sha256": "07874e7ffc3e08a4b357f5a80b8add1cf5a048d3109b434c0e99cdeaa5efaf52"
+        },
+        {
+          "path": "arm64/doc.tar",
+          "bytes": 1147392,
+          "sha256": "b9699c280870ee77a7a8876a5a1a937301128c976282b743686cb68cb5d42fa9"
+        },
+        {
+          "path": "arm64/common-licenses.tar",
+          "bytes": 405504,
+          "sha256": "d963c7dc6ed4f7f955e55061fea23df6fc43d191a82fad0d0fb525b400631ac1"
+        }
+      ]
+    }
+  ],
+  "sourcePackagesRequired": [
+    {
+      "name": "acl",
+      "version": "2.3.2-2"
+    },
+    {
+      "name": "adduser",
+      "version": "3.152"
+    },
+    {
+      "name": "apt",
+      "version": "3.0.3"
+    },
+    {
+      "name": "attr",
+      "version": "1:2.5.2-3"
+    },
+    {
+      "name": "audit",
+      "version": "1:4.0.2-2+deb13u1"
+    },
+    {
+      "name": "base-files",
+      "version": "13.8+deb13u7"
+    },
+    {
+      "name": "base-passwd",
+      "version": "3.6.7"
+    },
+    {
+      "name": "bash",
+      "version": "5.2.37-2"
+    },
+    {
+      "name": "bzip2",
+      "version": "1.0.8-6"
+    },
+    {
+      "name": "ca-certificates",
+      "version": "20250419"
+    },
+    {
+      "name": "cdebconf",
+      "version": "0.280"
+    },
+    {
+      "name": "coreutils",
+      "version": "9.7-3"
+    },
+    {
+      "name": "dash",
+      "version": "0.5.12-12"
+    },
+    {
+      "name": "db5.3",
+      "version": "5.3.28+dfsg2-9"
+    },
+    {
+      "name": "debconf",
+      "version": "1.5.91"
+    },
+    {
+      "name": "debian-archive-keyring",
+      "version": "2025.1"
+    },
+    {
+      "name": "debianutils",
+      "version": "5.23.2"
+    },
+    {
+      "name": "diffutils",
+      "version": "1:3.10-4"
+    },
+    {
+      "name": "dpkg",
+      "version": "1.22.22"
+    },
+    {
+      "name": "file",
+      "version": "1:5.46-5"
+    },
+    {
+      "name": "findutils",
+      "version": "4.10.0-3"
+    },
+    {
+      "name": "gcc-14",
+      "version": "14.2.0-19"
+    },
+    {
+      "name": "glibc",
+      "version": "2.41-12+deb13u4"
+    },
+    {
+      "name": "gmp",
+      "version": "2:6.3.0+dfsg-3"
+    },
+    {
+      "name": "grep",
+      "version": "3.11-4"
+    },
+    {
+      "name": "gzip",
+      "version": "1.13-1+deb13u1"
+    },
+    {
+      "name": "hostname",
+      "version": "3.25"
+    },
+    {
+      "name": "init-system-helpers",
+      "version": "1.69~deb13u1"
+    },
+    {
+      "name": "libbsd",
+      "version": "0.12.2-2"
+    },
+    {
+      "name": "libcap-ng",
+      "version": "0.8.5-4"
+    },
+    {
+      "name": "libcap2",
+      "version": "1:2.75-10+deb13u1"
+    },
+    {
+      "name": "libmd",
+      "version": "1.1.0-2"
+    },
+    {
+      "name": "libseccomp",
+      "version": "2.6.0-2"
+    },
+    {
+      "name": "libselinux",
+      "version": "3.8.1-1"
+    },
+    {
+      "name": "libsemanage",
+      "version": "3.8.1-1"
+    },
+    {
+      "name": "libsepol",
+      "version": "3.8.1-1"
+    },
+    {
+      "name": "libxcrypt",
+      "version": "1:4.4.38-1"
+    },
+    {
+      "name": "libzstd",
+      "version": "1.5.7+dfsg-1"
+    },
+    {
+      "name": "lz4",
+      "version": "1.10.0-4"
+    },
+    {
+      "name": "mawk",
+      "version": "1.3.4.20250131-1"
+    },
+    {
+      "name": "ncurses",
+      "version": "6.5+20250216-2"
+    },
+    {
+      "name": "nettle",
+      "version": "3.10.1-1"
+    },
+    {
+      "name": "openssl",
+      "version": "3.5.7-1~deb13u2"
+    },
+    {
+      "name": "pam",
+      "version": "1.7.0-5"
+    },
+    {
+      "name": "pcre2",
+      "version": "10.46-1~deb13u2"
+    },
+    {
+      "name": "perl",
+      "version": "5.40.1-6+deb13u1"
+    },
+    {
+      "name": "rust-sequoia-sqv",
+      "version": "1.3.0-3"
+    },
+    {
+      "name": "sed",
+      "version": "4.9-2+deb13u1"
+    },
+    {
+      "name": "shadow",
+      "version": "1:4.17.4-2"
+    },
+    {
+      "name": "sqlite3",
+      "version": "3.46.1-7+deb13u2"
+    },
+    {
+      "name": "systemd",
+      "version": "257.13-1~deb13u1"
+    },
+    {
+      "name": "sysvinit",
+      "version": "3.14-4"
+    },
+    {
+      "name": "tar",
+      "version": "1.35+dfsg-3.1"
+    },
+    {
+      "name": "tini",
+      "version": "0.19.0-3"
+    },
+    {
+      "name": "tzdata",
+      "version": "2026c-0+deb13u1"
+    },
+    {
+      "name": "util-linux",
+      "version": "2.41.5-0+deb13u1"
+    },
+    {
+      "name": "xxhash",
+      "version": "0.8.3-2"
+    },
+    {
+      "name": "xz-utils",
+      "version": "5.8.1-1+deb13u1"
+    },
+    {
+      "name": "zlib",
+      "version": "1:1.3.dfsg+really1.3.1-1"
+    }
+  ],
+  "sourceMappingsMatchSBOM": true,
+  "checksumVerificationPassed": true,
+  "containersNeverStarted": true,
+  "sourceArchivesCollected": false,
+  "licenseReviewComplete": false,
+  "manifest": {
+    "path": ".local/os-notices-20260916/os-notices.json",
+    "sha256": "731e7469539469867445e0a4b736f9c29f6e10f4c7cecb0efadf8743aafcea42"
+  },
+  "scope": "Installed Debian package identities checked against both SBOMs; notices and common license texts preserved with source-version mappings. OS source archives still need collection and verification."
+}

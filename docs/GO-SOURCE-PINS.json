@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "version": "go1.27.1",
+  "archive": "go1.27.1.src.tar.gz",
+  "url": "https://go.dev/dl/go1.27.1.src.tar.gz",
+  "sha256": "4e408abae126d916b6164627193f2c54f0e3ca1312d693b86db45f862ab238b1",
+  "bytes": 35109201,
+  "checksumSource": "https://go.dev/dl/?mode=json&include=all",
+  "verification": "Exact-version source metadata retrieved over official HTTPS; not an independent signature or compiler-build attestation."
+}

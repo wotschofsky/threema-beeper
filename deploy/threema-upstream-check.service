@@ -1,0 +1,10 @@
+[Unit]
+Description=Check Threema upstream releases and public pages
+After=docker.service network-online.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=/srv/threema-beeper
+ExecStart=/bin/sh /srv/threema-beeper/upstream-check.sh
+TimeoutStartSec=90
+LimitCORE=0

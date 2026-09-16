@@ -1,0 +1,98 @@
+{
+  "schemaVersion": 1,
+  "observedOn": "2026-09-16",
+  "images": [
+    {
+      "schemaVersion": 1,
+      "architecture": "amd64",
+      "imageId": "sha256:24e213529781b88b1358251c6580134e26536bd89e5c242fcc9bc9c082f59af3",
+      "inputSha256": "c257c28344214652ed4ba884d255b894db74e25d988f740e254d01f1c8d67c34",
+      "scanner": {
+        "name": "syft",
+        "version": "1.51.1"
+      },
+      "detectedPackages": 341,
+      "counts": {
+        "npm": 222,
+        "deb": 85,
+        "binary": 2,
+        "go-module": 32
+      },
+      "outputs": [
+        {
+          "format": "syft",
+          "path": ".local/sbom/2026-09-16-alerts/amd64.syft.json",
+          "bytes": 3243540,
+          "sha256": "43c2b425c24c7f16abeb1612425f3a3a48a37ab02939a2c55669d157a611fc1e"
+        },
+        {
+          "format": "cdx",
+          "path": ".local/sbom/2026-09-16-alerts/amd64.cdx.json",
+          "bytes": 1332980,
+          "sha256": "d46fea750bb8ef309c4b39992ef865bb075caaede0476dde5c04b93ab3b5f844"
+        },
+        {
+          "format": "spdx",
+          "path": ".local/sbom/2026-09-16-alerts/amd64.spdx.json",
+          "bytes": 2767721,
+          "sha256": "07409ace02488f6e3d3266120876423b8bee47103c344ada3c6d2f648ae11ec3"
+        }
+      ],
+      "detectedBuildIntermediates": [],
+      "cargoMetadataDetected": false,
+      "releaseReady": false,
+      "limitations": [
+        "Image inventory does not establish complete compiled Rust/WASM dependency coverage.",
+        "Native crypto and WASM require build-linked source dependency inventories.",
+        "Experimental images still contain source files and JavaScript build tooling.",
+        "SBOM generation is not vulnerability scanning or license compliance approval."
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "architecture": "arm64",
+      "imageId": "sha256:9659510686f5665fbbdc61f398d9e76ff63cae8e95e3aab5ae320832875cf5bb",
+      "inputSha256": "c257c28344214652ed4ba884d255b894db74e25d988f740e254d01f1c8d67c34",
+      "scanner": {
+        "name": "syft",
+        "version": "1.51.1"
+      },
+      "detectedPackages": 341,
+      "counts": {
+        "npm": 222,
+        "deb": 85,
+        "binary": 2,
+        "go-module": 32
+      },
+      "outputs": [
+        {
+          "format": "syft",
+          "path": ".local/sbom/2026-09-16-alerts/arm64.syft.json",
+          "bytes": 3259469,
+          "sha256": "313f02b343a7c6d6d1eb4565471341157b40854845efc74ebec272e09296037d"
+        },
+        {
+          "format": "cdx",
+          "path": ".local/sbom/2026-09-16-alerts/arm64.cdx.json",
+          "bytes": 1333895,
+          "sha256": "282468f52713cdaeff8d3abe325720241b874ae478a90594979980180ed9ed9c"
+        },
+        {
+          "format": "spdx",
+          "path": ".local/sbom/2026-09-16-alerts/arm64.spdx.json",
+          "bytes": 2767719,
+          "sha256": "fb578d34294ee5a48257adbbb1ebea876e0cf19b6bd0bdffc2341969a758dee8"
+        }
+      ],
+      "detectedBuildIntermediates": [],
+      "cargoMetadataDetected": false,
+      "releaseReady": false,
+      "limitations": [
+        "Image inventory does not establish complete compiled Rust/WASM dependency coverage.",
+        "Native crypto and WASM require build-linked source dependency inventories.",
+        "Experimental images still contain source files and JavaScript build tooling.",
+        "SBOM generation is not vulnerability scanning or license compliance approval."
+      ]
+    }
+  ]
+}

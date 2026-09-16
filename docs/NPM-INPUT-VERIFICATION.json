@@ -1,0 +1,113 @@
+{
+  "schemaVersion": 1,
+  "directory": ".local/npm-package-inputs-20260916",
+  "inputSha256": "c257c28344214652ed4ba884d255b894db74e25d988f740e254d01f1c8d67c34",
+  "imageInventories": [
+    {
+      "architecture": "amd64",
+      "imageId": "sha256:24e213529781b88b1358251c6580134e26536bd89e5c242fcc9bc9c082f59af3",
+      "sha256": "43c2b425c24c7f16abeb1612425f3a3a48a37ab02939a2c55669d157a611fc1e"
+    },
+    {
+      "architecture": "arm64",
+      "imageId": "sha256:9659510686f5665fbbdc61f398d9e76ff63cae8e95e3aab5ae320832875cf5bb",
+      "sha256": "313f02b343a7c6d6d1eb4565471341157b40854845efc74ebec272e09296037d"
+    }
+  ],
+  "packageEntries": 217,
+  "verifiedFiles": 7195,
+  "archiveContentsAndModesVerified": true,
+  "separateCoverageRequired": [
+    {
+      "name": "corepack",
+      "version": "0.36.0",
+      "imagePath": "/usr/local/lib/node_modules/corepack/package.json",
+      "reason": "base-image-package"
+    },
+    {
+      "name": "matrix-appservice-bridge",
+      "version": "12.0.0",
+      "imagePath": "/probe/.local/sources/matrix-appservice-bridge/package.json",
+      "reason": "project-source-repository"
+    },
+    {
+      "name": "threema-beeper",
+      "version": "UNKNOWN",
+      "imagePath": "/probe/package.json",
+      "reason": "project-source-repository"
+    },
+    {
+      "name": "threema-bridge-runtime-dependencies",
+      "version": "0.0.0",
+      "imagePath": "/probe/native/runtime-dependencies/package.json",
+      "reason": "project-source-repository"
+    },
+    {
+      "name": "yarn",
+      "version": "1.22.22",
+      "imagePath": "/opt/yarn-v1.22.22/package.json",
+      "reason": "base-image-package"
+    }
+  ],
+  "packagesWithoutConventionalNotice": [
+    {
+      "name": "cookie-signature",
+      "version": "1.0.7",
+      "imagePath": "/probe/.local/sources/matrix-appservice-bridge/node_modules/cookie-signature/package.json"
+    },
+    {
+      "name": "glob-to-regexp",
+      "version": "0.4.1",
+      "imagePath": "/probe/.local/sources/matrix-appservice-bridge/node_modules/glob-to-regexp/package.json"
+    },
+    {
+      "name": "hash.js",
+      "version": "1.1.7",
+      "imagePath": "/probe/.local/sources/matrix-appservice-bridge/node_modules/hash.js/package.json"
+    },
+    {
+      "name": "ip-cidr",
+      "version": "4.0.2",
+      "imagePath": "/probe/native/runtime-dependencies/node_modules/ip-cidr/package.json"
+    },
+    {
+      "name": "launder",
+      "version": "1.7.1",
+      "imagePath": "/probe/.local/sources/matrix-appservice-bridge/node_modules/launder/package.json"
+    },
+    {
+      "name": "mkdirp",
+      "version": "3.0.1",
+      "imagePath": "/probe/.local/sources/matrix-appservice-bridge/node_modules/mkdirp/dist/cjs/package.json"
+    },
+    {
+      "name": "postgres",
+      "version": "3.4.9",
+      "imagePath": "/probe/.local/sources/matrix-appservice-bridge/node_modules/postgres/package.json"
+    },
+    {
+      "name": "simple-app",
+      "version": "0.1.0",
+      "imagePath": "/probe/.local/sources/matrix-appservice-bridge/node_modules/pkginfo/examples/package.json"
+    },
+    {
+      "name": "simple-app-subdir",
+      "version": "0.1.0",
+      "imagePath": "/probe/.local/sources/matrix-appservice-bridge/node_modules/pkginfo/examples/subdir/package.json"
+    }
+  ],
+  "completeCorrespondingSource": false,
+  "scope": "Context-pinned installed package inputs selected by both image inventories. Includes existing local modifications and notices. Published JavaScript packages may omit preferred source or contain generated code; full source and license coverage are not established. Nested node_modules are collected only when separately inventoried.",
+  "evidence": [
+    {
+      "path": ".local/npm-package-inputs-20260916/npm-inputs.json",
+      "sha256": "f1907769fee0a8b5309b9bcd8b6e926eaa204b0be3a78fd7f9bf6b65dda6a732",
+      "bytes": 1512445
+    },
+    {
+      "path": ".local/npm-package-inputs-20260916/npm-package-inputs.tar.gz",
+      "sha256": "1f095c1df86010e4b5de7a366536ef04b649ba2f9e7492d026f3e08ef7645c4c",
+      "bytes": 31307871
+    }
+  ]
+}

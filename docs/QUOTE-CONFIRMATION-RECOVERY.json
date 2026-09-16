@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "observedOn": "2026-09-16",
+  "outboxSchema": 17,
+  "baseCommit": "2e66dff0efc7e12d550dcf5bf6574e6127ea5d79",
+  "files": {
+    "src/outbox/media-journal.ts": "70386edbe0d8d49c85fa452cab5ae981b53a607f91e0259e83c5b7236e2a8d23",
+    "src/outbox/store.ts": "04ffc33b693a1e25b4f711ec444b859347efe78b8ce62850558a7edf7df1db00",
+    "src/service/database-doctor.ts": "76308495171f2036d39d00997b6aaf40c8c1c162dfdd58c9181c2997aa42a69a",
+    "tests/entry.media-replies.ts": "d69c0b5ab45b87f74f9d4072eedea197f1791cd9429d83cc08a5597669b16bc4",
+    "tests/entry.media-reply-crash.ts": "bbb4dc41e036fb20ce1f7866622d810aaa4fada89e868c5c8c59b53cbf436824",
+    "tests/entry.mutation-journal.ts": "2182cb9aab04825a243f6dfc22c107182d840a199c6f88f92a3be075e753e958"
+  },
+  "beforeFixLogs": [
+    {
+      "path": ".local/quote-restart-before.log",
+      "sha256": "89bc353d22e8d6772df7da699613d9847850888d716bb5ea312d82e62611e852"
+    },
+    {
+      "path": ".local/quote-confirmed-attachment-before.log",
+      "sha256": "ada7da2c9703c36b6d2cd55b151ce7f3ae3895ed8f560e3efb45a78644deecbd"
+    }
+  ],
+  "verification": [
+    {
+      "runtime": "macos",
+      "passed": 20,
+      "log": {
+        "path": ".local/quote-restart-suite.log",
+        "sha256": "8474ffc8e514741c500dc3105c0c643a2c906fa16af0700daf0910b5c9a05005"
+      }
+    },
+    {
+      "runtime": "arm64",
+      "passed": 20,
+      "log": {
+        "path": ".local/quote-restart-arm64.log",
+        "sha256": "61cb5300d80aa2cb8b39b71757f2508c3b10d988d98a7ed3c43c696316f99dbf"
+      },
+      "baseImageId": "sha256:6fe592b2fc19caf5f107220c4e15ed3c85358d827ace3ee63d69022d453e1cd3"
+    },
+    {
+      "runtime": "amd64",
+      "passed": 20,
+      "log": {
+        "path": ".local/quote-restart-amd64.log",
+        "sha256": "df6612253998fedf645518906f8d2e0dad8b50ac28fb7539024504e2f26703f9"
+      },
+      "baseImageId": "sha256:224215496a7d04e4702f89679d670b22f05d9cc61028828c18c59e672e43b7f0"
+    }
+  ],
+  "limitations": [
+    "Changed source/tests mounted into existing transport images; no rebuilt package claimed.",
+    "No account data or networking used for Linux tests; AMD64 under emulation.",
+    "Native upload restart acceptance and legacy incorrectly acknowledged text/attachment rows remain open.",
+    "Not yet applied to live service."
+  ]
+}

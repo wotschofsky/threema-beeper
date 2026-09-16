@@ -1,0 +1,10 @@
+[Unit]
+Description=Scan installed Threema bridge image dependencies
+After=docker.service network-online.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=/srv/threema-beeper
+ExecStart=/bin/sh /srv/threema-beeper/security-check.sh
+TimeoutStartSec=30min
+LimitCORE=0

@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 1,
+  "observedOn": "2026-09-16",
+  "baseCommit": "1d99e7b6371c455632cdcd4744883cb1a3e35a4c",
+  "files": {
+    "src/outbox/media-journal.ts": "f841e6668ad3784c51792fa855e408275a0479f890b9ae5a8a0472c3f0bc6fd6",
+    "src/outbox/store.ts": "aeb337db1ae93b27766fb8bfde415b31a250553613abc4a3de9d5b8f1a41f6f5",
+    "tests/entry.local-echo-confirmation.ts": "bc33a5ca458bc3f4609b2e0480e9f9e09e6230ec7ecc25821bd3c20a1f8d41fd",
+    "tests/entry.media-crash.ts": "fe4be61db88f6655e9fc843a66fa46e85d116f7e4cdfbcfe7c20d6f7ddd209b7",
+    "tests/entry.outbox-crash.ts": "053339430ad1feadc6e4c6d3121636bc0ce62ce9025227acb25b98de6cb011de",
+    "tests/entry.outbox-dispatcher.ts": "ed14c8759a19760439c065ed682576b0883902d44c06cb23eb6c2a414b4d0525",
+    "tests/entry.outbox-scheduling.ts": "7af0a399d545bd9d8a9d798d34b9eccd56814576213d6d1f3cbf3c5dc23a75a6",
+    "tests/entry.send-failure-notices.ts": "4542dd54fa7967d25a57d0766c321aa48cb4eb6bbb6a08cad5d0ad87ebbfc3c1",
+    "tests/entry.status-crash.ts": "a0eef3ba3cc99f177bb7153c6431901a74141c5bf58d83e3ffd8f0e444e5682d"
+  },
+  "beforeFixLogSha256": "ebda11849d48628e58243d4b782a07baba93684dacd6b8da1a4c50055682c6d8",
+  "verification": [
+    {
+      "runtime": "macos",
+      "passed": 36,
+      "logs": [
+        {
+          "path": ".local/pending-restart-suite.log",
+          "sha256": "c3e40c85d5b278c1d46566796ec031a4585fae61f5bf19f6be136819102fd845"
+        },
+        {
+          "path": ".local/pending-restart-notices.log",
+          "sha256": "4c1ca332a25786438e1da6f62e9ec1f042d5046b5e3eebcacb4415703b6e9757"
+        }
+      ]
+    },
+    {
+      "runtime": "arm64",
+      "passed": 36,
+      "logs": [
+        {
+          "path": ".local/pending-restart-arm64.log",
+          "sha256": "7db841b53115d48db3e9463549b3d8dac8faa6ba0d34f695f0696f759694ed07"
+        }
+      ],
+      "baseImageId": "sha256:6fe592b2fc19caf5f107220c4e15ed3c85358d827ace3ee63d69022d453e1cd3"
+    },
+    {
+      "runtime": "amd64",
+      "passed": 36,
+      "logs": [
+        {
+          "path": ".local/pending-restart-amd64.log",
+          "sha256": "11c94a51e4e7d1522ebb6544ed2020bacb6c2cd5db51fa64ddb4f6d2b3637511"
+        }
+      ],
+      "baseImageId": "sha256:224215496a7d04e4702f89679d670b22f05d9cc61028828c18c59e672e43b7f0"
+    }
+  ],
+  "limitations": [
+    "Linux tests mounted changed source/tests into the verified transport images; this is not a new package.",
+    "Synthetic recipient effects, not a native task/upload restart acceptance test.",
+    "Not applied to live Mac service.",
+    "Quote-companion startup confirmation and legacy incorrectly acknowledged rows remain open."
+  ]
+}

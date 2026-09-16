@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "version": "7.5.21",
+  "advisory": "https://github.com/advisories/GHSA-r292-9mhp-454m",
+  "packageLockSha256": "f86e5a60cb4b58a59ed91dd99fc9f959fb904f02a6348a15414905cd9173ad10",
+  "images": [
+    {
+      "architecture": "amd64",
+      "imageId": "sha256:87b66909ad46d5ec87ce5924eb537179e086463bd96b9a588eb6c63a7a2aef31",
+      "contextSha256": "0400fb4d17f08d4a0ddee1bc412cd13bcbfc5b4f01c218bac167cb3738a9db78",
+      "inspection": {
+        "path": ".local/linux-tar-7521-inspect-amd64.json",
+        "sha256": "10cecc5f8692e5fca31bf858142af6013e77c66077e8fa21318b689366a32f87"
+      },
+      "tests": {
+        "path": ".local/linux-tar-7521-tests-amd64.log",
+        "sha256": "0ebed31f99822d8a28849e8f8c1f84474cdd281190bb938d09662a23697a3f7f",
+        "passed": 5
+      }
+    },
+    {
+      "architecture": "arm64",
+      "imageId": "sha256:d59708dbf83ee62b777b6863f9aaa696da2effdaa09e0e1a8d5cba1d767cda08",
+      "contextSha256": "0400fb4d17f08d4a0ddee1bc412cd13bcbfc5b4f01c218bac167cb3738a9db78",
+      "inspection": {
+        "path": ".local/linux-tar-7521-inspect-arm64.json",
+        "sha256": "8d8cefdddc68527e140204ba12861eb79d86529230c38575bb4aa78dac5f7d90"
+      },
+      "tests": {
+        "path": ".local/linux-tar-7521-tests-arm64.log",
+        "sha256": "6cb839f3cd83823c853ef72b3a020e713375ef0c6fb5bc67259bb042af2a14cb",
+        "passed": 5
+      }
+    }
+  ],
+  "regression": {
+    "test": "tests/entry.tar-long-path.ts",
+    "oldVersion": "7.5.19",
+    "before": ".local/tar-long-path-before.log",
+    "beforeSha256": "c6a56f86e813b2397358b086e7df86b962677c31a9a5bf9bca6815bfd34909aa",
+    "oldOutcome": "RangeError: Maximum call stack size exceeded",
+    "newOutcome": "passed on host and both Linux architectures"
+  },
+  "backupCompatibility": {
+    "oldWriter": "7.5.16",
+    "newReader": "7.5.21",
+    "log": ".local/tar-7521-compat.log",
+    "sha256": "64722cf9bb823cdbef9e8e0374c812f9fe1a5dfcb9d745e75b83d2284d7b2476",
+    "passed": 2
+  },
+  "exported": false,
+  "fullImageRescanPending": true
+}

@@ -1,0 +1,44 @@
+# Feasibility builder only; this is not the production bridge image.
+FROM rust:1.94.0-bookworm@sha256:365468470075493dc4583f47387001854321c5a8583ea9604b297e67f01c5a4f AS builder
+
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends binaryen clang \
+    && rm -rf /var/lib/apt/lists/*
+RUN rustup target add wasm32-unknown-unknown
+RUN cargo install --locked wasm-bindgen-cli --version 0.2.114
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends protobuf-compiler \
+    && rm -rf /var/lib/apt/lists/*
+ENV RUSTUP_TOOLCHAIN=1.94.0
+ARG TARGETARCH
+RUN case "$TARGETARCH" in \
+      arm64) binaryen_arch=aarch64; binaryen_sha=4b6bd61ba6cd3b18c993b4657d93426c782f9b91b74be0d38018cd8be1319376 ;; \
+      amd64) binaryen_arch=x86_64; binaryen_sha=e959f2170af4c20c552e9de3a0253704d6a9d2766e8fdb88e4d6ac4bae9388fe ;; \
+      *) exit 1 ;; \
+    esac \
+    && curl -fsSL --retry 3 --max-time 180 \
+      "https://github.com/WebAssembly/binaryen/releases/download/version_123/binaryen-version_123-${binaryen_arch}-linux.tar.gz" \
+      -o /tmp/binaryen.tar.gz \
+    && echo "$binaryen_sha  /tmp/binaryen.tar.gz" | sha256sum -c - \
+    && tar -xzf /tmp/binaryen.tar.gz -C /opt \
+    && rm /tmp/binaryen.tar.gz
+ENV PATH="/opt/binaryen-version_123/bin:${PATH}"
+
+WORKDIR /source
+COPY packages/libthreema-wasm/libs/libthreema/ ./
+RUN ./tools/build-wasm.sh --target=web --no-container
+
+# Replaying the same locked build emits artifact records, including cached units,
+# without changing the selected package/features/target used by the upstream script.
+RUN CARGO_TARGET_DIR=/source/target cargo build --locked -F wasm -p libthreema \
+      --target wasm32-unknown-unknown --release --message-format=json-render-diagnostics \
+      > build/wasm/web/cargo-build.jsonl \
+    && cargo metadata --locked --format-version 1 \
+      --features wasm > build/wasm/web/cargo-metadata.json \
+    && rustc -Vv > build/wasm/web/rustc-version.txt \
+    && cargo -V > build/wasm/web/cargo-version.txt \
+    && sha256sum Cargo.lock target/wasm32-unknown-unknown/release/libthreema.wasm \
+      build/wasm/web/libthreema_bg.wasm > build/wasm/web/build-hashes.txt
+
+FROM scratch AS artifact
+COPY --from=builder /source/build/wasm/web/ /

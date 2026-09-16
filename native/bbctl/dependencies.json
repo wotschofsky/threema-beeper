@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "goVersion": "go1.27.1",
+  "modules": {
+    "golang.org/x/crypto": "v0.56.0",
+    "golang.org/x/text": "v0.41.0"
+  },
+  "originalFiles": {
+    "go.mod": "9ba9fcf41174ca153d3b2b84d71a9a9c8150f09ceb5a5290fadcd90bb402effb",
+    "go.sum": "325278cfb35db049eb5ee10102820078558cadfba5a8b000b8bc571d6e9c17da"
+  },
+  "patchedFiles": {
+    "go.mod": "6cf3274893275fa1e4aecc6532b9eea194065e920bbe208d9fff9b7d6ff55ad6",
+    "go.sum": "064a88b7d6ecda26a76168ae01322e603b47a3264d2817488450355c854dbebd"
+  },
+  "patchSha256": "2e3966613ffb5d99ff39df6ae90af66b40eebc49046494b22e422db1b3a56730"
+}

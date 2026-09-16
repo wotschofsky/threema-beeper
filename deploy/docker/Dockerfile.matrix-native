@@ -1,0 +1,26 @@
+# Source-build experiment. The runtime still uses checksum-pinned release addons.
+FROM rust:1.94.0-bookworm@sha256:365468470075493dc4583f47387001854321c5a8583ea9604b297e67f01c5a4f AS builder
+# Match the toolchain declared by the pinned upstream release workflow.
+RUN rustup toolchain install nightly-2026-06-04 --profile minimal
+ENV RUSTUP_TOOLCHAIN=nightly-2026-06-04
+WORKDIR /source
+COPY source/ ./
+ARG TARGETARCH
+RUN case "$TARGETARCH" in \
+      arm64) native_target=aarch64-unknown-linux-gnu; node_arch=arm64 ;; \
+      amd64) native_target=x86_64-unknown-linux-gnu; node_arch=x64 ;; \
+      *) exit 1 ;; \
+    esac \
+    && mkdir -p /artifacts \
+    && cargo build --locked --release --target "$native_target" \
+      --message-format=json-render-diagnostics > /artifacts/cargo-build.jsonl \
+    && cargo metadata --locked --format-version 1 > /artifacts/cargo-metadata.json \
+    && cp "target/$native_target/release/libmatrix_sdk_crypto_nodejs.so" \
+      "/artifacts/matrix-sdk-crypto.linux-$node_arch-gnu.node" \
+    && strip "/artifacts/matrix-sdk-crypto.linux-$node_arch-gnu.node" \
+    && rustc -Vv > /artifacts/rustc-version.txt \
+    && cargo -V > /artifacts/cargo-version.txt \
+    && sha256sum Cargo.lock /artifacts/*.node > /artifacts/build-hashes.txt
+
+FROM scratch AS artifact
+COPY --from=builder /artifacts/ /

@@ -1,0 +1,10 @@
+{
+  "version": "v1.51.1",
+  "releaseId": 377988884,
+  "releaseUrl": "https://github.com/anchore/syft/releases/tag/v1.51.1",
+  "asset": "syft_1.51.1_darwin_arm64.tar.gz",
+  "assetUrl": "https://github.com/anchore/syft/releases/download/v1.51.1/syft_1.51.1_darwin_arm64.tar.gz",
+  "archiveSha256": "ac063af3b9874769deb7ea1e6d76841e68f9e3bb50cd654226fc977de65532c1",
+  "executableSha256": "47cd0bc89537c80eed48f34766743d54574e5830deff243cf54d99696a8e9ce0",
+  "checksumsSha256": "105346699e7cb694afa37a21e2386432df6278c99f71331c24b1e0bb0f38cc75"
+}

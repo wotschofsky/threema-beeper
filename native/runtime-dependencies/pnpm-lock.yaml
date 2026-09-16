@@ -1,0 +1,50 @@
+lockfileVersion: '9.0'
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
+overrides:
+  ip-address: 10.3.1
+
+importers:
+
+  .:
+    dependencies:
+      ip-cidr:
+        specifier: 4.0.2
+        version: 4.0.2
+      js-yaml:
+        specifier: 4.3.2
+        version: 4.3.2
+
+packages:
+
+  argparse@2.0.1:
+    resolution: {integrity: sha512-8+9WqebbFzpX9OR+Wa6O29asIogeRMzcGtAINdpMHHyAg10f05aSFVBbcEqGf/PXw1EjAZ+q2/bEBg3DvurK3Q==}
+
+  ip-address@10.3.1:
+    resolution: {integrity: sha512-1e9d3kb97NHJTIJDZW9rKqW2h6+dFa50Dy0fpPSMQp2ADje5gvKsXmdiK6dwY5t76TaTt5+P5N1Y/LoToIxP6g==}
+    engines: {node: '>= 12'}
+
+  ip-cidr@4.0.2:
+    resolution: {integrity: sha512-KifhLKBjdS/hB3TD4UUOalVp1BpzPFvRpgJvXcP0Ya98tuSQTUQ71iI7EW7CKddkBJTYB3GfTWl5eJwpLOXj2A==}
+    engines: {node: '>=16.14.0'}
+
+  js-yaml@4.3.2:
+    resolution: {integrity: sha512-SFNOvSJ+Dgf/9An904Yx+CgSlIPCkIpao4qo51lpee25TIRejdH3rhR4EZMGoNx3/TP3O+wzWuiTFl4sqbltzA==}
+    hasBin: true
+
+snapshots:
+
+  argparse@2.0.1: {}
+
+  ip-address@10.3.1: {}
+
+  ip-cidr@4.0.2:
+    dependencies:
+      ip-address: 10.3.1
+
+  js-yaml@4.3.2:
+    dependencies:
+      argparse: 2.0.1

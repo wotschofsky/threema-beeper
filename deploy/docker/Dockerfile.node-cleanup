@@ -1,0 +1,24 @@
+# Experimental runtime only; not used by the release Dockerfile.
+# Context: .local/node-cleanup-review (checksum-verified source and adapted patch).
+FROM node:24.21.0-trixie-slim@sha256:db3ae80f5d8df06e04dabdf7b44cbf008d32de168205fa0294444aabbc08c590 AS build
+RUN apt-get update && apt-get install -y --no-install-recommends python3 make g++ patch xz-utils \
+    && rm -rf /var/lib/apt/lists/*
+WORKDIR /build
+COPY node-v24.21.0.tar.xz cleanup-hooks.patch ./
+RUN echo "a6f54defb6fd7c84f41dba13d61e78e9b4e0961712cf61f29715c05f5ced94fc  node-v24.21.0.tar.xz" | sha256sum -c - \
+    && echo "d81bb3d1a3558df9a32b7af7db9806e0ff26d2fa38bb41ca321f16baa78b9551  cleanup-hooks.patch" | sha256sum -c - \
+    && tar -xJf node-v24.21.0.tar.xz \
+    && cd node-v24.21.0 && patch --batch --fuzz=0 -p1 < ../cleanup-hooks.patch
+WORKDIR /build/node-v24.21.0
+RUN ./configure --prefix=/opt/node-cleanup && make -j4 && make install
+RUN out/Release/cctest --gtest_filter='EnvironmentTest.RemoveEnvironmentCleanupHookDuringCleanup' \
+      --gtest_list_tests > /tmp/cleanup-tests.txt \
+    && grep -Fx '  RemoveEnvironmentCleanupHookDuringCleanup' /tmp/cleanup-tests.txt \
+    && out/Release/cctest --gtest_filter='EnvironmentTest.RemoveEnvironmentCleanupHookDuringCleanup'
+RUN cd test/addons/worker-addon \
+    && /opt/node-cleanup/bin/node ../../../deps/npm/node_modules/node-gyp/bin/node-gyp.js \
+       rebuild --release --nodedir=/opt/node-cleanup \
+    && /opt/node-cleanup/bin/node test.js
+FROM node:24.21.0-trixie-slim@sha256:db3ae80f5d8df06e04dabdf7b44cbf008d32de168205fa0294444aabbc08c590
+COPY --from=build /opt/node-cleanup/ /usr/local/
+RUN node -p 'JSON.stringify(process.versions)'

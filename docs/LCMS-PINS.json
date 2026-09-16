@@ -1,0 +1,7 @@
+{
+  "version": "2.19",
+  "archive": "lcms2-2.19.tar.gz",
+  "url": "https://github.com/mm2/Little-CMS/archive/refs/tags/lcms2.19.tar.gz",
+  "sha256": "6acc3eb5fac194acc85331194133ad1d4a60419dad16b3bc225a7d27380a5b3a",
+  "verification": "SHA-256 recorded from official HTTPS release tag archive on 2026-09-15; independent signature verification pending"
+}

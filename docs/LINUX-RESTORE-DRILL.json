@@ -1,0 +1,118 @@
+{
+  "schemaVersion": 1,
+  "observedOn": "2026-09-16",
+  "backupSourceEvidence": "docs/LIVE-RECOVERY-UPGRADE.json",
+  "backupAuthenticated": true,
+  "offlineAdoptionPassed": true,
+  "results": [
+    {
+      "architecture": "arm64",
+      "imageId": "sha256:3b4d2c3944ea04d1cd567cc9e21234a5a3f5d88cbbe5914b31f9e666df9ce5f4",
+      "result": {
+        "architecture": "arm64",
+        "schemaCurrent": true,
+        "results": [
+          {
+            "store": "journal",
+            "integrity": true,
+            "wrongKeyRejected": true,
+            "corruptedCopyRejected": true,
+            "originalUnchanged": true
+          },
+          {
+            "store": "inbox",
+            "integrity": true,
+            "wrongKeyRejected": true,
+            "corruptedCopyRejected": true,
+            "originalUnchanged": true
+          },
+          {
+            "store": "portals",
+            "integrity": true,
+            "wrongKeyRejected": true,
+            "corruptedCopyRejected": true,
+            "originalUnchanged": true
+          },
+          {
+            "store": "outbox",
+            "integrity": true,
+            "wrongKeyRejected": true,
+            "corruptedCopyRejected": true,
+            "originalUnchanged": true
+          }
+        ],
+        "network": "disabled by Docker",
+        "serviceStarted": false
+      },
+      "evidence": {
+        "path": ".local/restored-linux-arm64-20260916.log",
+        "sha256": "7bcde2f03f55c4cc290f0883254d8259b5b6d12797741be47f942645806a3785"
+      }
+    },
+    {
+      "architecture": "amd64",
+      "imageId": "sha256:898a2dffe68b67aed3e55f860886b5894db8a214d64a44a1e33c87d49459b902",
+      "result": {
+        "architecture": "x64",
+        "schemaCurrent": true,
+        "results": [
+          {
+            "store": "journal",
+            "integrity": true,
+            "wrongKeyRejected": true,
+            "corruptedCopyRejected": true,
+            "originalUnchanged": true
+          },
+          {
+            "store": "inbox",
+            "integrity": true,
+            "wrongKeyRejected": true,
+            "corruptedCopyRejected": true,
+            "originalUnchanged": true
+          },
+          {
+            "store": "portals",
+            "integrity": true,
+            "wrongKeyRejected": true,
+            "corruptedCopyRejected": true,
+            "originalUnchanged": true
+          },
+          {
+            "store": "outbox",
+            "integrity": true,
+            "wrongKeyRejected": true,
+            "corruptedCopyRejected": true,
+            "originalUnchanged": true
+          }
+        ],
+        "network": "disabled by Docker",
+        "serviceStarted": false
+      },
+      "evidence": {
+        "path": ".local/restored-linux-amd64-20260916.log",
+        "sha256": "599cdc8ff23bb030d661d068254a5af3c6a87034dac7be2ce1b7161c4fc8b532"
+      }
+    }
+  ],
+  "probe": {
+    "path": ".local/verify-restored-linux-databases.ts",
+    "sha256": "5dee5c0b39bb9c9d57bc6bd1c607173bb7191e8fb3c63c2cd34714730f6f9b64"
+  },
+  "containerConstraints": {
+    "network": "none",
+    "readOnlyRoot": true,
+    "readOnlyRestoredInstallation": true,
+    "capabilities": "all dropped",
+    "noNewPrivileges": true,
+    "temporaryStorage": "private non-executable tmpfs",
+    "user": "host owner UID/GID, to read the Mac restore without changing its ownership"
+  },
+  "liveInstallationMounted": false,
+  "restoredServiceStarted": false,
+  "limitations": [
+    "Tests only the four bridge SQLCipher stores; native Threema profile unlock and Matrix Rust crypto-store reopening are separate requirements.",
+    "Does not establish target-host startup, network reconnection, off-site restore or rollback.",
+    "Host-owner UID override was used for the read-only Mac restore; this is not acceptance of target installation ownership setup.",
+    "AMD64 runtime used local emulation."
+  ]
+}

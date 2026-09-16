@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "observedOn": "2026-09-16",
+  "regression": "Only 200 of 206 pending send failures could receive notices before the fix; all 206 receive exactly one acknowledged notice after pagination.",
+  "before": {
+    "log": ".local/failure-notice-backlog-before.log",
+    "sha256": "16b92297fe1948d138b3a7965653b220ece18a212fdb769a94ce22a141c38fd8"
+  },
+  "results": [
+    {
+      "platform": "host",
+      "passed": 8,
+      "log": ".local/failure-notice-regressions-host.log",
+      "sha256": "8070707831b70b897be0dde2f0189e7dbc4fad5b005b16430c401939d9e845b6"
+    },
+    {
+      "platform": "arm64",
+      "passed": 6,
+      "log": ".local/failure-notice-regressions-arm64.log",
+      "sha256": "fd49f94b1d34a6b824364eb4d85984bfdd28d62b590acd7d4ad46a31926a2bd9"
+    },
+    {
+      "platform": "amd64",
+      "passed": 6,
+      "log": ".local/failure-notice-regressions-amd64.log",
+      "sha256": "52fd150fc4f90dc07d8bf27c6a18b508c84872006a048b4b98f50956eca52103"
+    }
+  ],
+  "typescriptPassed": true,
+  "linuxScope": "Current disk candidate runtime with read-only overlays of store.ts, send-failure-notices.ts and the regression test. Synthetic data; no network or accounts.",
+  "packagedInExistingCandidate": false,
+  "liveAcceptance": false,
+  "sourceFiles": [
+    {
+      "path": "src/outbox/store.ts",
+      "sha256": "a5f2b5a7fe87213cd1c1fedac66606e9f569ee6505cd8436f548069d44d257e9"
+    },
+    {
+      "path": "src/outbox/send-failure-notices.ts",
+      "sha256": "987ddab7409fe3636f29d49599816a26e0179b97985a6b475f9c0a60089de3d5"
+    },
+    {
+      "path": "tests/entry.send-failure-notices.ts",
+      "sha256": "542411057a89bdc795388433dd59572cb110ffefd59bcfc03502e39a5a1bf1f4"
+    }
+  ]
+}

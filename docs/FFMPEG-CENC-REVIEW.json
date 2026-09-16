@@ -1,0 +1,161 @@
+{
+  "cve": "CVE-2026-40962",
+  "assessment": "fix-present-in-pinned-source",
+  "version": "8.0.3",
+  "archiveSha256": "6136812ea6d4e68bdba27e33c2a94382711cdf4f8602ffef056ff792bd6f9818",
+  "sourceSha256": "579c72c8fbabc040bc7c0f673de3f6325da765bd45c3c0fd05ea4c181f052ef1",
+  "fixCommit": "e392fb8c9c3949d975531d2b23c645d2465a7ebc",
+  "backportCommit": "2b14ba12669d75f5f73d8634c6db36e704144532",
+  "patchSha256": "39064098f0e4bc7d663d59e0cb37534bc36174026626f360291e1c8971c899d7",
+  "checkedFunctions": [
+    "cenc_scheme_decrypt",
+    "cbc1_scheme_decrypt",
+    "cens_scheme_decrypt",
+    "cbcs_scheme_decrypt"
+  ],
+  "scope": "Source backport presence; not a blanket FFmpeg safety assessment or a crafted-media exploit test",
+  "buildContextSha256": "c257c28344214652ed4ba884d255b894db74e25d988f740e254d01f1c8d67c34",
+  "images": {
+    "amd64": "sha256:24e213529781b88b1358251c6580134e26536bd89e5c242fcc9bc9c082f59af3",
+    "arm64": "sha256:9659510686f5665fbbdc61f398d9e76ff63cae8e95e3aab5ae320832875cf5bb"
+  },
+  "previousReview": {
+    "cve": "CVE-2026-40962",
+    "assessment": "fix-present-in-pinned-source",
+    "version": "8.0.3",
+    "archiveSha256": "6136812ea6d4e68bdba27e33c2a94382711cdf4f8602ffef056ff792bd6f9818",
+    "sourceSha256": "579c72c8fbabc040bc7c0f673de3f6325da765bd45c3c0fd05ea4c181f052ef1",
+    "fixCommit": "e392fb8c9c3949d975531d2b23c645d2465a7ebc",
+    "backportCommit": "2b14ba12669d75f5f73d8634c6db36e704144532",
+    "patchSha256": "39064098f0e4bc7d663d59e0cb37534bc36174026626f360291e1c8971c899d7",
+    "checkedFunctions": [
+      "cenc_scheme_decrypt",
+      "cbc1_scheme_decrypt",
+      "cens_scheme_decrypt",
+      "cbcs_scheme_decrypt"
+    ],
+    "scope": "Source backport presence; not a blanket FFmpeg safety assessment or a crafted-media exploit test",
+    "buildContextSha256": "16250899a1af580e525f0b4ac6bd376f74fd796f81c91640c6553066fa1e6247",
+    "images": {
+      "amd64": "sha256:db55b1e86a18c248299d42aca0e365d4e27bfb27d7eb02d3813800463a8fcfe4",
+      "arm64": "sha256:3ece3319e50aba822cae065a26a0fd351575da47b4b92d5872322fafd0d8a675"
+    },
+    "previousReview": {
+      "cve": "CVE-2026-40962",
+      "assessment": "fix-present-in-pinned-source",
+      "version": "8.0.3",
+      "archiveSha256": "6136812ea6d4e68bdba27e33c2a94382711cdf4f8602ffef056ff792bd6f9818",
+      "sourceSha256": "579c72c8fbabc040bc7c0f673de3f6325da765bd45c3c0fd05ea4c181f052ef1",
+      "fixCommit": "e392fb8c9c3949d975531d2b23c645d2465a7ebc",
+      "backportCommit": "2b14ba12669d75f5f73d8634c6db36e704144532",
+      "patchSha256": "39064098f0e4bc7d663d59e0cb37534bc36174026626f360291e1c8971c899d7",
+      "checkedFunctions": [
+        "cenc_scheme_decrypt",
+        "cbc1_scheme_decrypt",
+        "cens_scheme_decrypt",
+        "cbcs_scheme_decrypt"
+      ],
+      "scope": "Source backport presence; not a blanket FFmpeg safety assessment or a crafted-media exploit test",
+      "buildContextSha256": "5953503c50e6857659ec15a78ce7b81a7b2f81243099f316c43c0f9b012441af",
+      "images": {
+        "amd64": "sha256:9f433edd721b651fc7e359aded4350a308ae154f1b0b2c9e02aad4e2f1685769",
+        "arm64": "sha256:f812765c2ee56c1cc6de095093a2b3c967fb6699cb662cbc11f20acc3562c082"
+      },
+      "previousReview": {
+        "cve": "CVE-2026-40962",
+        "assessment": "fix-present-in-pinned-source",
+        "version": "8.0.3",
+        "archiveSha256": "6136812ea6d4e68bdba27e33c2a94382711cdf4f8602ffef056ff792bd6f9818",
+        "sourceSha256": "579c72c8fbabc040bc7c0f673de3f6325da765bd45c3c0fd05ea4c181f052ef1",
+        "fixCommit": "e392fb8c9c3949d975531d2b23c645d2465a7ebc",
+        "backportCommit": "2b14ba12669d75f5f73d8634c6db36e704144532",
+        "patchSha256": "39064098f0e4bc7d663d59e0cb37534bc36174026626f360291e1c8971c899d7",
+        "checkedFunctions": [
+          "cenc_scheme_decrypt",
+          "cbc1_scheme_decrypt",
+          "cens_scheme_decrypt",
+          "cbcs_scheme_decrypt"
+        ],
+        "scope": "Source backport presence; not a blanket FFmpeg safety assessment or a crafted-media exploit test",
+        "buildContextSha256": "33b47a24e0ecc45f477d2691b4c42f9edbb00325aaed30ea7474ba87fee0a5a5",
+        "images": {
+          "amd64": "sha256:24f641e644df9f16081bcdd7cc5fd0e9c301e429fd1edf42163ea4aa8382ff61",
+          "arm64": "sha256:89513bf8ab3ed8c51c8f53b494b33b46fc9c23379f77859d217733bc82edd8b2"
+        },
+        "previousReview": {
+          "cve": "CVE-2026-40962",
+          "assessment": "fix-present-in-pinned-source",
+          "version": "8.0.3",
+          "archiveSha256": "6136812ea6d4e68bdba27e33c2a94382711cdf4f8602ffef056ff792bd6f9818",
+          "sourceSha256": "579c72c8fbabc040bc7c0f673de3f6325da765bd45c3c0fd05ea4c181f052ef1",
+          "fixCommit": "e392fb8c9c3949d975531d2b23c645d2465a7ebc",
+          "backportCommit": "2b14ba12669d75f5f73d8634c6db36e704144532",
+          "patchSha256": "39064098f0e4bc7d663d59e0cb37534bc36174026626f360291e1c8971c899d7",
+          "checkedFunctions": [
+            "cenc_scheme_decrypt",
+            "cbc1_scheme_decrypt",
+            "cens_scheme_decrypt",
+            "cbcs_scheme_decrypt"
+          ],
+          "scope": "Source backport presence; not a blanket FFmpeg safety assessment or a crafted-media exploit test",
+          "buildContextSha256": "d164fc3d8d673b1960953a962d7287beda68c2f239fe9e28217e00d4086452e9",
+          "images": {
+            "amd64": "sha256:325b497861f255ba28a016d084134ebae2997f1f69fa407a6933f0cf670af2c7",
+            "arm64": "sha256:f9af836c5767b8d01e6a27de85a32bc9a6c25f38bc308c8b2668b382e78d0b8b"
+          },
+          "previousReview": {
+            "cve": "CVE-2026-40962",
+            "assessment": "fix-present-in-pinned-source",
+            "version": "8.0.3",
+            "archiveSha256": "6136812ea6d4e68bdba27e33c2a94382711cdf4f8602ffef056ff792bd6f9818",
+            "sourceSha256": "579c72c8fbabc040bc7c0f673de3f6325da765bd45c3c0fd05ea4c181f052ef1",
+            "fixCommit": "e392fb8c9c3949d975531d2b23c645d2465a7ebc",
+            "backportCommit": "2b14ba12669d75f5f73d8634c6db36e704144532",
+            "patchSha256": "39064098f0e4bc7d663d59e0cb37534bc36174026626f360291e1c8971c899d7",
+            "checkedFunctions": [
+              "cenc_scheme_decrypt",
+              "cbc1_scheme_decrypt",
+              "cens_scheme_decrypt",
+              "cbcs_scheme_decrypt"
+            ],
+            "scope": "Source backport presence; not a blanket FFmpeg safety assessment or a crafted-media exploit test",
+            "buildContextSha256": "1563c932cabccbd569ee77dbb0bc91cc412b682cdfa2624154eed70af1fecb03",
+            "images": {
+              "amd64": "sha256:12af76040f5d7d4216ed560d8a5331bb3149a722bf38ffe4b0b92256b6788480",
+              "arm64": "sha256:8927fa92f2bc9545f671e21d9d02422ff911f6b2454829f787bb88f6747f248c"
+            },
+            "previousReview": {
+              "cve": "CVE-2026-40962",
+              "assessment": "fix-present-in-pinned-source",
+              "version": "8.0.3",
+              "archiveSha256": "6136812ea6d4e68bdba27e33c2a94382711cdf4f8602ffef056ff792bd6f9818",
+              "sourceSha256": "579c72c8fbabc040bc7c0f673de3f6325da765bd45c3c0fd05ea4c181f052ef1",
+              "fixCommit": "e392fb8c9c3949d975531d2b23c645d2465a7ebc",
+              "backportCommit": "2b14ba12669d75f5f73d8634c6db36e704144532",
+              "patchSha256": "39064098f0e4bc7d663d59e0cb37534bc36174026626f360291e1c8971c899d7",
+              "checkedFunctions": [
+                "cenc_scheme_decrypt",
+                "cbc1_scheme_decrypt",
+                "cens_scheme_decrypt",
+                "cbcs_scheme_decrypt"
+              ],
+              "scope": "Source backport presence; not a blanket FFmpeg safety assessment or a crafted-media exploit test",
+              "buildContextSha256": "69cc218847b3f6bd42f05a302ada780b7cb9f8872019aa68be96dfe1210f94c3",
+              "images": {
+                "amd64": "sha256:132a5b05df5be3382ea72bb97d4610373c805cdf0fb29b431961ccf16364f102",
+                "arm64": "sha256:b9f97a6bab5a3d60c5fd2fbeed13866ac466e9fc961f39705a1a5c61e1f56cf4"
+              },
+              "previousBuildReview": {
+                "buildContextSha256": "a7a304f17353457f50d276cfa73a27274d3c460fcb010c4445de2ab5788dfc73",
+                "images": {
+                  "amd64": "sha256:ed059114d3b377794e514620a11e4c00698927eda8bfe8c96181f52c68c4e834",
+                  "arm64": "sha256:821bce910795bddc39f71f48f5b457b53c765d3063218f086ea6a1f516c58605"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

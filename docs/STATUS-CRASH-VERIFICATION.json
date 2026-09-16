@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "observedOn": "2026-09-16",
+  "test": {
+    "path": "tests/entry.status-crash.ts",
+    "sha256": "39e7db8cbb43f0ec33d28b64b82e6d465ba7298c94946123b7e7f821a095111b"
+  },
+  "runner": {
+    "path": ".local/test-status-crash-linux.py",
+    "sha256": "be4379662c26a26c268efce59ffff9eefad9ded50522a40cd8c92382811a57dc"
+  },
+  "results": [
+    {
+      "platform": "host",
+      "testGroupsPassed": 5,
+      "terminationCasesPassed": 25,
+      "log": {
+        "path": ".local/status-crash-host.log",
+        "sha256": "a9021a400a3dd4bf7e3e93b214e1db8309a7a2b3596e2ee40e9b8e563677ff95"
+      }
+    },
+    {
+      "platform": "arm64",
+      "testGroupsPassed": 5,
+      "terminationCasesPassed": 25,
+      "log": {
+        "path": ".local/status-crash-arm64.log",
+        "sha256": "0786e576a659b115c79243daa700b1a94a6010e469bf5f163958e8bfa735b375"
+      },
+      "imageId": "sha256:14e248f2b34ac1472e6c8daf9ae036145c645bd5fdec6c95b4a7d32a9e614b01"
+    },
+    {
+      "platform": "amd64",
+      "testGroupsPassed": 5,
+      "terminationCasesPassed": 25,
+      "log": {
+        "path": ".local/status-crash-amd64.log",
+        "sha256": "ac5b72b96568fff1df401b0ea1a25046c8cafef3f4b0f78d4b42e6192cfec870"
+      },
+      "imageId": "sha256:2989e8c10a88049c8fdf614ccb65fca278158571b983f5849e60fa0dbda6269e"
+    }
+  ],
+  "rootTypecheck": "passed",
+  "classes": [
+    "text",
+    "file",
+    "image",
+    "audio",
+    "video"
+  ],
+  "nativeCrypto": "matrix-sdk-crypto-nodejs OlmMachine; real persistent encrypted store and Megolm encryption/decryption",
+  "terminationPoints": [
+    "before status",
+    "durable ciphertext before PUT",
+    "simulated acceptance before response",
+    "encrypted result before status bookkeeping",
+    "status bookkeeping complete"
+  ],
+  "assertions": [
+    "Committed outbox SENT state survives restart and event replay",
+    "Text worker and media dispatcher cannot reprepare/resend committed work",
+    "Only one native encryption per status",
+    "Lost-response retry uses identical encrypted bytes and transaction ID",
+    "Accepted status decrypts after crypto-store reopening",
+    "Status timestamp and original-event mapping retained across repeated application"
+  ],
+  "linuxConstraints": {
+    "network": "none",
+    "root": "read-only",
+    "capabilities": "all dropped",
+    "scratch": "private noexec tmpfs",
+    "mounts": "new test fixture only; no account data or production-source mounts"
+  },
+  "limitations": [
+    "Outbound Threema results are seeded; native send/upload interruption not tested.",
+    "Matrix transport/acceptance is synthetic; no live homeserver or cross-device room-key distribution.",
+    "Audio and video use file-fallback outbox projection records. Codec pipeline is not exercised.",
+    "Journal acknowledgement and pending UI behavior remain separate from durable encrypted sent-status recovery.",
+    "New fixture is staged for future builds and is not included in exported migration images.",
+    "AMD64 emulated; no target-host acceptance."
+  ]
+}

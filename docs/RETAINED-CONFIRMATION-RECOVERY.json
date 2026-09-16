@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "observedOn": "2026-09-16",
+  "baseCommit": "7685625f823df5404017cb874fe2566798053b54",
+  "files": {
+    "scripts/entry.stage-linux-native.ts": "8f6d711bcf360d8a56a5e84b784e8ffbfbcb2d766a33fd271f6127081a8cd056",
+    "src/service/profile-runtime.ts": "0a804f41eac5446cdbb2822eb87714bae6260104d9b55ba965e11684bbdbed30",
+    "src/threema/profile-sync.ts": "54b7bac2eeb778f79ae8833de22d3904e2ffccacdd6ddeef3edeff7733caf0d7",
+    "tests/entry.profile-runtime.ts": "50f76e2c60f5a46cec38d04e0e84309673419baf249babe08e71c1af45e51907",
+    "tests/entry.profile-sync.ts": "febcaf2a3e03e8b2302fab5e240ed2dda7048bc43d3f80a2cf5b988c53d870b6",
+    "src/outbox/reconcile-retained.ts": "a17404f34bea952f4b1e455f7a49a7056323070cf2280bb71ba335683cafd1ca",
+    "tests/entry.retained-confirmation.ts": "35651fde5ac8c7a932a7494f071e8df0531be9dbf38162b8097e5a3579fc6fcd"
+  },
+  "beforeFixLogSha256": "e9ec5c9144081039eb54a1f32af23187a23a5cb35a87a5ab5f7c4a657bfa48de",
+  "verification": [
+    {
+      "runtime": "macos",
+      "passed": 18,
+      "log": {
+        "path": ".local/retained-confirmation-suite.log",
+        "sha256": "25097ef4d5d3ea2fcde300889d69ce48e51a62089f0c81cd22bba76252065b8e"
+      }
+    },
+    {
+      "runtime": "arm64",
+      "passed": 18,
+      "log": {
+        "path": ".local/retained-confirmation-arm64.log",
+        "sha256": "848bc353f2014ce09c841a5a3b3dbe3af0226c34e7077ad520416f06e2f6f337"
+      },
+      "baseImageId": "sha256:6fe592b2fc19caf5f107220c4e15ed3c85358d827ace3ee63d69022d453e1cd3"
+    },
+    {
+      "runtime": "amd64",
+      "passed": 18,
+      "log": {
+        "path": ".local/retained-confirmation-amd64.log",
+        "sha256": "55baee4acfc38b79c67fc8351ebd9f57c0b43a92ac5aeb146f662ccf77cd0e39"
+      },
+      "baseImageId": "sha256:224215496a7d04e4702f89679d670b22f05d9cc61028828c18c59e672e43b7f0"
+    }
+  ],
+  "limitations": [
+    "Changed source/tests mounted into transport-generation Linux images; no rebuilt package claimed.",
+    "Network disabled and no account data for Linux tests; AMD64 emulated.",
+    "Native task/upload resumption and legacy incorrectly acknowledged rows remain open.",
+    "Not applied to the live service."
+  ],
+  "typecheckFollowup": {
+    "change": "Explicit ProfileSynchronizer type in self-referencing test initializer; runtime logic unchanged",
+    "file": "tests/entry.profile-sync.ts",
+    "sha256": "1ece5ddf66d82d0c957c245a5b607045d825e4cca3f77daefe31f9dc115a5e27",
+    "typecheckPassed": true
+  }
+}

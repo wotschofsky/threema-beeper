@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "directory": ".local/releases-current-20260916",
+  "sourceCommit": "e5aa8b330555776ebf6a33270d87df82518997f1",
+  "images": [
+    {
+      "architecture": "arm64",
+      "imageId": "sha256:f869a4742f8a8823747a2cfb5538c84c5df1c7e66d7f7c452395d786533e4bc9",
+      "archive": "threema-beeper-arm64.tar.gz",
+      "archiveSha256": "a5cac3c553e1dd840e83e5ef784efe19ba6b19046e6f5b8981f6754d661486e9",
+      "configurationAndLayersVerified": true
+    },
+    {
+      "architecture": "amd64",
+      "imageId": "sha256:a2ebf19392352b55a7d741edb06e53ae51ddbbe732825e14431ac7a9fb14bac8",
+      "archive": "threema-beeper-amd64.tar.gz",
+      "archiveSha256": "3dc21540b77f844845206422baaa1bc652eab8e3bc0ea4e7c8731d637a0f452a",
+      "configurationAndLayersVerified": true
+    }
+  ],
+  "checksummedFiles": [
+    "application-source.tar.gz",
+    "deployment.tar.gz",
+    "threema-beeper-amd64.tar.gz",
+    "threema-beeper-arm64.tar.gz",
+    "release.json"
+  ],
+  "deploymentMatchesTestedContext": true,
+  "rootPlanningFilesExcluded": true,
+  "releaseReady": false,
+  "limitations": [
+    "Not target-host acceptance; AMD64 tests ran under emulation.",
+    "Dependency findings from prior generations remain under review; no fresh vulnerability scan is claimed.",
+    "application-source.tar.gz contains tracked project source, not complete vendored corresponding source.",
+    "No account data is included; prepare a fresh stopped-profile migration separately.",
+    "Archive readback does not establish a clean-daemon load or target-host installation."
+  ]
+}
