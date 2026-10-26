@@ -36,9 +36,6 @@ for component, folder in [('FFMPEG', 'ffmpeg'), ('JPEG', 'jpeg'), ('WEBP', 'webp
     pin = json.loads(source(f'docs/{component}-PINS.json'))
     plans.append({'component': component.lower(), 'path': context / '.artifacts' / folder / pin['archive'],
                   'archive': pin['archive'], 'sha256': pin['sha256'], 'url': pin['url'], 'version': pin['version']})
-node = json.loads(source('docs/NODE-CLEANUP-BUILD.json'))
-plans.append({'component': 'node', 'path': context / node['archive'], 'archive': node['archive'],
-              'sha256': node['archiveSha256'], 'url': node['archiveUrl'], 'version': node['version']})
 for plan in plans:
     if not plan['path'].is_file() or plan['path'].is_symlink() or digest(plan['path']) != plan['sha256']:
         raise ValueError('Source input changed: ' + plan['component'])

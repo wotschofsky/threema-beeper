@@ -40,7 +40,6 @@ if (mode === 'native') {
         verbatimSymlinks: true,
         filter: (filename) => {
             const path = relative(root, filename);
-            if (path === 'node-v24.21.0.tar.xz' || path === 'cleanup-hooks.patch') return false;
             if (path === '.artifacts' || path.startsWith('.artifacts/')) return false;
             if (isBuildOnly(path) || isBuildOnly(relative(root, realpathSync(filename)))) return false;
             if (path.endsWith('.node') || path.endsWith('.node.version')) {

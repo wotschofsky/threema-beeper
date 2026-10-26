@@ -1,5 +1,15 @@
 # Node 24 LTS on Debian 13
 
+Update 2026-10-26: the image now uses the official `node:24.22.1-trixie-slim`
+(index `sha256:43b9ba1142b8dcf33fa8f922ca1be85714adc444e0586c7cf7726daaeabc1bea`)
+without a source build. Node 24.22.0 ships both upstream cleanup-hook fixes this
+recipe backported ([#63985](https://github.com/nodejs/node/pull/63985),
+[#65630](https://github.com/nodejs/node/pull/65630)), and 24.22.1 is the
+[October 2026 security release](https://nodejs.org/en/blog/vulnerability/october-2026-security-releases)
+(Brotli decoder RCE, CVE-2026-111497). The container workflow's runtime and
+codec tests are the acceptance check. `NODE-CLEANUP-BUILD.json`,
+`NODE-RUNTIME-PINS.json` and `native/node24/` record the earlier 24.21.0 source build.
+
 Status: the current recipe builds Node 24.21.0 from the verified source archive
 with the recorded upstream cleanup-hook backport. Experimental ARM64 runtime
 checks and 55 current-package tests plus 13 codec tests pass. The AMD64 runtime

@@ -65,7 +65,7 @@ const pin = pins.assets.find(asset => asset.name === 'bbctl-linux-' + (process.a
 assert.equal(bbctlSha256, pin.sha256);
 assert.equal(process.getuid(), 1000);
 const packages = execFileSync('dpkg-query', ['-W', '-f=' + '$' + '{Package}\t' + '$' + '{Version}\n'], {encoding: 'utf8'});
-assert.equal(process.version, 'v24.21.0');
+assert.equal(process.version, 'v24.22.1');
 const frameworkRequire = require('node:module').createRequire(join(process.cwd(),
     '.local/sources/matrix-appservice-bridge/package.json'));
 assert.equal(frameworkRequire('js-yaml/package.json').version, '4.3.2');
@@ -75,7 +75,6 @@ assert.equal(cidrRequire('ip-address/package.json').version, '10.3.1');
 const cidrModule = frameworkRequire('ip-cidr');
 const Cidr = cidrModule.__esModule ? cidrModule.default : cidrModule;
 assert(new Cidr('192.0.2.0/24').contains('192.0.2.1'));
-assert(!existsSync('/probe/node-v24.21.0.tar.xz'), 'Build-only Node source remains');
 assert.match(readFileSync('/etc/os-release', 'utf8'), /^VERSION_ID="13"$/m);
 for (const [name, minimum] of Object.entries({
     libc6: '2.41-12+deb13u4',
