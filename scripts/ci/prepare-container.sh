@@ -32,18 +32,6 @@ node --test tests/entry.ffmpeg-cenc-audit.ts
 node scripts/entry.prepare-video-inspector.ts
 node scripts/entry.build-status-proxy.ts
 
-mkdir -p .local/node-cleanup-review
-node --input-type=module <<'NODE'
-import {readFileSync, writeFileSync} from 'node:fs';
-import {execFileSync} from 'node:child_process';
-import {createHash} from 'node:crypto';
-import assert from 'node:assert/strict';
-const pin = JSON.parse(readFileSync('docs/NODE-CLEANUP-BUILD.json'));
-const bytes = execFileSync('curl', ['--fail', '--location', '--retry', '3', pin.archiveUrl], {maxBuffer: 256 * 1024 * 1024});
-assert.equal(createHash('sha256').update(bytes).digest('hex'), pin.archiveSha256);
-writeFileSync('.local/node-cleanup-review/' + pin.archive, bytes);
-NODE
-
 node scripts/entry.stage-wasm.ts
 docker buildx build --platform "linux/$arch" --target artifact \
   --cache-from "type=gha,scope=wasm-$arch" --cache-to "type=gha,mode=max,scope=wasm-$arch" \

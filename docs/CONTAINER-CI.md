@@ -26,7 +26,7 @@ the workflow does not deploy the bridge or link any accounts.
 `scripts/ci/prepare-container.sh` starts from a clean checkout, installs locked
 dependencies, applies fingerprint-checked overlays, builds WASM and native Matrix
 crypto from pinned sources, builds/tests the connection-status proxy, and verifies
-codec and Node archive checksums. It stages an explicit runtime dependency closure
+codec archive checksums. It stages an explicit runtime dependency closure
 in `.local/linux-ci-context`; personal configurations and profiles are never build inputs.
 The production target is `service` in `deploy/docker/Dockerfile.native`.
 
@@ -48,7 +48,7 @@ components listed in [the FFmpeg security notes](VULNERABILITY-SCANNING.md#ffmpe
 scans remain independent of these checks; no broad FFmpeg exemption is applied.
 
 Each architecture has separate GitHub Actions build caches. Cold builds compile
-Node, Rust and media libraries and can take substantially longer than cached builds;
+Rust and media libraries and can take substantially longer than cached builds;
 the job limit is 330 minutes. The workflow frees unused runner SDKs to make room.
 
 ## Verification status

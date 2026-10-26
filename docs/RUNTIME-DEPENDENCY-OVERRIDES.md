@@ -26,8 +26,8 @@ Both rebuilt candidates now pass native inspection, including actual Matrix
 resolution, all 53 selected package tests and all 13 codec checks. Their inventories
 contain only js-yaml 4.3.2, and scans against the refreshed database no longer
 report `GHSA-2883-xcg3-v3hh`. Each scan has 175 remaining matches, including one
-critical and 68 high; no suppressions were added. Current image/context identities
-and test/log hashes are in `NODE-CLEANUP-BUILD.json`, inventories/scans in
+critical and 68 high; no suppressions were added. Image/context identities
+and test/log hashes of those 24.21.0 source-build candidates are in `NODE-CLEANUP-BUILD.json`, inventories/scans in
 `NODE-CLEANUP-IMAGE-REVIEW.json`. Live development and exported release images
 remain unchanged. This closes that finding for the candidate artifacts only.
 

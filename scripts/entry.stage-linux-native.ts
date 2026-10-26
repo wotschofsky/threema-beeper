@@ -18,13 +18,6 @@ import {fileURLToPath} from 'node:url';
 
 // Stage exact installed sources and their dependency closure, never host native binaries.
 const root = fileURLToPath(new URL('../', import.meta.url));
-const nodePin = JSON.parse(readFileSync(join(root, 'docs/NODE-CLEANUP-BUILD.json'), 'utf8'));
-assert.equal(nodePin.archive, 'node-v24.21.0.tar.xz');
-const nodeArchive = readFileSync(join(root, '.local/node-cleanup-review', nodePin.archive));
-assert.equal(createHash('sha256').update(nodeArchive).digest('hex'), nodePin.archiveSha256);
-const nodePatch = readFileSync(join(root, 'native/node24/cleanup-hooks.patch'));
-assert.equal(createHash('sha256').update(nodePatch).digest('hex'),
-    nodePin.patches['native/node24/cleanup-hooks.patch']);
 const videoInspector = JSON.parse(
     readFileSync(join(root, '.local/video-inspector/manifest.json'), 'utf8'),
 );
@@ -522,9 +515,6 @@ mkdirSync(join(destination, '.artifacts/webp'), {recursive: true});
 writeFileSync(join(destination, '.artifacts/webp', webpPin.archive), webpArchive);
 writeFileSync(join(destination, '.artifacts/ffmpeg', codecPin.archive), codecArchive);
 // Root names match the isolated runtime experiment so verified build layers can be reused.
-writeFileSync(join(destination, nodePin.archive), nodeArchive);
-writeFileSync(join(destination, 'cleanup-hooks.patch'), nodePatch);
-cpSync(join(root, 'docs/NODE-CLEANUP-BUILD.json'), join(destination, 'docs/NODE-CLEANUP-BUILD.json'));
 writeFileSync(join(destination, '.dockerignore'), '**/.DS_Store\n');
 console.log(`Context SHA-256: ${writeContextIntegrity(destination)}`);
 console.log(`Staged ${packages.length} installed packages in ${destination}`);
