@@ -9,6 +9,11 @@ recipe backported ([#63985](https://github.com/nodejs/node/pull/63985),
 (Brotli decoder RCE, CVE-2026-111497). The container workflow's runtime and
 codec tests are the acceptance check. `NODE-CLEANUP-BUILD.json`,
 `NODE-RUNTIME-PINS.json` and `native/node24/` record the earlier 24.21.0 source build.
+Its C++ cleanup test and worker-addon cases ran only inside that build and no longer
+run here; `entry.media-replies.ts` and `entry.recovery-controls.ts`, which aborted on
+unpatched 24.21.0, are in the CI package tests. The Status line and the
+Implementation and Source-built candidate integration sections below describe the
+superseded 24.21.0 build.
 
 Status: the current recipe builds Node 24.21.0 from the verified source archive
 with the recorded upstream cleanup-hook backport. Experimental ARM64 runtime

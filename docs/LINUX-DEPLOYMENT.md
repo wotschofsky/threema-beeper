@@ -63,11 +63,10 @@ matching scanner bundle as described in `VULNERABILITY-SCANNING.md`.
 
 From the prepared source checkout with Node 24, Go and Docker:
 
-The current recipe also requires the checksum-verified Node source archive in
-`.local/node-cleanup-review`, matching `docs/NODE-CLEANUP-BUILD.json`. It compiles
-the recorded cleanup-hook backport and runs its native regressions. A first build
-can take hours, especially with AMD64 emulation on a Mac; subsequent builds reuse
-the matching runtime layers. Full candidate acceptance is still pending.
+The recipe uses the official `node:24.22.1-trixie-slim` image, pinned by digest in
+`deploy/docker/Dockerfile.native`; no Node source archive is needed. A first build
+compiles Rust and media libraries and can take hours with AMD64 emulation on a Mac;
+subsequent builds reuse cached layers. Full candidate acceptance is still pending.
 
 ```sh
 pnpm run prepare:status-proxy

@@ -81,9 +81,6 @@ for entry in filter(None, tracked):
     destination.write_bytes(data)
     destination.chmod(0o755 if mode == '100755' else 0o644)
     recipes.append({'path': path, 'sha256': hashlib.sha256(data).hexdigest()})
-for path, expected in node['patches'].items():
-    if digest(output / 'build' / path) != expected:
-        raise ValueError('Node patch differs from recorded source build')
 manifest = {'schemaVersion': 1, 'sourceCommit': commit, 'verificationSha256': digest(verification_path),
             'images': [{'architecture': image['architecture'], 'imageId': image['observation']['imageId'], 'inputSha256': image['observation']['inputSha256']} for image in verification['images']],
             'archives': archives, 'buildFiles': recipes, 'completeCorrespondingSource': False,
