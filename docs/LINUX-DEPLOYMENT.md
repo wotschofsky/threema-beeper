@@ -65,7 +65,7 @@ From the prepared source checkout with Node 24, Go and Docker:
 
 The recipe uses the official `node:24.22.1-trixie-slim` image, pinned by digest in
 `deploy/docker/Dockerfile.native`; no Node source archive is needed. A first build
-compiles Rust and media libraries and can take hours with AMD64 emulation on a Mac;
+compiles the media libraries and native addons and can take hours with AMD64 emulation on a Mac;
 subsequent builds reuse cached layers. Full candidate acceptance is still pending.
 
 ```sh
