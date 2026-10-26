@@ -17,7 +17,7 @@ Source: `https://github.com/beeper/bridge-manager`, commit
 The patch retains reconnect and keepalive behavior. If local transaction delivery fails, it closes the socket before responding so Beeper can replay the unacknowledged transaction. The real WebSocket regression test covers this ordering.
 It does not change the separately pinned release binaries or their checksums.
 
-To reproduce from the project root, with Go 1.27.1 available:
+To reproduce from the project root, with Go 1.27.3 available:
 
 ```sh
 pnpm run prepare:status-proxy
@@ -32,10 +32,10 @@ release artifacts do not change until rebuilt and verified separately.
 
 ## Pinned dependency update
 
-`dependencies.patch` updates golang.org/x/crypto to v0.56.0, x/text to v0.41.0 and
-the module's Go minimum to 1.26.0. `dependencies.json` records the compiler version,
+`dependencies.patch` updates golang.org/x/crypto to v0.57.0, x/net to v0.60.0, x/sys to
+v0.48.0, x/term to v0.46.0, x/text to v0.42.0 and the module's Go minimum to 1.26.0. `dependencies.json` records the compiler version,
 module versions, patch hash and original/patched go.mod/go.sum hashes. Builds use
-Go 1.27.1, disable workspace overrides and use readonly module resolution.
+Go 1.27.3, disable workspace overrides and use readonly module resolution.
 The selected crypto version includes the fixes identified in the official
 [GO-2026-6303](https://pkg.go.dev/vuln/GO-2026-6303),
 [GO-2026-6354](https://pkg.go.dev/vuln/GO-2026-6354) and
@@ -44,7 +44,7 @@ The selected crypto version includes the fixes identified in the official
 The build requires pass events for all four named status/spool regression tests
 from uncached Go JSON output. The manifest records that report hash and the exact
 dependency pins. Both Linux binaries built successfully, all four tests passed,
-and `go version -m` confirms the pinned crypto/text versions in each executable.
+and `go version -m` confirms the pinned x/ module versions in each executable.
 Both current Linux candidate images now include these binaries. Each passes 55
 package checks and 13 codec checks; fresh inventories confirm the pinned modules
 and scans no longer report the three advisories. See
