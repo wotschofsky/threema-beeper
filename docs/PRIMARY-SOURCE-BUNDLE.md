@@ -28,7 +28,7 @@ repositories; it does not close source coverage for the rest of the runtime.
 The Threema WASM workspace's remote Cargo packages are collected separately as documented in
 `LIBTHREEMA-DEPENDENCY-SOURCES.md`; its local workspace crates and patches remain in the primary
 Threema Desktop source archive.
-`NATIVE-SOURCE-SUPPLEMENT.md` covers the eight pinned codec source archives, with
+`NATIVE-SOURCE-SUPPLEMENT.md` covers the nine pinned Node and codec source archives, with
 verbatim notices, native build recipes and patches from the tested candidate's source revision.
 `DATABASE-SOURCE-SUPPLEMENT.md` preserves the packaged SQLCipher/BearSSL and Argon2 native
 inputs and records the outstanding SQLCipher preferred-source/regeneration limitation.

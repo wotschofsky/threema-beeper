@@ -36,6 +36,9 @@ for component, folder in [('FFMPEG', 'ffmpeg'), ('JPEG', 'jpeg'), ('WEBP', 'webp
     pin = json.loads(source(f'docs/{component}-PINS.json'))
     plans.append({'component': component.lower(), 'path': context / '.artifacts' / folder / pin['archive'],
                   'archive': pin['archive'], 'sha256': pin['sha256'], 'url': pin['url'], 'version': pin['version']})
+node = json.loads(source('docs/NODE-CLEANUP-BUILD.json'))
+plans.append({'component': 'node', 'path': context / node['archive'], 'archive': node['archive'],
+              'sha256': node['archiveSha256'], 'url': node['archiveUrl'], 'version': node['version']})
 for plan in plans:
     if not plan['path'].is_file() or plan['path'].is_symlink() or digest(plan['path']) != plan['sha256']:
         raise ValueError('Source input changed: ' + plan['component'])
@@ -81,6 +84,9 @@ for entry in filter(None, tracked):
     destination.write_bytes(data)
     destination.chmod(0o755 if mode == '100755' else 0o644)
     recipes.append({'path': path, 'sha256': hashlib.sha256(data).hexdigest()})
+for path, expected in node['patches'].items():
+    if digest(output / 'build' / path) != expected:
+        raise ValueError('Node patch differs from recorded source build')
 manifest = {'schemaVersion': 1, 'sourceCommit': commit, 'verificationSha256': digest(verification_path),
             'images': [{'architecture': image['architecture'], 'imageId': image['observation']['imageId'], 'inputSha256': image['observation']['inputSha256']} for image in verification['images']],
             'archives': archives, 'buildFiles': recipes, 'completeCorrespondingSource': False,
